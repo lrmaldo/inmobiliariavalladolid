@@ -50,7 +50,11 @@ class ContactForm extends Model
      */
     public function sendEmail($email)
     {
-        return Yii::$app->mailer->compose()
+        $content = "<p>Email: ". $this->email . "</p>";
+        $content .= "<p>Name: ". $this->name . "</p>";
+        $content .= "<p>Subject: ". $this->subject . "</p>";
+        $content .= "<p>Body: ".$this->body ."</p>";
+        return Yii::$app->mailer->compose('layouts/html.php', ['content' => $content])
             ->setTo($email)
             ->setFrom([$this->email => $this->name])
             ->setSubject($this->subject)
