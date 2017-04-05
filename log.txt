@@ -1,0 +1,42 @@
+commit 2ee53f18496e40e8e9a323567f2f7dbd6bda4d0b
+Author: Leo <lrmaldo@gmail.com>
+Date:   Tue Apr 4 20:30:15 2017 -0500
+
+    bosquejo
+
+commit 85499a9c1f74e772f5b0deb2e92bd683dd79f11e
+Author: Leo <lrmaldo@gmail.com>
+Date:   Tue Apr 4 15:29:41 2017 -0500
+
+    bosquejo del index
+
+commit 1e466da33702a08968f88f61c2b77cb55a615679
+Merge: 6edb659 b16c0da
+Author: Leo <lrmaldo@gmail.com>
+Date:   Tue Mar 28 19:03:43 2017 -0600
+
+    Merge branch 'master' of https://github.com/lrmaldo/inmobiliariavalladolid
+
+commit 6edb659e423ef59a3fdb4500208bd94d91a76084
+Author: Leo <lrmaldo@gmail.com>
+Date:   Tue Mar 28 18:54:39 2017 -0600
+
+    agregación de email modulo contacto funciona smtp
+
+commit b16c0dac5cff926a2031da74a7038e5e592b4d12
+Author: Leonardo Rodrigo Maldonado López <lrmaldo@gmail.com>
+Date:   Mon Mar 27 19:26:45 2017 -0600
+
+    Update README.md
+
+commit ca7ae4e44688b6c90df2a7aaddb9ee66757a7ad4
+Author: Leo <lrmaldo@gmail.com>
+Date:   Mon Mar 27 19:00:41 2017 -0600
+
+    iniciando yii con modulo de login
+
+commit 8da03989aee790d20d85eb2433c2fefa9ed47016
+Author: Leonardo Rodrigo Maldonado López <lrmaldo@gmail.com>
+Date:   Mon Mar 27 13:33:52 2017 -0600
+
+    Initial commit
