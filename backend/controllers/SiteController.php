@@ -7,6 +7,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 
+
 /**
  * Site controller
  */
@@ -15,6 +16,12 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
+    
+    public function  reset(){
+        
+        return  $this->render("resetPassword");
+        
+    }
     public function behaviors()
     {
         return [
@@ -22,7 +29,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login'],
                         'allow' => true,
                     ],
                     [
@@ -30,6 +37,11 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                    [
+                    'actions' => ['request-password-reset'],
+                    'allow' => true,
+                    'roles' => ['?'],
+                ],
                 ],
             ],
             'verbs' => [
@@ -83,6 +95,9 @@ class SiteController extends Controller
             ]);
         }
     }
+    
+   
+    
 
     /**
      * Logout action.
@@ -95,4 +110,7 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+    
+   
+   
 }
