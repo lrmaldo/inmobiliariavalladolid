@@ -37,6 +37,13 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'urlManagerBackend' => [
+                'class' => 'yii\web\urlManager',
+                'baseUrl' => 'http://localhost/inmobiliaria/backend/web/',
+                'enablePrettyUrl' => true,
+                'showScriptName' => false,
+        ],
+      
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

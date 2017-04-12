@@ -44,6 +44,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        
+         'urlManagerFrontend' => [
+                'class' => 'yii\web\urlManager',
+                'baseUrl' => 'frontend/web/',
+                'enablePrettyUrl' => true,
+                'showScriptName' => false,
+        ],
+        
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

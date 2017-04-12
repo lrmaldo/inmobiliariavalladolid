@@ -12,7 +12,8 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-
+use backend\models\Publicacion;
+use yii\data\Pagination;
 /**
  * Site controller
  */
@@ -73,7 +74,19 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+       $query = Publicacion::find();
+        $pagination = new Pagination([
+            'defaultPageSize'=>5,
+            'totalCount'=>$query->count(),
+        ]);
+        $publicaciones = $query->orderBy('idpublicacion DESC')
+                ->offset($pagination->offset)
+                ->limit($pagination->limit)
+                ->all();
+        return $this->render('index',[
+           'publi'=>$publicaciones,
+            'pagination'=>$pagination,
+        ]);
     }
 
     /**
@@ -81,6 +94,22 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+    
+    public function actionHome(){
+        $query = Publicacion::find();
+        $pagination = new Pagination([
+            'defaultPageSize'=>5,
+            'totalCount'=>$query->count(),
+        ]);
+        $publicaciones = $query->orderBy('idpublicacion DESC')
+                ->offset($pagination->offset)
+                ->limit($pagination->limit)
+                ->all();
+        return $this->render('index',[
+           'publi'=>$publicaciones,
+            'pagination'=>$pagination,
+        ]);
+    }
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
