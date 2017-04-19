@@ -1,3 +1,4 @@
+
 <aside class="main-sidebar">
 
     <section class="sidebar">
@@ -6,6 +7,12 @@
         <div class="user-panel">
             <div class="pull-left image">
                 <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+                <?=
+        $src = $directoryAsset."/img/user2-160x160.jpg";
+         $image = yii\helpers\Html::img($src);
+ 
+ echo yii\helpers\Html::input($src); ?>
+              ?>
             </div>
             <div class="pull-left info">
                 <p><?=   Yii::$app->user->identity->username  ?></p>

@@ -14,6 +14,8 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use backend\models\Publicacion;
 use yii\data\Pagination;
+use frontend\models\FormSearch;
+use yii\helpers\Html;
 /**
  * Site controller
  */
@@ -74,19 +76,53 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-       $query = Publicacion::find();
-        $pagination = new Pagination([
-            'defaultPageSize'=>5,
-            'totalCount'=>$query->count(),
-        ]);
-        $publicaciones = $query->orderBy('idpublicacion DESC')
-                ->offset($pagination->offset)
-                ->limit($pagination->limit)
-                ->all();
-        return $this->render('index',[
-           'publi'=>$publicaciones,
-            'pagination'=>$pagination,
-        ]);
+       
+        $form = new FormSearch;
+        $search = null;
+        if($form->load(Yii::$app->request->get()))
+        {
+            if ($form->validate())
+            {
+                $search = Html::encode($form->q);
+                $table = Publicacion::find()
+                        ->where(["like", "idpublicacion", $search])
+                        ->orWhere(["like", "titulo", $search])
+                        ->orWhere(["like", "Descripcion", $search])
+                        ->orWhere(["like","precio",$search])
+                        ->orWhere(["like","Zona",$search]);
+                $count = clone $table;
+                $pages = new Pagination([
+                    "pageSize" => 5,
+                    "totalCount" => $count->count()
+                ]);
+                $model = $table
+                        ->offset($pages->offset)
+                        ->limit($pages->limit)
+                        ->all();
+            }
+            else
+            {
+                $form->getErrors();
+            }
+        }
+        else
+        {
+            $table = Publicacion::find();
+            $count = clone $table;
+            $pages = new Pagination([
+                "pageSize" => 5,
+                "totalCount" => $count->count(),
+            ]);
+            $model = $table
+                    ->offset($pages->offset)
+                    ->limit($pages->limit)
+                    ->all();
+        }
+        return $this->render("index", ["publi" => $model, "form" => $form, "search" => $search, "pages" => $pages]);
+     
+       
+      
+        
     }
 
     /**
@@ -96,19 +132,8 @@ class SiteController extends Controller
      */
     
     public function actionHome(){
-        $query = Publicacion::find();
-        $pagination = new Pagination([
-            'defaultPageSize'=>5,
-            'totalCount'=>$query->count(),
-        ]);
-        $publicaciones = $query->orderBy('idpublicacion DESC')
-                ->offset($pagination->offset)
-                ->limit($pagination->limit)
-                ->all();
-        return $this->render('index',[
-           'publi'=>$publicaciones,
-            'pagination'=>$pagination,
-        ]);
+      
+        return $this->render('index',[ ]);
     }
     public function actionLogin()
     {

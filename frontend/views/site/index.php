@@ -18,17 +18,18 @@ $this->title = 'Inmobiliaria Valladolid';
     <?php
       $f = ActiveForm::begin([
           "method"=>"get",
-          "action" =>Url::toRoute("site/view"),
+          "action" =>Url::toRoute("site/index"),
           "enableClientValidation" => true,
       ]);
     ?>
         <div class="form-group">
-<!--             <p= $f ->field($form,"q")->input("search") ?>
+     <?= $f ->field($form,"q")->input("search") ?>
             
-            -->
-        </div>
+                    </div>
       <?= Html::submitButton("Buscar",["class"=> "btn btn-primary"]) ?>
+      
    <?php $f->end() ?>
+        
         
     </div>
 
@@ -108,7 +109,7 @@ $this->title = 'Inmobiliaria Valladolid';
                         </div>
                     </div>
                     <?php endforeach; ?>
-                    <?= yii\widgets\LinkPager::widget(['pagination'=>$pagination]) ?>
+                    <?= yii\widgets\LinkPager::widget(['pagination'=>$pages]) ?>
 <!--                    
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
