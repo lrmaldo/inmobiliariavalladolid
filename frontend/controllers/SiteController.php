@@ -99,6 +99,7 @@ class SiteController extends Controller
                         ->offset($pages->offset)
                         ->limit($pages->limit)
                         ->all();
+                
             }
             else
             {

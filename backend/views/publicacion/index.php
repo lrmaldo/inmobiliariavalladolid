@@ -7,8 +7,8 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\PublicacionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Publicacions';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Publicaciones';
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="publicacion-index">
 
@@ -28,7 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'titulo',
           //  'url_imagen:url',
             'Descripcion:ntext',
-            'precio',
+             [
+            
+              'attribute' => 'precio',
+              'format' => ['decimal',2],
+             'label' => 'Precio',
+             'contentOptions' => ['class' => 'col-lg-1'],
+         ],
             'fecha_de_publicacion',
              'Zona',
              'Operacion',

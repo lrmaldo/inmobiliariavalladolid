@@ -6,13 +6,9 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
-                <?=
-        $src = $directoryAsset."/img/user2-160x160.jpg";
-         $image = yii\helpers\Html::img($src);
- 
- echo yii\helpers\Html::input($src); ?>
-              ?>
+             
+                <img src="<?=htmlentities($mod) ?>" class="img-circle" alt="User Image"/>
+                
             </div>
             <div class="pull-left info">
                 <p><?=   Yii::$app->user->identity->username  ?></p>
@@ -39,7 +35,8 @@
                 'items' => [
                     ['label' => 'Menu', 'options' => ['class' => 'header']],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Subir Publicacion', 'icon' => 'dashboard', 'url' => ['/publicacion']],
+                    ['label'=>'Cambiar Foto de perfl','icon'=>'image','url'=>['/subir']],                    
+                    ['label' => 'Subir Publicacion', 'icon' => 'upload', 'url' => ['/publicacion']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Same tools',

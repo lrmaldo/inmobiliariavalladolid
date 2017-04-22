@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use backend\models\FotoPerfil;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -10,6 +11,10 @@ if (Yii::$app->controller->action->id === 'login') {
  * Do not use this code in your template. Remove it. 
  * Instead, use the code  $this->layout = '//main-login'; in your controller.
  */
+    
+    
+  
+  
     echo $this->render(
         'main-login',
         ['content' => $content]
@@ -23,6 +28,13 @@ if (Yii::$app->controller->action->id === 'login') {
     }
 
     dmstr\web\AdminLteAsset::register($this);
+     $sql = "SELECT `url` FROM `foto_perfil` ORDER BY id_perfil DESC LIMIT 1";
+            //$mod = FotoPerfil::find()->orderBy("id_perfil")->limit(1);
+            
+            $mod=Yii::$app
+            ->db
+            ->createCommand($sql)
+            ->queryScalar(); 
 
     $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
     ?>
@@ -42,12 +54,16 @@ if (Yii::$app->controller->action->id === 'login') {
 
         <?= $this->render(
             'header.php',
-            ['directoryAsset' => $directoryAsset]
+            ['directoryAsset' => $directoryAsset, 'mod'=>$mod
+               ]
         ) ?>
 
-        <?= $this->render(
+        <?= 
+           
+
+            $this->render(
             'left.php',
-            ['directoryAsset' => $directoryAsset]
+            ['directoryAsset' => $directoryAsset,'mod'=>$mod]
         )
         ?>
 
