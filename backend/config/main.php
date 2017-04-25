@@ -51,6 +51,12 @@ return [
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
         ],
+        'formatter' => [
+        'class' => 'yii\i18n\formatter',
+        'thousandSeparator' => ',',
+        'decimalSeparator' => '.',
+        'currencyCode' => '$'
+    ],
         
         /*
         'urlManager' => [

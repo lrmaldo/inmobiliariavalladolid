@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\PublicacionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -32,8 +33,8 @@ $this->title = 'Publicaciones';
             
               'attribute' => 'precio',
               'format' => ['decimal',2],
-             'label' => 'Precio',
-             'contentOptions' => ['class' => 'col-lg-1'],
+              'label' => 'Precio',
+            
          ],
             'fecha_de_publicacion',
              'Zona',

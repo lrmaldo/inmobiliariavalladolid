@@ -92,7 +92,8 @@ $this->title = 'Inmobiliaria Valladolid';
                             
                             <div class="caption">
                                 <h4 class="pull-right"><?= Html::encode("$".$pub->precio) ?></h4>
-                                <h4><a href="#"><?= Html:: encode($pub->titulo) ?></a>
+                                <h4>
+                                    <?= Html::a(Html::encode($pub->titulo), ['detalle', 'id' => $pub->idpublicacion]) ?>
                                 </h4>
                                 <p><?= Html::encode($pub->Descripcion) ?> </p>
                             </div>
