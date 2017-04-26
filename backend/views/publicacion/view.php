@@ -15,20 +15,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Actualizar', ['update', 'id' => $model->idpublicacion], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Eliminar', ['delete', 'id' => $model->idpublicacion], [
+        <?= Html::a('Update', ['Actualizar', 'id' => $model->idpublicacion], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['Eliminar', 'id' => $model->idpublicacion], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => '¿Desea eliminar esta publicación?',
+                'confirm' => '¿Deseas eliminar esta publicación?',
                 'method' => 'post',
             ],
         ]) ?>
     </p>
 
-   
-    <div class='row'>
-        <div class="col-md-6">
-            <?= DetailView::widget([
+    <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'idpublicacion',
@@ -37,20 +34,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'Descripcion:ntext',
             'precio',
             'fecha_de_publicacion',
-            'Zona',
+            'Colonia',
             'Operacion',
             'Tipo',
-          //  'id_user',
+            'num_banio',
+            'recamaras',
+           // 'id_user',
         ],
     ]) ?>
-            
-        </div>
-        <div class="com-md-6">
-            <?=     Html::img('@web/'.$model->url_imagen,['alt'=>$model->titulo,'class'=>'img-responsive',
-                'style'=>'width:400px; margin:0 auto;']); ?>
-        </div>
+     </div> 
+       <div class="com-md-6"> 
+           <?=    Html::img('@web/'.$model->url_imagen,['alt'=>$model->titulo,'class'=>'img-responsive', 
+               'style'=>'width:400px; margin:0 auto;']); ?> 
+       </div> 
         
-    </div>
+   </div> 
     
 
 </div>

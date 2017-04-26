@@ -74,6 +74,13 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+    public  function actionDetalle($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+    
     public function actionIndex()
     {
        
@@ -89,7 +96,9 @@ class SiteController extends Controller
                         ->orWhere(["like", "titulo", $search])
                         ->orWhere(["like", "Descripcion", $search])
                         ->orWhere(["like","precio",$search])
-                        ->orWhere(["like","Zona",$search]);
+                        ->orWhere(["like","Colonia",$search])
+                        ->orWhere(["like","Tipo",$search])
+                        ->orWhere(["like","Operacion",$search]);
                 $count = clone $table;
                 $pages = new Pagination([
                     "pageSize" => 5,
@@ -125,7 +134,7 @@ class SiteController extends Controller
       
         
     }
-
+ 
     /**
      * Logs in a user.
      *
@@ -265,5 +274,13 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+    protected function findModel($id)
+    {
+        if (($model = Publicacion::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 }

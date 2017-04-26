@@ -37,7 +37,7 @@ $this->title = 'Publicaciones';
             
          ],
             'fecha_de_publicacion',
-             'Zona',
+             'Colonia',
              'Operacion',
              'Tipo',
             // 'id_user',
