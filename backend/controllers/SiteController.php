@@ -6,6 +6,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use backend\models\FotoPerfil;
+
 
 /**
  * Site controller
@@ -15,6 +17,12 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
+    
+    public function  reset(){
+        
+        return  $this->render("resetPassword");
+        
+    }
     public function behaviors()
     {
         return [
@@ -22,7 +30,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login'],
                         'allow' => true,
                     ],
                     [
@@ -30,6 +38,11 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                    [
+                    'actions' => ['request-password-reset'],
+                    'allow' => true,
+                    'roles' => ['?'],
+                ],
                 ],
             ],
             'verbs' => [
@@ -60,6 +73,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        
+       
         return $this->render('index');
     }
 
@@ -83,6 +98,9 @@ class SiteController extends Controller
             ]);
         }
     }
+    
+   
+    
 
     /**
      * Logout action.
@@ -95,4 +113,7 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+    
+   
+   
 }

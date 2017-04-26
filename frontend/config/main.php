@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'name'=>'Inmobiliaría Valladolid',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -36,6 +37,13 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'urlManagerBackend' => [
+                'class' => 'yii\web\urlManager',
+                'baseUrl' => 'http://localhost/inmobiliaria/backend/web/',
+                'enablePrettyUrl' => true,
+                'showScriptName' => false,
+        ],
+      
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

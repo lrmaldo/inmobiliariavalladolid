@@ -12,7 +12,10 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-
+use backend\models\Publicacion;
+use yii\data\Pagination;
+use frontend\models\FormSearch;
+use yii\helpers\Html;
 /**
  * Site controller
  */
@@ -73,7 +76,54 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+       
+        $form = new FormSearch;
+        $search = null;
+        if($form->load(Yii::$app->request->get()))
+        {
+            if ($form->validate())
+            {
+                $search = Html::encode($form->q);
+                $table = Publicacion::find()
+                        ->where(["like", "idpublicacion", $search])
+                        ->orWhere(["like", "titulo", $search])
+                        ->orWhere(["like", "Descripcion", $search])
+                        ->orWhere(["like","precio",$search])
+                        ->orWhere(["like","Zona",$search]);
+                $count = clone $table;
+                $pages = new Pagination([
+                    "pageSize" => 5,
+                    "totalCount" => $count->count()
+                ]);
+                $model = $table
+                        ->offset($pages->offset)
+                        ->limit($pages->limit)
+                        ->all();
+                
+            }
+            else
+            {
+                $form->getErrors();
+            }
+        }
+        else
+        {
+            $table = Publicacion::find();
+            $count = clone $table;
+            $pages = new Pagination([
+                "pageSize" => 5,
+                "totalCount" => $count->count(),
+            ]);
+            $model = $table
+                    ->offset($pages->offset)
+                    ->limit($pages->limit)
+                    ->all();
+        }
+        return $this->render("index", ["publi" => $model, "form" => $form, "search" => $search, "pages" => $pages]);
+     
+       
+      
+        
     }
 
     /**
@@ -81,6 +131,11 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+    
+    public function actionHome(){
+      
+        return $this->render('index',[ ]);
+    }
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {

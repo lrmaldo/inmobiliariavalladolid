@@ -7,7 +7,7 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use frontend\assets\AppAsset;
-
+//use yii\bootstrap\Html;
 $this->title = 'Inmobiliaria Valladolid';
 
 ?>
@@ -18,17 +18,18 @@ $this->title = 'Inmobiliaria Valladolid';
     <?php
       $f = ActiveForm::begin([
           "method"=>"get",
-          "action" =>Url::toRoute("site/view"),
+          "action" =>Url::toRoute("site/index"),
           "enableClientValidation" => true,
       ]);
     ?>
         <div class="form-group">
-<!--             <p= $f ->field($form,"q")->input("search") ?>
+     <?= $f ->field($form,"q")->input("search") ?>
             
-            -->
-        </div>
+                    </div>
       <?= Html::submitButton("Buscar",["class"=> "btn btn-primary"]) ?>
+      
    <?php $f->end() ?>
+        
         
     </div>
 
@@ -80,18 +81,24 @@ $this->title = 'Inmobiliaria Valladolid';
                 </div>
 
                 <div class="row">
-
+                      <?php foreach ($publi as $pub): ?>
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
+                            <?= Html::img(Yii::$app->urlManagerBackend->baseUrl."/".$pub->url_imagen,[
+                                'alt'=>$pub->titulo,
+                                'class'=> 'img-responsive',
+                                'style'=> 'width:200px: margin:0 auto;'
+                            ])?>
+                            
                             <div class="caption">
-                                <h4 class="pull-right">$24.99</h4>
-                                <h4><a href="#">First Product</a>
+                                <h4 class="pull-right"><?= Html::encode("$".$pub->precio) ?></h4>
+                                <h4>
+                                    <?= Html::a(Html::encode($pub->titulo), ['detalle', 'id' => $pub->idpublicacion]) ?>
                                 </h4>
-                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                                <p><?= Html::encode($pub->Descripcion) ?> </p>
                             </div>
                             <div class="ratings">
-                                <p class="pull-right">15 reviews</p>
+                                <p class="pull-right"> <?= Html::encode($pub->fecha_de_publicacion) ?></p>
                                 <p>
                                     <span class="glyphicon glyphicon-star"></span>
                                     <span class="glyphicon glyphicon-star"></span>
@@ -102,7 +109,9 @@ $this->title = 'Inmobiliaria Valladolid';
                             </div>
                         </div>
                     </div>
-
+                    <?php endforeach; ?>
+                    <?= yii\widgets\LinkPager::widget(['pagination'=>$pages]) ?>
+<!--                    
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
                             <img src="http://placehold.it/320x150" alt="">
@@ -124,7 +133,7 @@ $this->title = 'Inmobiliaria Valladolid';
                             </div>
                         </div>
                     </div>
-
+                        
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
                             <img src="http://placehold.it/320x150" alt="">
@@ -189,7 +198,7 @@ $this->title = 'Inmobiliaria Valladolid';
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <h4><a href="#">Like this template?</a>
