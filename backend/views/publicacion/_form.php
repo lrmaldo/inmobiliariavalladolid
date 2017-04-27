@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\money\MaskMoney;
 $date = new \DateTime('now', new \DateTimeZone('UTC'));
+
 /* @var $this yii\web\View */
 /* @var $model backend\models\Publicacion */
 /* @var $form yii\widgets\ActiveForm */
@@ -11,15 +12,15 @@ $date = new \DateTime('now', new \DateTimeZone('UTC'));
 
 <div class="publicacion-form">
 
-    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+  <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
-
-  <?= $form->field($model, 'url_imagen')->fileInput([ 'accept' => 'image/*'])->label("Subir imagen de la publicación") ?>
+    
+    <?= $form->field($model, 'url_imagen')->fileInput([ 'accept' => 'image/*'])->label("Subir imagen de la publicación") ?>
 
     <?= $form->field($model, 'Descripcion')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'precio')->widget(MaskMoney::classname(), [
+      <?= $form->field($model, 'precio')->widget(MaskMoney::classname(), [
    'pluginOptions' => [
        'prefix' => '$ ',
        //'suffix' => ' €',
@@ -40,7 +41,7 @@ $date = new \DateTime('now', new \DateTimeZone('UTC'));
 
     <?= $form->field($model, 'recamaras')->dropDownList([ 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', ], ['prompt' => '']) ?>
 
-   
+    
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

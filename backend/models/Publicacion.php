@@ -41,7 +41,7 @@ class Publicacion extends \yii\db\ActiveRecord
             [['precio'], 'number'],
             [['fecha_de_publicacion'], 'safe'],
             [['id_user'], 'integer'],
-            [['titulo', 'url_imagen'], 'string', 'max' => 255],
+            [['titulo',], 'string', 'max' => 255],
         ];
     }
 
@@ -53,14 +53,14 @@ class Publicacion extends \yii\db\ActiveRecord
         return [
             'idpublicacion' => 'Idpublicacion',
             'titulo' => 'Titulo',
-            'url_imagen' => 'Url Imagen',
+            //'url_imagen' => 'Url Imagen',
             'Descripcion' => 'Descripcion',
             'precio' => 'Precio',
             'fecha_de_publicacion' => 'Fecha De Publicacion',
             'Colonia' => 'Colonia',
             'Operacion' => 'Operacion',
             'Tipo' => 'Tipo',
-            'num_banio' => 'Num Banio',
+            'num_banio' => 'Numeros de baño',
             'recamaras' => 'Recamaras',
             'id_user' => 'Id User',
         ];

@@ -19,7 +19,7 @@ class PublicacionSearch extends Publicacion
     {
         return [
             [['idpublicacion', 'id_user'], 'integer'],
-            [['titulo', 'url_imagen', 'Descripcion', 'fecha_de_publicacion', 'Colonia', 'Operacion', 'Tipo', 'num_banio', 'recamaras'], 'safe'],
+            [['titulo', 'Descripcion', 'fecha_de_publicacion', 'Colonia', 'Operacion', 'Tipo', 'num_banio', 'recamaras'], 'safe'],
             [['precio'], 'number'],
         ];
     }
@@ -67,7 +67,7 @@ class PublicacionSearch extends Publicacion
         ]);
 
         $query->andFilterWhere(['like', 'titulo', $this->titulo])
-            ->andFilterWhere(['like', 'url_imagen', $this->url_imagen])
+            //->andFilterWhere(['like', 'url_imagen', $this->url_imagen])
             ->andFilterWhere(['like', 'Descripcion', $this->Descripcion])
             ->andFilterWhere(['like', 'Colonia', $this->Colonia])
             ->andFilterWhere(['like', 'Operacion', $this->Operacion])

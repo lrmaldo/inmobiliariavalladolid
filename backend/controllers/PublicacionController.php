@@ -59,7 +59,7 @@ class PublicacionController extends Controller
 
     /**
      * Creates a new Publicacion model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * If creation is successful, the browser will be redirected to the 'view'  page.
      * @return mixed
      */
     public function actionCreate()
