@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'Descripcion:ntext',
             'precio',
             'fecha_de_publicacion',
-            'Zona',
+            'Colonia',
             'Operacion',
             'Tipo',
           //  'id_user',

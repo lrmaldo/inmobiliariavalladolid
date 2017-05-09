@@ -4,7 +4,6 @@ namespace backend\models;
 
 use Yii;
 use common\models\User;
-
 /**
  * This is the model class for table "publicacion".
  *
@@ -14,12 +13,12 @@ use common\models\User;
  * @property string $Descripcion
  * @property double $precio
  * @property string $fecha_de_publicacion
- * @property string $Zona
+ * @property string $Colonia
  * @property string $Operacion
  * @property string $Tipo
+ * @property string $num_banio
+ * @property string $recamaras
  * @property integer $id_user
- *
- * @property User $idUser
  */
 class Publicacion extends \yii\db\ActiveRecord
 {
@@ -37,13 +36,12 @@ class Publicacion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['url_imagen', 'Descripcion', 'precio', 'fecha_de_publicacion', 'Zona', 'Operacion', 'Tipo', 'id_user'], 'required'],
-            [['Descripcion', 'Zona', 'Operacion', 'Tipo'], 'string'],
+            [['url_imagen', 'Descripcion', 'precio', 'fecha_de_publicacion', 'Colonia', 'Operacion', 'Tipo', 'id_user'], 'required'],
+            [['Descripcion', 'Colonia', 'Operacion', 'Tipo', 'num_banio', 'recamaras'], 'string'],
             [['precio'], 'number'],
             [['fecha_de_publicacion'], 'safe'],
             [['id_user'], 'integer'],
-            [['titulo', 'url_imagen'], 'string', 'max' => 255],
-            [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
+            [['titulo',], 'string', 'max' => 255],
         ];
     }
 
@@ -55,21 +53,19 @@ class Publicacion extends \yii\db\ActiveRecord
         return [
             'idpublicacion' => 'Idpublicacion',
             'titulo' => 'Titulo',
-            'url_imagen' => 'Url Imagen',
+            //'url_imagen' => 'Url Imagen',
             'Descripcion' => 'Descripcion',
             'precio' => 'Precio',
             'fecha_de_publicacion' => 'Fecha De Publicacion',
-            'Zona' => 'Zona',
+            'Colonia' => 'Colonia',
             'Operacion' => 'Operacion',
             'Tipo' => 'Tipo',
+            'num_banio' => 'Numeros de baño',
+            'recamaras' => 'Recamaras',
             'id_user' => 'Id User',
         ];
     }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getIdUser()
+     public function getIdUser()
     {
         return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
