@@ -5,12 +5,13 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
+  /*font-family: sans-serif;*/
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
 body {
   margin: 0;
+  font-family: 'Exo 2', sans-serif;
 }
 article,
 aside,
@@ -1082,7 +1083,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
@@ -2870,6 +2871,12 @@ select[multiple].input-lg {
 .has-warning .form-control-feedback {
   color: #8a6d3b;
 }
+
+label.control-label{
+  font-size: 25px;
+}
+
+
 .has-error .help-block,
 .has-error .control-label,
 .has-error .radio,
@@ -4961,6 +4968,8 @@ a.badge:focus {
   margin-bottom: 30px;
   color: inherit;
   background-color: #eee;
+  margin-right: -15px;
+  text-align: center;
 }
 .jumbotron h1,
 .jumbotron .h1 {
