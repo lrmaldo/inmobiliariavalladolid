@@ -1,4 +1,5 @@
 <?php
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
@@ -36,6 +37,17 @@ return [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+
+         'urlManager' => [
+        'class' => 'yii\web\UrlManager',
+        // Disable r= routes
+        'enablePrettyUrl' => true,
+        'rules' => array(
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+        ),
         ],
         'urlManagerBackend' => [
                 'class' => 'yii\web\urlManager',
