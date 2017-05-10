@@ -4596,8 +4596,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
-  border-color: #080808;
+  background-color: #3C8DBC;
+  border-color: #367FA9;
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;
@@ -6767,4 +6767,12 @@ button.close {
 .thumbnail img{
   width: 270px;
   height: 210px;
+}
+
+.navbar-inverse{
+  background: #3C8DBC;
+}
+
+.navbar-text{
+  font-size: 15px;
 }

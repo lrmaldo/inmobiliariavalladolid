@@ -34,7 +34,7 @@ FontAsset::register($this);
         'brandLabel' => 'Inmobiliaria Valladolid',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'nav-link active navbar-inverse navbar-fixed-top',
         ],
     ]);
     $menuItems = [
@@ -56,7 +56,7 @@ FontAsset::register($this);
             . '</li>';
     }
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar-nav navbar-right nav nav-pills'],
         'items' => $menuItems,
     ]);
     NavBar::end();
