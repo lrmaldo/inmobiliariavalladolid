@@ -38,7 +38,7 @@ $this->title = 'Inmobiliaria Valladolid';
 
         <div class="row">
 
-            <div class="col-md-3">
+            <div class="col-md-3" >
                 <p class="lead">Shop Name</p>
                 <div class="list-group">
                     <a href="#" class="list-group-item">Category 1</a>
@@ -86,15 +86,15 @@ $this->title = 'Inmobiliaria Valladolid';
                         <div class="thumbnail">
                             <?= Html::img(Yii::$app->urlManagerBackend->baseUrl."/".$pub->url_imagen,[
                                 'alt'=>$pub->titulo,
-                                'class'=> 'img-responsive',
-                                'style'=> 'width:200px: margin:0 auto;'
+                                'class'=> 'img-responsive'
                             ])?>
                             
                             <div class="caption">
-                                <h4 class="pull-right"><?= Html::encode("$".$pub->precio) ?></h4>
+                                
                                 <h4>
                                     <?= Html::a(Html::encode($pub->titulo), ['detalle', 'id' => $pub->idpublicacion]) ?>
                                 </h4>
+                                <h4 class="pull-right"><?= Html::encode("$".$pub->precio) ?></h4>
                                 <p><?= Html::encode($pub->Descripcion) ?> </p>
                             </div>
                             <div class="ratings">
@@ -200,13 +200,6 @@ $this->title = 'Inmobiliaria Valladolid';
                         </div>
                     </div>-->
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <h4><a href="#">Like this template?</a>
-                        </h4>
-                        <p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
-                        <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
-                    </div>
-
                 </div>
 
             </div>
@@ -215,3 +208,152 @@ $this->title = 'Inmobiliaria Valladolid';
 
       
 </div>
+
+
+
+
+
+
+
+<div class="col-md-3 column margintop20">
+            <ul class="nav nav-pills nav-stacked">
+  <li class="active"><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Home</a></li>
+  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Option 1</a></li>
+  <li><a href="#" class="active2"><span class="glyphicon glyphicon-chevron-right"></span> Option 2 (active)</a></li>
+  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Option 3</a></li>
+  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Option 4</a></li>
+  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Option 5</a></li>
+</ul>
+</div>
+
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default panel-danger">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="http://nstp.org/member/login_success.php">                    
+                    <h4><i class="fa fa-users"></i> Member Section </h4>
+                </a>
+            </h4>
+        </div>                
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title text-primary">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><b class="caret"></b> Contact Information </a>
+                
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table class="table table-hover table-striped">
+                    <tr>
+                        <td>
+                            <span class="fa fa-key"></span><a href="/Account/ChangePassword"> Password Management</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="fa fa-globe "></span><a href="//nstp.org/forms/contact_wufoo.php"> Contact Information Update</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="fa fa-user "></span><a href="/whyjoin.php"> Membership Renewal</a>                                       
+                        </td>
+                    </tr>                          
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title text-primary">
+            <a href="//nstp.org/Account/Rewards"><span class="fa fa-money"></span> Dividend Rewards</a>
+            </h4>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title text-primary">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><b class="caret"></b> Newsletters </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">                                                  
+                <table class="table table-hover table-striped">
+                    <tr>
+                        <td>
+                            <span class="fa fa-flash "></span><a href="/member/tax_alert.php"> Federal Tax Alert</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="fa fa-file-text-o "></span><a href="/member/client_newsletters.php"> Client Newsletter</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title text-primary">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><b class="caret"></b> Resources </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table class="table table-hover table-striped">
+                    <tr>
+                        <td>
+                            <span class="fa fa-bell-o"></span><a href="//nstp.org/member/charitable_resources.php"> Charitable Contributions</a>
+                        </td>               
+                     </tr>
+                     <tr>
+                        <td>
+                            <span class="fa fa-trophy"></span><a href="http://nstp.org/member/award.php"> Awards</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="fa fa-info-circle"></span><a href="//nstp.org/irs_tax_forum.php"> IRS Forums</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="fa fa-bookmark-o"></span><a href="/member/client_contracts.php"> Sample Client Contracts</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="fa fa-flag"></span><a href="http://nstp.org/member/state_resources.php"> State Tax Links</a>
+                        </td>
+                    </tr>
+                      <tr>
+                        <td>
+                            <span class="fa fa-certificate "></span><a href="http://nstp.org/member/enrolled_agent_exam.php"> Enrolled Agent Information</a>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <span class="fa fa-rocket "></span><a href="http://nstp.org/member/resources.php"> NSTP Resources</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="fa fa-cloud-download "></span><a href="http://nstp.org/member/media_kit.php"> NSTP Media Kit</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="/member/hotline.php"><span class="fa fa-phone"></span> Tax Hotline</a>
+            </h4>
+        </div>
+    </div>
+</div>
+

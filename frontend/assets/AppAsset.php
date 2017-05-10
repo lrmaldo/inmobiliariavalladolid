@@ -17,6 +17,7 @@ class AppAsset extends AssetBundle
         'css/bootstrap.min.css',
         'css/shop-homepage.css',
         'css/bootstrap.css',
+        'css/details.css',
        
     ];
     public $js = [

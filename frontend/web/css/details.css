@@ -1,0 +1,19 @@
+body {
+    padding-top: 40px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.portfolio-item {
+    margin-bottom: 25px;
+}
+
+div ul li{
+	font-size: 15px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.fa-ul li{
+	font-size: 20px;
+}
