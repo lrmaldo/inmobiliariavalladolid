@@ -3,10 +3,12 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\money\MaskMoney;
+use kartik\file\FileInput;
 $date = new \DateTime('now', new \DateTimeZone('UTC'));
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Publicacion */
+
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -16,7 +18,9 @@ $date = new \DateTime('now', new \DateTimeZone('UTC'));
 
     <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
     
-    <?= $form->field($model, 'url_imagen')->fileInput([ 'accept' => 'image/*'])->label("Subir imagen de la publicación") ?>
+    <?= $form->field($model, 'url_imagen[]')->widget(FileInput::classname(), [
+    'options' => ['accept' => 'image/*','multiple'=> true],
+]); ?>
 
     <?= $form->field($model, 'Descripcion')->textarea(['rows' => 6]) ?>
 
@@ -37,14 +41,14 @@ $date = new \DateTime('now', new \DateTimeZone('UTC'));
 
     <?= $form->field($model, 'Tipo')->dropDownList([ 'Casa' => 'Casa', 'Terreno' => 'Terreno', 'Departamento' => 'Departamento', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'num_banio')->dropDownList([ 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'num_banio')->dropDownList([ 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', ], ['empty'=>'--Seleccionar--']) ?>
 
-    <?= $form->field($model, 'recamaras')->dropDownList([ 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'recamaras')->dropDownList([ 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', ], ['empty'=>'--Seleccionar--']) ?>
 
-    
+  
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Crear' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

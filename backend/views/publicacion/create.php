@@ -6,6 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Publicacion */
 
+
 $this->title = 'Crear Publicación';
 $this->params['breadcrumbs'][] = ['label' => 'Publicacion', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
@@ -19,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     
     <?= $this->render('_form', [
         'model' => $model,
+        
     ]) ?>
 
 </div>

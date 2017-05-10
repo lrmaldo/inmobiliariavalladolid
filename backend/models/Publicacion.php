@@ -38,7 +38,7 @@ class Publicacion extends \yii\db\ActiveRecord
         return [
             [['url_imagen', 'Descripcion', 'precio', 'fecha_de_publicacion', 'Colonia', 'Operacion', 'Tipo', 'id_user'], 'required'],
             [['Descripcion', 'Colonia', 'Operacion', 'Tipo', 'num_banio', 'recamaras'], 'string'],
-            [['precio'], 'number'],
+            [['precio',], 'number'],
             [['fecha_de_publicacion'], 'safe'],
             [['id_user'], 'integer'],
             [['titulo',], 'string', 'max' => 255],
@@ -52,15 +52,15 @@ class Publicacion extends \yii\db\ActiveRecord
     {
         return [
             'idpublicacion' => 'Idpublicacion',
-            'titulo' => 'Titulo',
+            'titulo' => 'Título',
             //'url_imagen' => 'Url Imagen',
-            'Descripcion' => 'Descripcion',
+            'Descripcion' => 'Descripción',
             'precio' => 'Precio',
-            'fecha_de_publicacion' => 'Fecha De Publicacion',
+            'fecha_de_publicacion' => 'Fecha De Publicación',
             'Colonia' => 'Colonia',
-            'Operacion' => 'Operacion',
+            'Operacion' => 'Operación',
             'Tipo' => 'Tipo',
-            'num_banio' => 'Numeros de baño',
+            'num_banio' => 'Número de Baños',
             'recamaras' => 'Recamaras',
             'id_user' => 'Id User',
         ];
@@ -69,4 +69,5 @@ class Publicacion extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
+   
 }

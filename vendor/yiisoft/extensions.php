@@ -93,4 +93,22 @@ return array (
       '@yii/debug' => $vendorDir . '/yiisoft/yii2-debug',
     ),
   ),
+  'perminder-klair/yii2-dropzone' => 
+  array (
+    'name' => 'perminder-klair/yii2-dropzone',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kato' => $vendorDir . '/perminder-klair/yii2-dropzone',
+    ),
+  ),
+  'kartik-v/yii2-widget-fileinput' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-fileinput',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/file' => $vendorDir . '/kartik-v/yii2-widget-fileinput',
+    ),
+  ),
 );
