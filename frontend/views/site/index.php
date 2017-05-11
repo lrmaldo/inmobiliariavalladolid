@@ -7,6 +7,7 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use frontend\assets\AppAsset;
+use kartik\money\MaskMoney;
 //use yii\bootstrap\Html;
 $this->title = 'Inmobiliaria Valladolid';
 
@@ -81,20 +82,22 @@ $this->title = 'Inmobiliaria Valladolid';
                 </div>
 
                 <div class="row">
-                      <?php foreach ($publi as $pub): ?>
+                      <?php  foreach ($publi as $pub): ?>
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
                             <?= Html::img(Yii::$app->urlManagerBackend->baseUrl."/".$pub->url_imagen,[
                                 'alt'=>$pub->titulo,
                                 'class'=> 'img-responsive'
-                            ])?>
-                            
+                            ]) ?>
+                                    
                             <div class="caption">
                                 
                                 <h4>
-                                    <?= Html::a(Html::encode($pub->titulo), ['detalle', 'id' => $pub->idpublicacion]) ?>
+                                    <?= Html::a(Html::encode($pub->titulo), ['detalle', 'id' => $pub->idpublicacion]) 
+                              ?>
+                                
                                 </h4>
-                                <h4 class="pull-right"><?= Html::encode("$".$pub->precio) ?></h4>
+                                <h4 class="pull-right"><?= Html::encode('MXN '.Yii::$app->formatter->asCurrency($pub->precio)) ?></h4>
                                 <p><?= Html::encode($pub->Descripcion) ?> </p>
                             </div>
                             <div class="ratings">
@@ -117,7 +120,7 @@ $this->title = 'Inmobiliaria Valladolid';
                             <img src="http://placehold.it/320x150" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$64.99</h4>
-                                <h4><a href="#">Second Product</a>
+                                <h4><a href="#">Second Product</a>     
                                 </h4>
                                 <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>

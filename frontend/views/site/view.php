@@ -2,9 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use backend\models\Imagenes;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Publicacion */
+
+
 
 $this->title = $model->titulo;
 
@@ -41,8 +44,8 @@ $this->title = $model->titulo;
                 <div class="col">
                 <ul class="fa-ul">
                     <li><i class=" fa fa-money "></i>
-                    MXN <?=
-                    $model->precio ?>    
+                    MXN <?=Yii::$app->formatter->asCurrency($model->precio)
+                     ?>    
                     </li>
                     <li><i class="fa fa-globe" aria-hidden="true"></i>
                     <?=
@@ -59,6 +62,16 @@ $this->title = $model->titulo;
                 </ul>
                 </div>
             </div>
-
+            <?php  foreach ($publ as $img): ?>
+             
+              <?= Html::img(Yii::$app->urlManagerBackend->baseUrl."/".$img->url_imagen,['alt'=>$img->url_imagen,'class'=>'img-responsive',
+                'style'=>'width:750px; height:500px; margin:0 auto;']);?>
+                   
+              <?php endforeach; ?>
+           
+            
+ <?= yii\widgets\LinkPager::widget(['pagination'=>$pag]) ?>
         </div> 
+    
+    
 </div>

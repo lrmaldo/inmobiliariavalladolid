@@ -30,9 +30,8 @@ $this->title = 'Publicaciones';
           //  'url_imagen:url',
             'Descripcion:ntext',
              [
-            
+              'format' => 'Currency',
               'attribute' => 'precio',
-              'format' => ['decimal',2],
               'label' => 'Precio',
             
          ],
