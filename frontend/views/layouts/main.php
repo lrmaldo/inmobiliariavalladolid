@@ -4,8 +4,6 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use frontend\assets\FontAsset;
@@ -27,50 +25,42 @@ FontAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
+<header class="subnav-hero-section">
+    <h1 class="subnav-hero-headline">
+       Inmobiliaria Valladolid
+    </h1>
+    <ul class="subnav-hero-subnav button-group">
+        <li>
+            <?= Html::a('Inicio', ['/site/index'], ['class' => 'active']); ?>
+        </li>
+        <li>
+            <?= Html::a('Acerca', ['/site/about'],['class' => '']); ?>
+        </li>
+        <li>
+            <?= Html::a('Contacto', ['/site/contact'],['class' => '']); ?>
+        </li>
+        <?php 
+            if (Yii::$app->user->isGuest) {
+                ?><li><?= Html::a('Signup', ['/site/signup']); ?></li>
+                  <li><?= Html::a('Login', ['/site/login']); ?></li>
+            <?php
+            } else {
+                $menuItems[] = '<li>'
+                    . Html::beginForm(['/site/logout'], 'post')
+                    . Html::submitButton(
+                        'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'btn btn-link logout']
+                    )
+                    . Html::endForm()
+                    . '</li>';
+            }
+        ?>
+    </ul>
+</header>
 
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'Inmobiliaria Valladolid',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'nav-link active navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Inicio', 'url' => ['/site/index']],
-        ['label' => 'Acerca', 'url' => ['/site/about']],
-        ['label' => 'Contacto', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right nav nav-pills'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <div>            
-        <?= $content ?>
-            </div>
-    </div>
+<div class="row" id="content">            
+    <?= $content ?>
 </div>
 
 <footer class="footer">

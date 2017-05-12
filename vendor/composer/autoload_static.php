@@ -38,6 +38,10 @@ class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
             'kartik\\money\\' => 13,
             'kartik\\base\\' => 12,
         ),
+        'f' => 
+        array (
+            'foundationize\\foundation\\' => 25,
+        ),
         'd' => 
         array (
             'dmstr\\' => 6,
@@ -134,6 +138,10 @@ class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
         'kartik\\base\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base',
+        ),
+        'foundationize\\foundation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/foundationize/yii2-foundation',
         ),
         'dmstr\\' => 
         array (
