@@ -13,7 +13,6 @@ $this->title = 'Inmobiliaria Valladolid';
 
 ?>
 
-
 <div class="large-10 medium-10 small-10 large-offset-1 medium-offset-1 small-offset-1">
     <div class="input-group input-group-rounded">
         <?php
@@ -32,169 +31,88 @@ $this->title = 'Inmobiliaria Valladolid';
         </div>
             <?php $f->end() ?>
     </div>
-
-    <div class="large-4 medium-10 small-12">
-        <div class="translucent-form-overlay">
-            <form>
-                <h3>Buscador Avanzado</h3>
-                <div class="row columns">
-                  <label>Tipo de Transacción
-                    <select name="status" type="text">
-                      <option>Escoje una Opción</option>
-                      <option value="rent">Renta</option>
-                      <option value="buy">Venta</option>
-                    </select>
-                  </label>
-                </div>
-                <div class="row columns">
-                  <label>Tipo de Propiedad
-                    <select name="status" type="text">
-                      <option>Escoje una Opción</option>
-                      <option value="office">Terreno</option>
-                      <option value="building">Departamento</option>
-                    </select>
-                  </label>
-                </div>
-                <div class="row columns">
-                  <label>Location
-                    <input type="text" name="location" placeholder="Any">
-                  </label>
-                </div>
-                <div class="row">
-                  <label class="columns small-12">Price</label>
-                  <div class="columns small-6">
-                    <input type="number" min="0" name="min" placeholder="Min">
-                  </div>
-                  <div class="columns small-6">
-                    <input type="number" min="0" name="max" placeholder="Max">
-                  </div>
-                      <?php  foreach ($publi as $pub): ?>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <?= Html::img(Yii::$app->urlManagerBackend->baseUrl."/".$pub->url_imagen,[
-                                'alt'=>$pub->titulo,
-                                'class'=> 'img-responsive'
-                            ]) ?>
-                                    
-                            <div class="caption">
-                                
-                                <h4>
-                                    <?= Html::a(Html::encode($pub->titulo), ['detalle', 'id' => $pub->idpublicacion]) 
-                              ?>
-                                
-                                </h4>
-                                <h4 class="pull-right"><?= Html::encode('MXN '.Yii::$app->formatter->asCurrency($pub->precio)) ?></h4>
-                                <p><?= Html::encode($pub->Descripcion) ?> </p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right"> <?= Html::encode($pub->fecha_de_publicacion) ?></p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <?php endforeach; ?>
-                    <?= yii\widgets\LinkPager::widget(['pagination'=>$pages]) ?>
-<!--                    
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$64.99</h4>
-                                <h4><a href="#">Second Product</a>     
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">12 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                        
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$74.99</h4>
-                                <h4><a href="#">Third Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">31 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$84.99</h4>
-                                <h4><a href="#">Fourth Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">6 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$94.99</h4>
-                                <h4><a href="#">Fifth Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">18 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>-->
-                </div>
-                <button type="button" class="primary button expanded search-button">
-                  Search
-                </button>
-             </form>
-        </div>
-    </div>
 </div>
 
+<div class="row">
+        <div class="large-4 medium-10 small-12 columns large-offset-1">
+            <div class="translucent-form-overlay">
+                <form>
+                    <h3>Buscador Avanzado</h3>
+                    <div class="row columns">
+                      <label>Tipo de Transacción
+                        <select name="status" type="text">
+                          <option>Escoje una Opción</option>
+                          <option value="rent">Renta</option>
+                          <option value="buy">Venta</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div class="row columns">
+                      <label>Tipo de Propiedad
+                        <select name="status" type="text">
+                          <option>Escoje una Opción</option>
+                          <option value="office">Terreno</option>
+                          <option value="building">Departamento</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div class="row columns">
+                      <label>Location
+                        <input type="text" name="location" placeholder="Any">
+                      </label>
+                    </div>
+                    <div class="row">
+                      <label class="columns small-12">Price</label>
+                      <div class="columns small-6">
+                        <input type="number" min="0" name="min" placeholder="Min">
+                      </div>
+                      <div class="columns small-6">
+                        <input type="number" min="0" name="max" placeholder="Max">
+                      </div>
+                    </div>
+                    <button type="button" class="primary button expanded search-button">
+                      Search
+                    </button>
+                 </form>
+            </div>
+        </div>
+
+    <div class="large-7 column">
+    <div class="news-image-gallery-container">
+  <div class="row">
+    <div class="small-12 medium-12 large-12 columns">
+      <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
+        <ul class="orbit-container">
+          <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+          <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+          <li class="is-active orbit-slide">
+            <img class="orbit-image" src="//i.imgur.com/4K3hXoZ.jpg" alt="Space">
+            <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+          </li>
+          <li class="orbit-slide">
+            <img class="orbit-image" src="//i.imgur.com/V7zk0Y3.jpg" alt="Space">
+            <figcaption class="orbit-caption">Lets Rocket!</figcaption>
+          </li>
+          <li class="orbit-slide">
+            <img class="orbit-image" src="//i.imgur.com/vivEvd0.jpg" alt="Space">
+            <figcaption class="orbit-caption">Encapsulating</figcaption>
+          </li>
+          <li class="orbit-slide">
+            <img class="orbit-image" src="//i.imgur.com/VKdPzTp.jpg" alt="Space">
+            <figcaption class="orbit-caption">Outta This World</figcaption>
+          </li>
+        </ul>
+        <nav class="orbit-bullets">
+          <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+          <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+          <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+          <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+</div>
 
