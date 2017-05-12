@@ -9,7 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
-
+use backend\models\Imagenes;
 /**
  * PublicacionController implements the CRUD actions for Publicacion model.
  */
@@ -67,15 +67,28 @@ class PublicacionController extends Controller
         $model = new Publicacion();
         
         if ($model->load(Yii::$app->request->post()) ) {
-            $model->id_user = Yii::$app->user->id;
-            $nombreImagen = $model->titulo.$model->id_user;
-            $model->url_imagen= UploadedFile::getInstance($model, 'url_imagen');
            
-            $model->url_imagen->saveAs('imagenes/'.$nombreImagen.'.'.$model->url_imagen->extension);
-            
-            $model->url_imagen='imagenes/'.$nombreImagen.'.'.$model->url_imagen->extension;
-            $model->save();
-            
+           $model->id_user = Yii::$app->user->id;
+
+//                 $id_ult= Publicacion::findBySql('SELECT `idpublicacion` FROM `publicacion` ORDER BY `idpublicacion` DESC LIMIT 1');
+
+            $consulta = Yii::$app->db->createCommand('SELECT MAX(`idpublicacion`)+1 FROM `publicacion` ORDER BY `idpublicacion` DESC LIMIT 1')->queryScalar();
+        
+               $model->url_imagen = UploadedFile::getInstances($model, 'url_imagen');
+     
+               foreach ($model->url_imagen as $url){
+                   $u = new Imagenes();
+                   $u->url_imagen = 'imagenes/'.$url->baseName.".".$url->extension;
+                  
+                   $sql = 'INSERT INTO `imagenes` (`id_imagen`, `url_imagen`, `id_user`, `id_publicacion`) VALUES (NULL,"'.($u->url_imagen).'","'.($model->id_user).'","'.($consulta).'");';
+                   $command = \Yii::$app->db->createCommand($sql);
+                   $command->execute();
+                   $url->saveAs('imagenes/'.$url->baseName.".".$url->extension);
+                   }
+                   $co = Yii::$app->db->createCommand('SELECT `url_imagen` FROM `imagenes` WHERE `id_publicacion` = '.($consulta). ' ORDER BY `id_imagen` LIMIT 1')->queryScalar();
+                   $model->url_imagen=$co;
+                   $model->save();
+            //INSERT INTO `imagenes` (`id_imagen`, `url_imagen`, `id_user`, `id_publicacion`) VALUES (NULL, 'imagenes/badge.png', '1', '25');
             return $this->redirect(['view', 'id' => $model->idpublicacion]);
         } else {
             return $this->render('create', [

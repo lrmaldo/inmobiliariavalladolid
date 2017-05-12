@@ -52,12 +52,11 @@ return [
                 'showScriptName' => false,
         ],
         'formatter' => [
-        'class' => 'yii\i18n\formatter',
-        'thousandSeparator' => ',',
-        'decimalSeparator' => '.',
-        'currencyCode' => '$'
+                 'class' => 'yii\i18n\formatter',
+                 'thousandSeparator' => ',',
+                 'decimalSeparator' => '.',
+                 'currencyCode' => 'MXN',
     ],
-        
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

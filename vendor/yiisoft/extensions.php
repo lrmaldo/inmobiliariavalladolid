@@ -100,6 +100,15 @@ return array (
     'alias' => 
     array (
       '@foundationize/foundation' => $vendorDir . '/foundationize/yii2-foundation',
+      ),
+    ),
+  'perminder-klair/yii2-dropzone' => 
+  array (
+    'name' => 'perminder-klair/yii2-dropzone',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kato' => $vendorDir . '/perminder-klair/yii2-dropzone',
     ),
   ),
   'kartik-v/yii2-widget-fileinput' => 

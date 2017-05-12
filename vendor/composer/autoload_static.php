@@ -35,6 +35,7 @@ class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
         ),
         'k' => 
         array (
+            'kato\\' => 5,
             'kartik\\plugins\\fileinput\\' => 25,
             'kartik\\money\\' => 13,
             'kartik\\file\\' => 12,
@@ -132,6 +133,10 @@ class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+        ),
+        'kato\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/perminder-klair/yii2-dropzone',
         ),
         'kartik\\plugins\\fileinput\\' => 
         array (

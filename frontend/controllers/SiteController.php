@@ -13,6 +13,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use backend\models\Publicacion;
+use backend\models\Imagenes;
 use yii\data\Pagination;
 use frontend\models\FormSearch;
 use yii\helpers\Html;
@@ -76,8 +77,24 @@ class SiteController extends Controller
      */
     public  function actionDetalle($id)
     {
+        $image = Imagenes::find()
+                ->where(["like","id_publicacion",$id]);
+        $count = clone $image;
+      
+        $pagina = new Pagination([
+             "pageSize" => 1,
+             "totalCount" => $count->count(),
+        ]);
+        
+    $img = $image
+            ->offset($pagina->offset)
+            ->limit($pagina->limit)
+            ->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'publ'=> $img,
+            'pag'=>$pagina,
+            
         ]);
     }
     
