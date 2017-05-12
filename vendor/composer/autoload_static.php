@@ -35,7 +35,9 @@ class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
         ),
         'k' => 
         array (
+            'kartik\\plugins\\fileinput\\' => 25,
             'kartik\\money\\' => 13,
+            'kartik\\file\\' => 12,
             'kartik\\base\\' => 12,
         ),
         'f' => 
@@ -131,9 +133,17 @@ class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
         ),
+        'kartik\\plugins\\fileinput\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/bootstrap-fileinput',
+        ),
         'kartik\\money\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-money',
+        ),
+        'kartik\\file\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-fileinput',
         ),
         'kartik\\base\\' => 
         array (
