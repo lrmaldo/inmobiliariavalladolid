@@ -371,3 +371,7 @@ button[type="submit"] {
 .news-image-gallery-container .read-more {
   color: #8a8a8a;
 }
+
+.news-image-gallery-container{
+  padding-top: 0;
+}

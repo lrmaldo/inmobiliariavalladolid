@@ -86,19 +86,19 @@ $this->title = 'Inmobiliaria Valladolid';
           <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
           <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
           <li class="is-active orbit-slide">
-            <img class="orbit-image" src="//i.imgur.com/4K3hXoZ.jpg" alt="Space">
+            <img class="orbit-image" src="https://images.homify.com/images/a_0,c_fill,f_auto,h_720,q_auto,w_1920/v1440055803/p/photo/image/833389/Bad_Vilbel_Au%C3%9Fenansicht_S%C3%BCd/fotos-de-casas-de-estilo-moderno-de-die-hausmanufaktur-gmbh.jpg" alt="Space">
             <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
           </li>
           <li class="orbit-slide">
-            <img class="orbit-image" src="//i.imgur.com/V7zk0Y3.jpg" alt="Space">
+            <img class="orbit-image" src="https://vida-spyqpdxrgyld6rrkjib.netdna-ssl.com/wp-content/uploads/2015/03/JP-Torre-A-02.jpg" alt="Space">
             <figcaption class="orbit-caption">Lets Rocket!</figcaption>
           </li>
           <li class="orbit-slide">
-            <img class="orbit-image" src="//i.imgur.com/vivEvd0.jpg" alt="Space">
+            <img class="orbit-image" src="https://i.ytimg.com/vi/PYfbgddsAiY/maxresdefault.jpg" alt="Space">
             <figcaption class="orbit-caption">Encapsulating</figcaption>
           </li>
           <li class="orbit-slide">
-            <img class="orbit-image" src="//i.imgur.com/VKdPzTp.jpg" alt="Space">
+            <img class="orbit-image" src="http://s3.amazonaws.com/assets.moveglobally.com/property_images/400620/6976230/EB-AN0620.jpg?1484193744" alt="Space">
             <figcaption class="orbit-caption">Outta This World</figcaption>
           </li>
         </ul>
@@ -114,5 +114,6 @@ $this->title = 'Inmobiliaria Valladolid';
 </div>
 
     </div>
+
 </div>
 
