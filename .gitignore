@@ -5,3 +5,7 @@ protected/runtime/*
 protected/data/*.db
 themes/classic/views/
 backend/web/imagenes/*
+nbproject/private/private.xml
+composer.json
+composer.lock
+composer.phar
