@@ -4,12 +4,26 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\money\MaskMoney;
 use kartik\file\FileInput;
+use yii\helpers\ArrayHelper;
 $date = new \DateTime('now', new \DateTimeZone('UTC'));
+//modelos de las base de datos
+use backend\models\Colonias;
+use backend\models\Operacion;
+use backend\models\Tipos;
+
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Publicacion */
 
 /* @var $form yii\widgets\ActiveForm */
+
+$colonias = Colonias::find()->all();
+$listData1 = ArrayHelper::map($colonias,'nombre_colonia','nombre_colonia');
+  //$listData1 = CHtml::listData($colonias,'id_colonia','nombre_colonia');
+$operacion = Operacion::find()->all();
+$listData2 = ArrayHelper::map($operacion,'nombre_operacion', 'nombre_operacion');
+$tipos = Tipos::find()->all();
+$listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
 ?>
 
 <div class="publicacion-form">
@@ -35,11 +49,11 @@ $date = new \DateTime('now', new \DateTimeZone('UTC'));
    <?= $form->field($model, 'fecha_de_publicacion')->textInput()->textInput(['readonly'=>true,'value'=>$date->
            format('Y-m-d')])->label('Fecha de Alta') ?>
 
-    <?= $form->field($model, 'Colonia')->dropDownList([ 'Candelaria' => 'Candelaria', 'Fernado Novelo' => 'Fernado Novelo', 'Flor Campestre' => 'Flor Campestre', 'Jardines de Oriente' => 'Jardines de Oriente', 'Las palmas' => 'Las palmas', 'Lol-beh' => 'Lol-beh', 'Los cipreses' => 'Los cipreses', 'Militar' => 'Militar', 'Orquídeas' => 'Orquídeas', 'Residencial Campestre' => 'Residencial Campestre', 'San isidro' => 'San isidro', 'San isidro II' => 'San isidro II', 'Santa Ana' => 'Santa Ana', 'Santa cruz' => 'Santa cruz', 'Santa lucia' => 'Santa lucia', 'Centro' => 'Centro', 'Sisal' => 'Sisal', 'X-lapac' => 'X-lapac', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'Colonia')->dropDownList($listData1,['prompt'=>'Elegir colonia...']) ?>
 
-    <?= $form->field($model, 'Operacion')->dropDownList([ 'Venta' => 'Venta', 'Renta' => 'Renta', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'Operacion')->dropDownList($listData2, ['prompt' => 'Elegir Operación...']) ?>
 
-    <?= $form->field($model, 'Tipo')->dropDownList([ 'Casa' => 'Casa', 'Terreno' => 'Terreno', 'Departamento' => 'Departamento', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'Tipo')->dropDownList($listData3, ['prompt' => 'Elegir Tipo...']) ?>
 
     <?= $form->field($model, 'num_banio')->dropDownList([ 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', ], ['empty'=>'--Seleccionar--']) ?>
 
