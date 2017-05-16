@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\Operacion */
 
 $this->title = $model->id_operacion;
-$this->params['breadcrumbs'][] = ['label' => 'Operacions', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Operaciones', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="operacion-view">
@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id_operacion], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id_operacion], [
+        <?= Html::a('Actualizar', ['update', 'id' => $model->id_operacion], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Eliminar', ['delete', 'id' => $model->id_operacion], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => '¿Desea eliminar esta operación?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id_operacion',
+           // 'id_operacion',
             'nombre_operacion',
         ],
     ]) ?>

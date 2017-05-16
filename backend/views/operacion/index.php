@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\OperacionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Operacions';
+$this->title = 'Operaciones';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="operacion-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Operacion', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Insertar Operacion', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id_operacion',
+           // 'id_operacion',
             'nombre_operacion',
 
             ['class' => 'yii\grid\ActionColumn'],

@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Colonias */
 
-$this->title = 'Update Colonias: ' . $model->id_colonia;
+$this->title = 'Actualizar Colonia: ' . $model->id_colonia;
 $this->params['breadcrumbs'][] = ['label' => 'Colonias', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_colonia, 'url' => ['view', 'id' => $model->id_colonia]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Actualizar';
 ?>
 <div class="colonias-update">
 

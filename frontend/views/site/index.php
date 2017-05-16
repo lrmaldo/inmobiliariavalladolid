@@ -8,6 +8,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use frontend\assets\AppAsset;
 use kartik\money\MaskMoney;
+use backend\models\Tipos;
+use yii\helpers\ArrayHelper;
 
 $this->title = 'Inmobiliaria Valladolid';
 
@@ -39,13 +41,18 @@ $this->title = 'Inmobiliaria Valladolid';
                 <form>
                     <h3>Buscador Avanzado</h3>
                     <div class="row columns">
-                      <label>Tipo de Transacción
-                        <select name="status" type="text">
+<!--                      <label>Tipo de Transacción-->
+<!--                        <select name="status" type="text">
                           <option>Escoje una Opción</option>
                           <option value="rent">Renta</option>
                           <option value="buy">Venta</option>
-                        </select>
-                      </label>
+                        </select>-->
+                          <?php  
+                          $tipos = Tipos::find()->all();
+                          $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
+                          echo Html::dropDownList($listData3, ['prompt' => 'Elegir Tipo...']);
+                   ?>
+                      <!--</label>-->
                     </div>
                     <div class="row columns">
                       <label>Tipo de Propiedad

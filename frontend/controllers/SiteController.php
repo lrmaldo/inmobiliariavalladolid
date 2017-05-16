@@ -105,6 +105,7 @@ class SiteController extends Controller
         $search = null;
         if($form->load(Yii::$app->request->get()))
         {
+            
             if ($form->validate())
             {
                 $search = Html::encode($form->q);
