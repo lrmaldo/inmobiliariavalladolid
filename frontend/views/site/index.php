@@ -9,6 +9,7 @@ use yii\widgets\ActiveForm;
 use frontend\assets\AppAsset;
 use kartik\money\MaskMoney;
 
+
 $this->title = 'Inmobiliaria Valladolid';
 
 ?>

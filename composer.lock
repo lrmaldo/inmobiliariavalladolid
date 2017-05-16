@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "318c704ac190be1c6a99ff6510d50088",
+    "content-hash": "bc80d5aad6cefebd976f8799ca437208",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -692,7 +692,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-06-17 16:48:26"
+            "time": "2015-06-17T16:48:26+00:00"
         },
         {
             "name": "kartik-v/yii2-widget-fileinput",
@@ -3532,9 +3532,9 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "foundationize/yii2-foundation": 20,
         "kartik-v/yii2-widget-fileinput": 20,
-        "kartik-v/yii2-money": 20
+        "kartik-v/yii2-money": 20,
+        "foundationize/yii2-foundation": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
