@@ -8,8 +8,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use frontend\assets\AppAsset;
 use kartik\money\MaskMoney;
+use backend\models\Colonias;
+use backend\models\Operacion;
 use backend\models\Tipos;
 use yii\helpers\ArrayHelper;
+
 
 
 $this->title = 'Inmobiliaria Valladolid';
@@ -39,7 +42,21 @@ $this->title = 'Inmobiliaria Valladolid';
 <div class="row">
         <div class="large-4 medium-10 small-12 columns large-offset-1">
             <div class="translucent-form-overlay">
-                <form>
+                <?php
+          $f2 = ActiveForm::begin([
+              "method"=>"get",
+              "action" =>Url::toRoute("site/index"),
+              "enableClientValidation" => true,
+          ]);
+          
+          $colonias = Colonias::find()->all();
+$listData1 = ArrayHelper::map($colonias,'nombre_colonia','nombre_colonia');
+
+$operacion = Operacion::find()->all();
+$listData2 = ArrayHelper::map($operacion,'nombre_operacion', 'nombre_operacion');
+$tipos = Tipos::find()->all();
+$listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
+        ?>
                     <h3>Buscador Avanzado</h3>
                     <div class="row columns">
 <!--                      <label>Tipo de Transacción-->
@@ -48,40 +65,41 @@ $this->title = 'Inmobiliaria Valladolid';
                           <option value="rent">Renta</option>
                           <option value="buy">Venta</option>
                         </select>-->
-                          <?php  
-                          $tipos = Tipos::find()->all();
-                          $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
-                          echo Html::dropDownList($listData3, ['prompt' => 'Elegir Tipo...']);
-                   ?>
+                        <?= $f2->field($form1, "f")->dropDownList($listData1,['prompt'=>'Elegir colonia...']); ?>
                       <!--</label>-->
                     </div>
                     <div class="row columns">
-                      <label>Tipo de Propiedad
+<!--                      <label>Tipo de Propiedad
                         <select name="status" type="text">
                           <option>Escoje una Opción</option>
                           <option value="office">Terreno</option>
                           <option value="building">Departamento</option>
                         </select>
-                      </label>
+                      </label>-->
+                         <?= $f2->field($form1, "o")->dropDownList($listData2,['prompt'=>'Elegir tipo de propiedad...']) ?>
+
                     </div>
                     <div class="row columns">
-                      <label>Location
-                        <input type="text" name="location" placeholder="Any">
-                      </label>
+                      <?= $f2->field($form1, "t")->dropDownList($listData3,['prompt'=>'Elegir tipo de transacción...']) ?>
                     </div>
                     <div class="row">
-                      <label class="columns small-12">Price</label>
+<!--                      <label class="columns small-12">Pr</label>-->
                       <div class="columns small-6">
-                        <input type="number" min="0" name="min" placeholder="Min">
+<!--                        <input type="number" min="0" name="min" placeholder="Min">-->
+                          <?= $f2->field($form1, "precioMin")->input("number",['placeholder'=>'Precio Min','min'=> 0]) ?>
                       </div>
                       <div class="columns small-6">
-                        <input type="number" min="0" name="max" placeholder="Max">
+                          <?= $f2->field($form1, "precioMax")->input("number",['placeholder'=>'Precio Max']) ?>
                       </div>
                     </div>
-                    <button type="button" class="primary button expanded search-button">
+                    
+                       <?= Html::submitButton("Buscar",["class"=> "primary button expanded search-button"]) ?>
+<!--                    <button type="button" class="primary button expanded search-button">
                       Search
-                    </button>
-                 </form>
+                    </button>-->
+                 
+                    
+                     <?php $f2->end() ?>
             </div>
         </div>
 

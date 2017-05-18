@@ -16,6 +16,7 @@ use backend\models\Publicacion;
 use backend\models\Imagenes;
 use yii\data\Pagination;
 use frontend\models\FormSearch;
+use frontend\models\AvanzadoForm;
 use yii\helpers\Html;
 /**
  * Site controller
@@ -102,13 +103,18 @@ class SiteController extends Controller
     {
        
         $form = new FormSearch;
+        $form1 = new AvanzadoForm() ;
         $search = null;
+        $search1 = null;
+       
         if($form->load(Yii::$app->request->get()))
         {
             
             if ($form->validate())
             {
+                
                 $search = Html::encode($form->q);
+              
                 $table = Publicacion::find()
                         ->where(["like", "idpublicacion", $search])
                         ->orWhere(["like", "titulo", $search])
@@ -128,13 +134,39 @@ class SiteController extends Controller
                         ->all();
                 
             }
+           
             else
             {
                 $form->getErrors();
             }
         }
+      
+        
+        
         else
         {
+            if($form1->load(Yii::$app->request->get())){
+                 $search1 = Html::encode($form1->f);
+                 $seach4 = Html::encode($form1->precioMin);
+                 $seach5 = Html::encode($form1->precioMax);
+                $table = Publicacion::find()
+                        ->andWhere(["like","Colonia",$search1])
+                        ->andWhere(["like","Tipo", Html::encode($form1->t)])
+                        ->andWhere(["like","Operacion",Html::encode($form1->o)])
+                        ->andWhere(["between","precio",$seach4,$seach5]);
+//                        ->orWhere([">=","precio", Html::encode($form1->precioMin)])
+//                        ->andWhere(["<=","precio",Html::encode($form1->precioMax)]);
+                $count = clone $table;
+                $pages = new Pagination([
+                    "pageSize" => 5,
+                    "totalCount" => $count->count()
+                ]);
+                $model = $table
+                        ->offset($pages->offset)
+                        ->limit($pages->limit)
+                        ->all();
+            }
+            else{
             $table = Publicacion::find();
             $count = clone $table;
             $pages = new Pagination([
@@ -145,8 +177,9 @@ class SiteController extends Controller
                     ->offset($pages->offset)
                     ->limit($pages->limit)
                     ->all();
+            }
         }
-        return $this->render("index", ["publi" => $model, "form" => $form, "search" => $search, "pages" => $pages]);
+        return $this->render("index", ["publi" => $model ,"form" => $form,"form1"=> $form1, "search" => $search, "pages" => $pages]);
      
        
       

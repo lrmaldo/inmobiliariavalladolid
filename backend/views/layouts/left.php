@@ -37,9 +37,9 @@
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label'=>'Cambiar Foto de perfl','icon'=>'image','url'=>['/subir']],                    
                     ['label' => 'Subir Publicacion', 'icon' => 'upload', 'url' => ['/publicacion']],
-                    ['label' => 'Operaciones', 'icon' => 'upload', 'url' => ['/operacion']],
-                    ['label' => 'Tipos', 'icon' => 'upload', 'url' => ['/tipos']],
-                    ['label' => 'Colonias', 'icon' => 'upload', 'url' => ['/colonias']],
+                    ['label' => 'Operaciones', 'icon' => 'random', 'url' => ['/operacion']],
+                    ['label' => 'Tipos', 'icon' => 'institution', 'url' => ['/tipos']],
+                    ['label' => 'Colonias', 'icon' => 'map-marker', 'url' => ['/colonias']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Same tools',

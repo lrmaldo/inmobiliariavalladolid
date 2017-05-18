@@ -4,19 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp64/www/inmobiliaria/backend/views/publicacion/_form.php</file>
+            <file>file:/C:/wamp64/www/inmobiliaria/backend/controllers/PublicacionController.php</file>
             <file>file:/C:/wamp64/www/inmobiliaria/frontend/controllers/SiteController.php</file>
-<<<<<<< HEAD
-            <file>file:/C:/wamp64/www/inmobiliaria/backend/views/layouts/main.php</file>
-            <file>file:/C:/wamp64/www/inmobiliaria/composer.json</file>
-            <file>file:/C:/wamp64/www/inmobiliaria/composer.lock</file>
-            <file>file:/C:/wamp64/www/inmobiliaria/frontend/views/layouts/main.php</file>
-            <file>file:/C:/wamp64/www/inmobiliaria/backend/config/main.php</file>
-            <file>file:/C:/wamp64/www/inmobiliaria/frontend/views/site/view.php</file>
-            <file>file:/C:/wamp64/www/inmobiliaria/frontend/web/index-dev.php</file>
-            <file>file:/C:/wamp64/www/inmobiliaria/frontend/assets/AppAsset.php</file>
+            <file>file:/C:/wamp64/www/inmobiliaria/frontend/models/AvanzadoForm.php</file>
+            <file>file:/C:/wamp64/www/inmobiliaria/frontend/models/FormSearch.php</file>
             <file>file:/C:/wamp64/www/inmobiliaria/frontend/views/site/index.php</file>
-=======
->>>>>>> temporal
         </group>
     </open-files>
 </project-private>
