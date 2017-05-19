@@ -86,42 +86,67 @@ $this->title = 'Inmobiliaria Valladolid';
         </div>
 
     <div class="large-7 column">
-    <div class="news-image-gallery-container">
-  <div class="row">
-    <div class="small-12 medium-12 large-12 columns">
-      <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
-        <ul class="orbit-container">
-          <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-          <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-          <li class="is-active orbit-slide">
-            <img class="orbit-image" src="https://images.homify.com/images/a_0,c_fill,f_auto,h_720,q_auto,w_1920/v1440055803/p/photo/image/833389/Bad_Vilbel_Au%C3%9Fenansicht_S%C3%BCd/fotos-de-casas-de-estilo-moderno-de-die-hausmanufaktur-gmbh.jpg" alt="Space">
-            <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
-          </li>
-          <li class="orbit-slide">
-            <img class="orbit-image" src="https://vida-spyqpdxrgyld6rrkjib.netdna-ssl.com/wp-content/uploads/2015/03/JP-Torre-A-02.jpg" alt="Space">
-            <figcaption class="orbit-caption">Lets Rocket!</figcaption>
-          </li>
-          <li class="orbit-slide">
-            <img class="orbit-image" src="https://i.ytimg.com/vi/PYfbgddsAiY/maxresdefault.jpg" alt="Space">
-            <figcaption class="orbit-caption">Encapsulating</figcaption>
-          </li>
-          <li class="orbit-slide">
-            <img class="orbit-image" src="http://s3.amazonaws.com/assets.moveglobally.com/property_images/400620/6976230/EB-AN0620.jpg?1484193744" alt="Space">
-            <figcaption class="orbit-caption">Outta This World</figcaption>
-          </li>
-        </ul>
-        <nav class="orbit-bullets">
-          <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
-          <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-          <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-          <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
-        </nav>
-      </div>
+        <div class="news-image-gallery-container">
+          <div class="row">
+            <div class="small-12 medium-12 large-12 columns">
+              <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
+                <ul class="orbit-container">
+                  <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+                  <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+                  <li class="is-active orbit-slide">
+                    <img class="orbit-image" src="https://images.homify.com/images/a_0,c_fill,f_auto,h_720,q_auto,w_1920/v1440055803/p/photo/image/833389/Bad_Vilbel_Au%C3%9Fenansicht_S%C3%BCd/fotos-de-casas-de-estilo-moderno-de-die-hausmanufaktur-gmbh.jpg" alt="Space">
+                    <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+                  </li>
+                  <li class="orbit-slide">
+                    <img class="orbit-image" src="https://vida-spyqpdxrgyld6rrkjib.netdna-ssl.com/wp-content/uploads/2015/03/JP-Torre-A-02.jpg" alt="Space">
+                    <figcaption class="orbit-caption">Lets Rocket!</figcaption>
+                  </li>
+                  <li class="orbit-slide">
+                    <img class="orbit-image" src="https://i.ytimg.com/vi/PYfbgddsAiY/maxresdefault.jpg" alt="Space">
+                    <figcaption class="orbit-caption">Encapsulating</figcaption>
+                  </li>
+                  <li class="orbit-slide">
+                    <img class="orbit-image" src="http://s3.amazonaws.com/assets.moveglobally.com/property_images/400620/6976230/EB-AN0620.jpg?1484193744" alt="Space">
+                    <figcaption class="orbit-caption">Outta This World</figcaption>
+                  </li>
+                </ul>
+                <nav class="orbit-bullets">
+                  <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+                  <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+                  <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+                  <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
-  </div>
 </div>
 
+<div class="row" id="separador-cards">
+<?php foreach ($publi as $pub): ?>
+
+        <div class="large-3 large-offset-1 column">
+            <div class="card card-product">
+              <div class="card-product-img-wrapper">
+                <?= Html::a('Mas Información', ['detalle', 'id' => $pub->idpublicacion], ['class' => 'button expanded']); ?>
+                <?= Html::img(Yii::$app->urlManagerBackend->baseUrl."/".$pub->url_imagen,[
+                                'alt'=>$pub->titulo,
+                                'class'=> 'imagenes-250'
+                            ])?>
+              </div>
+              <div class="card-section">
+                <a href="#"><h3 class="card-product-name"><?= Html::a(Html::encode($pub->titulo), ['detalle', 'id' => $pub->idpublicacion]) ?></h3></a>
+                <h5 class="card-product-price">$ <?=Html::encode($pub->precio)?></h5>
+                <p class="card-product-description"><?=Html::encode($pub->Descripcion)?></p>
+              </div>
+            </div>
+        </div>
+
+    <?php endforeach; ?>
     </div>
+    <?= yii\widgets\LinkPager::widget(['pagination'=>$pages]) ?>
 
 </div>
+
 

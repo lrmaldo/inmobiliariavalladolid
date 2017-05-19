@@ -45,6 +45,7 @@ FontAsset::register($this);
                   <li><?= Html::a('Login', ['/site/login']); ?></li>
             <?php
             } else {
+                ?><li><?=Html::a('Logout', ['site/logout'], ['data' => ['method' => 'post']]);?></li><?;
                 $menuItems[] = '<li>'
                     . Html::beginForm(['/site/logout'], 'post')
                     . Html::submitButton(

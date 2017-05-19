@@ -1,3 +1,6 @@
+html{
+  overflow-x: hidden;
+}
 .portfolio-item {
     margin-bottom: 25px;
 }
@@ -374,4 +377,71 @@ button[type="submit"] {
 
 .news-image-gallery-container{
   padding-top: 0;
+}
+
+/*Cards v-2*/
+
+.card-product:hover .card-product-img-wrapper .button {
+  -webkit-transform: translateY(-3rem);
+      -ms-transform: translateY(-3rem);
+          transform: translateY(-3rem);
+}
+
+.card-product-img-wrapper {
+  margin-bottom: 1.375rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-product-img-wrapper .button {
+  transition: all 0.2s ease;
+  background-color: #767676;
+  padding: 1rem 0.5rem;
+  bottom: -3rem;
+  -webkit-transform: translateY(3rem);
+      -ms-transform: translateY(3rem);
+          transform: translateY(3rem);
+  position: absolute;
+  z-index: 2;
+  color: #fefefe;
+  margin-bottom: 0;
+}
+
+.card-product-img-wrapper .button:hover {
+  background-color: #1779ba;
+}
+
+.card-product-img-wrapper img {
+  width: 100%;
+}
+
+.card-product-img-wrapper .card-product-name {
+  font-size: 1.375rem;
+}
+
+.card-product-img-wrapper .card-product-price {
+  font-weight: bold;
+}
+
+.card-product-img-wrapper .card-product-description {
+  color: #8a8a8a;
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+#separador-cards{
+  margin-top: 50px;
+}
+
+img.imagenes-250{
+  width: 100%;
+  height: 270px;
+}
+
+.card-section{
+  background: #F0F0F0;
+}
+
+.card.card-product{
+  background: #F0F0F0;
 }
