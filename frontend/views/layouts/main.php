@@ -1,14 +1,11 @@
 <?php
-
 /* @var $this \yii\web\View */
 /* @var $content string */
-
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use frontend\assets\FontAsset;
 use common\widgets\Alert;
-
 AppAsset::register($this);
 FontAsset::register($this);
 ?>
@@ -45,7 +42,6 @@ FontAsset::register($this);
                   <li><?= Html::a('Login', ['/site/login']); ?></li>
             <?php
             } else {
-                ?><li><?=Html::a('Logout', ['site/logout'], ['data' => ['method' => 'post']]);?></li><?;
                 $menuItems[] = '<li>'
                     . Html::beginForm(['/site/logout'], 'post')
                     . Html::submitButton(

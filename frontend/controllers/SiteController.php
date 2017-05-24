@@ -30,6 +30,8 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
+               
+            
             'access' => [
                 'class' => AccessControl::className(),
                 'only' => ['logout', 'signup'],
@@ -87,10 +89,24 @@ class SiteController extends Controller
              "totalCount" => $count->count(),
         ]);
         
+        
     $img = $image
             ->offset($pagina->offset)
             ->limit($pagina->limit)
             ->all();
+    $imagecookie = Imagenes::find()->where(["like","id_publicacion",$id]);
+//    $cookie = new \yii\web\Cookie([
+//        "name"=> "test",
+//        "value"=> "test uno",
+//    ]);
+    $cookie1 = new \yii\web\Cookie([
+        "name"=>"imagen",
+        "value"=> $imagecookie 
+    ]);
+    
+//        Yii::$app->response->getCookies()->add($cookie);
+        Yii::$app->response->getCookies()->add($cookie1);
+    
         return $this->render('view', [
             'model' => $this->findModel($id),
             'publ'=> $img,
@@ -106,6 +122,10 @@ class SiteController extends Controller
         $form1 = new AvanzadoForm() ;
         $search = null;
         $search1 = null;
+        
+       
+        
+       
        
         if($form->load(Yii::$app->request->get()))
         {
@@ -122,10 +142,11 @@ class SiteController extends Controller
                         ->orWhere(["like","precio",$search])
                         ->orWhere(["like","Colonia",$search])
                         ->orWhere(["like","Tipo",$search])
-                        ->orWhere(["like","Operacion",$search]);
+                        ->orWhere(["like","Operacion",$search])
+                        ->orderBy("idpublicacion DESC");
                 $count = clone $table;
                 $pages = new Pagination([
-                    "pageSize" => 5,
+                    "pageSize" => 12,
                     "totalCount" => $count->count()
                 ]);
                 $model = $table
@@ -153,12 +174,13 @@ class SiteController extends Controller
                         ->andWhere(["like","Colonia",$search1])
                         ->andWhere(["like","Tipo", Html::encode($form1->t)])
                         ->andWhere(["like","Operacion",Html::encode($form1->o)])
-                        ->andWhere(["between","precio",$seach4,$seach5]);
+                        ->andWhere(["between","precio",$seach4,$seach5])
+                        ->orderBy("idpublicacion DESC");
 //                        ->orWhere([">=","precio", Html::encode($form1->precioMin)])
 //                        ->andWhere(["<=","precio",Html::encode($form1->precioMax)]);
                 $count = clone $table;
                 $pages = new Pagination([
-                    "pageSize" => 5,
+                    "pageSize" => 12,
                     "totalCount" => $count->count()
                 ]);
                 $model = $table
@@ -167,10 +189,10 @@ class SiteController extends Controller
                         ->all();
             }
             else{
-            $table = Publicacion::find();
+            $table = Publicacion::find()->orderBy("idpublicacion DESC");
             $count = clone $table;
             $pages = new Pagination([
-                "pageSize" => 5,
+                "pageSize" => 9,
                 "totalCount" => $count->count(),
             ]);
             $model = $table
@@ -178,6 +200,10 @@ class SiteController extends Controller
                     ->limit($pages->limit)
                     ->all();
             }
+        }
+         if(Yii::$app->response->getCookies()->has("imagen")){
+        $cooki = Yii::$app->response->getCookies()->getValue("imagen");
+        
         }
         return $this->render("index", ["publi" => $model ,"form" => $form,"form1"=> $form1, "search" => $search, "pages" => $pages]);
      

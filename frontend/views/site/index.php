@@ -37,6 +37,7 @@ $this->title = 'Inmobiliaria Valladolid';
         </div>
             <?php $f->end() ?>
     </div>
+ 
 </div>
 
 <div class="row">
@@ -58,6 +59,7 @@ $tipos = Tipos::find()->all();
 $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
         ?>
                     <h3>Buscador Avanzado</h3>
+                     
                     <div class="row columns">
 <!--                      <label>Tipo de Transacción-->
 <!--                        <select name="status" type="text">

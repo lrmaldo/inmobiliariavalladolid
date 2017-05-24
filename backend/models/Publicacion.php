@@ -69,5 +69,8 @@ class Publicacion extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
-   
+   public function getImageurl()
+{
+return \Yii::$app->request->BaseUrl.'/imagenes/'.$this->url_imagen;
+}
 }
