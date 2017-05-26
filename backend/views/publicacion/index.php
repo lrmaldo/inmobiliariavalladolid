@@ -4,6 +4,8 @@ use yii\helpers\Html;
 //use yii\grid\GridView;
 use kartik\grid\GridView; 
 use backend\models\PublicacionSearch;
+use backend\models\Publicacion;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\PublicacionSearch */
@@ -14,6 +16,7 @@ $date = new DateTime( "now", $UTC );
 $date->setTimezone( $newTZ );
 $this->title = Yii::t('app', 'Publicaciones');
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="publicacion-index">
 
@@ -24,10 +27,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a(Yii::t('app', 'Crear Publicacion'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= 
-            
+            //$datapubli = Publicacion::find()->all();
            GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'options'=>['style'=>'word-wrap:break-word; width:auto;'],
         'columns' => [
             'idpublicacion',
             [
@@ -54,6 +58,25 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Precio',
                 'pageSummary' => true
             ],
+             [
+                'format' => 'Currency',
+                'attribute' => 'precio_neto',
+                'label' => 'Precio neto',
+                'pageSummary' => true
+            ],
+//             [
+//            'attribute'=>'Colonias', 
+//            'width'=>'250px',
+//            'value'=>function ($model, $key, $index, $widget) { 
+//                return $model->Colonia;
+//            },
+//            'filterType'=>GridView::FILTER_SELECT2,
+//            'filter'=>ArrayHelper::map($datapubli, 'Colonia', 'Colonia'), 
+//            'filterWidgetOptions'=>[
+//                'pluginOptions'=>['allowClear'=>true],
+//            ],
+//            'filterInputOptions'=>['placeholder'=>'Any category']
+//        ],
             'Colonia',
             'Tipo',
             'Operacion',

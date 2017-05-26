@@ -20,7 +20,7 @@ class FormSearch extends Model
     public function rules()
     {
         return [
-            ["q", "match", "pattern" => "/^[0-9a-záéíóúñ\s]+$/i", "message" => "Sólo se aceptan letras y números"]
+            ['q', 'match', 'pattern' => "/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g", 'message' => 'Sólo se aceptan letras y números'],
         ];
     }
     

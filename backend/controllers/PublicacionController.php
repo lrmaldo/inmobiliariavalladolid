@@ -103,7 +103,7 @@ class PublicacionController extends Controller
                    }
                    $co = Yii::$app->db->createCommand('SELECT `url_imagen` FROM `imagenes` WHERE `id_publicacion` = '.($consulta). ' ORDER BY `id_imagen` LIMIT 1')->queryScalar();
                    $model->url_imagen=$co;
-                   $model->save();
+                   $model->save(false);
             }
             //INSERT INTO `imagenes` (`id_imagen`, `url_imagen`, `id_user`, `id_publicacion`) VALUES (NULL, 'imagenes/badge.png', '1', '25');
             return $this->redirect(['view', 'id' => $model->idpublicacion]);

@@ -39,10 +39,15 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
     <?= $form->field($model, 'Descripcion')->textarea(['rows' => 6]) ?>
 
       <?= $form->field($model, 'precio')->widget(MaskMoney::classname(), [
-   'pluginOptions' => [
+  'value' => null,
+    'options' => [
+        'placeholder' => 'Poner un valor númerico...'
+    ],
+        'pluginOptions' => [
        'prefix' => '$ ',
        //'suffix' => ' €',
-       'allowNegative' => false
+       'allowNegative' => false,
+        'allowEmpty' => true
    ]
 ]);?>
 
@@ -55,11 +60,27 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
 
     <?= $form->field($model, 'Tipo')->dropDownList($listData3, ['prompt' => 'Elegir Tipo...']) ?>
 
-    <?= $form->field($model, 'num_banio')->dropDownList([ 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', ], ['empty'=>'--Seleccionar--']) ?>
+    <?= $form->field($model, 'num_banio')->dropDownList([0=>'0', 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', ], ['prompt'=>'--Seleccionar--']) ?>
 
-    <?= $form->field($model, 'recamaras')->dropDownList([ 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', ], ['empty'=>'--Seleccionar--']) ?>
+    <?= $form->field($model, 'recamaras')->dropDownList([0=>'0', 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', ], ['prompt'=>'--Seleccionar--']) ?>
 
-  
+   <div class="form-group">
+        <?= $form->field($model, 'precio_neto')->widget(MaskMoney::classname(), [
+               'value' => null,
+    'options' => [
+        'placeholder' => 'Poner un valor númerico...'
+    ],
+        'pluginOptions' => [
+       'prefix' => '$ ',
+       //'suffix' => ' €',
+       'allowNegative' => false,
+        'allowEmpty' => true
+   ]
+]);?>
+        
+         <?= $form->field($model, 'notas')->textarea(['rows' => 7]) ?>
+        
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Crear' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

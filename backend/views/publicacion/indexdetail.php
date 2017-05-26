@@ -16,6 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
+       // 'containerOptions'=>['style'=>'overflow: auto'],
+        'options'=>['style'=>'word-wrap:break-word; width:auto; overflow: auto;'],
         'columns' => [
           [
         'attribute' => 'imagen',
@@ -25,13 +27,23 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['width' => '240px']);
         },
     ],
+                [
+                    'attribute'=>'notas',
+                    'format'=>'html',
+                    'value'=>function ($data) {
+            return '<p class= "card-product-description">'.$data->notas.'</p>';
+        },
+                ],
+                
+                //'notas:ntext',
+                
 
             //'idpublicacion',
             //'titulo',
 //            ['format' => 'image',
 //'value'=>function($data) { return $data->url_imagen; },],
             //'url_imagen:url',
-            'Descripcion:ntext',
+           // 'Descripcion:ntext',
             //'precio',
             // 'fecha_de_publicacion',
             // 'Colonia',

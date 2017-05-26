@@ -4,6 +4,7 @@ namespace backend\models;
 
 use Yii;
 use common\models\User;
+
 /**
  * This is the model class for table "publicacion".
  *
@@ -12,12 +13,14 @@ use common\models\User;
  * @property string $url_imagen
  * @property string $Descripcion
  * @property double $precio
+ * @property double $precio_neto
  * @property string $fecha_de_publicacion
  * @property string $Colonia
  * @property string $Operacion
  * @property string $Tipo
  * @property string $num_banio
  * @property string $recamaras
+ * @property string $notas
  * @property integer $id_user
  */
 class Publicacion extends \yii\db\ActiveRecord
@@ -36,12 +39,12 @@ class Publicacion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['url_imagen', 'Descripcion', 'precio', 'fecha_de_publicacion', 'Colonia', 'Operacion', 'Tipo', 'id_user'], 'required'],
-            [['Descripcion', 'Colonia', 'Operacion', 'Tipo', 'num_banio', 'recamaras'], 'string'],
-            [['precio',], 'number'],
+            [['idpublicacion', 'titulo', 'url_imagen', 'Descripcion', 'precio', 'precio_neto', 'fecha_de_publicacion', 'Colonia', 'Operacion', 'Tipo', 'num_banio', 'recamaras', 'notas', 'id_user'], 'required','message'=>'Falto llenar este campo'],
+            [['idpublicacion', 'id_user'], 'integer'],
+            [['Descripcion', 'num_banio', 'recamaras', 'notas'], 'string'],
+            [['precio', 'precio_neto'], 'number'],
             [['fecha_de_publicacion'], 'safe'],
-            [['id_user'], 'integer'],
-            [['titulo',], 'string', 'max' => 255],
+            [['titulo', 'url_imagen', 'Colonia', 'Operacion', 'Tipo'], 'string', 'max' => 255],
         ];
     }
 
@@ -52,25 +55,24 @@ class Publicacion extends \yii\db\ActiveRecord
     {
         return [
             'idpublicacion' => 'Idpublicacion',
-            'titulo' => 'Título',
-            //'url_imagen' => 'Url Imagen',
-            'Descripcion' => 'Descripción',
+            'titulo' => 'Titulo',
+            'url_imagen' => 'Url Imagen',
+            'Descripcion' => 'Descripcion',
             'precio' => 'Precio',
-            'fecha_de_publicacion' => 'Fecha De Publicación',
+            'precio_neto' => 'Precio Neto',
+            'fecha_de_publicacion' => 'Fecha De Publicacion',
             'Colonia' => 'Colonia',
-            'Operacion' => 'Operación',
+            'Operacion' => 'Operacion',
             'Tipo' => 'Tipo',
-            'num_banio' => 'Número de Baños',
-            'recamaras' => 'Recamaras',
+            'num_banio' => 'Número de baños',
+            'recamaras' => 'Número de recamaras',
+            'notas' => 'Notas',
             'id_user' => 'Id User',
         ];
     }
+    
      public function getIdUser()
     {
         return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
-   public function getImageurl()
-{
-return \Yii::$app->request->BaseUrl.'/imagenes/'.$this->url_imagen;
-}
 }

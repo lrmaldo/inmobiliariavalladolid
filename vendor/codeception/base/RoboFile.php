@@ -259,6 +259,7 @@ class RoboFile extends \Robo\Tasks
         $pharTask->addFile('autoload.php', 'autoload.php')
             ->addFile('codecept', 'package/bin')
             ->addFile('shim.php', 'shim.php')
+            ->addFile('phpunit5-loggers.php', 'phpunit5-loggers.php')
             ->run();
         
         $code = $this->taskExec('php ' . $pharFileName)->run()->getExitCode();
@@ -363,7 +364,7 @@ class RoboFile extends \Robo\Tasks
     public function buildDocsApi()
     {
         $this->say("API Classes");
-        $apiClasses = ['Codeception\Module'];
+        $apiClasses = ['Codeception\Module', 'Codeception\InitTemplate'];
 
         foreach ($apiClasses as $apiClass) {
             $name = (new ReflectionClass($apiClass))->getShortName();
