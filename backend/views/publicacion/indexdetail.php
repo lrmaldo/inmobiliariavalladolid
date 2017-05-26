@@ -55,7 +55,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
          
         ],
-         'responsive' => true,
+          'responsive' => false,
+        'hover' => true,
+        'showPageSummary' => true,
+        'containerOptions' => ['style' => 'overflow: auto'],
         
     ]); ?>
 </div>

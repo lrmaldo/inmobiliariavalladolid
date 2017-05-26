@@ -103,7 +103,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'header' => 'Exportar hoja de datos',
             'target' => [GridView::TARGET_SELF],
         ],
-        'responsive' => true,
+        'responsive' => false,
         'hover' => true,
         'showPageSummary' => true,
         'containerOptions' => ['style' => 'overflow: auto'], // only set when $responsive = false
