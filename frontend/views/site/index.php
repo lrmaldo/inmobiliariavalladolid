@@ -105,7 +105,9 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
             </div>
         </div>
 
-    <div class="large-7 column">
+
+
+    <div class="column large-7 small-12" id="container-orbit">
         <div class="news-image-gallery-container">
           <div class="row">
             <div class="small-12 medium-12 large-12 columns">
@@ -130,12 +132,7 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
                     <figcaption class="orbit-caption">Outta This World</figcaption>
                   </li>
                 </ul>
-                <nav class="orbit-bullets">
-                  <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
-                  <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-                  <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-                  <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
-                </nav>
+                
               </div>
             </div>
           </div>

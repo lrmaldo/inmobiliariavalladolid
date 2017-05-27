@@ -85,7 +85,7 @@ class SiteController extends Controller
         $count = clone $image;
       
         $pagina = new Pagination([
-             "pageSize" => 1,
+             "pageSize" => 6,
              "totalCount" => $count->count(),
         ]);
         

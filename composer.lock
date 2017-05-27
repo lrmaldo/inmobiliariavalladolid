@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a16f214941cf976e654259e4f59c025",
+    "content-hash": "6b489184aa801763df2f418dc178524a",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -542,22 +542,22 @@
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
-            "version": "v4.4.0",
+            "version": "v4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "eea8e20f20302c52a346cd31ffe154561ee609a3"
+                "reference": "aa4e1a520cef078922ed2c7c8e3e944d496388f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/eea8e20f20302c52a346cd31ffe154561ee609a3",
-                "reference": "eea8e20f20302c52a346cd31ffe154561ee609a3",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/aa4e1a520cef078922ed2c7c8e3e944d496388f6",
+                "reference": "aa4e1a520cef078922ed2c7c8e3e944d496388f6",
                 "shasum": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3.x-dev"
+                    "dev-master": "4.4.x-dev"
                 }
             },
             "autoload": {
@@ -591,7 +591,7 @@
                 "progress",
                 "upload"
             ],
-            "time": "2017-05-13T22:52:09+00:00"
+            "time": "2017-05-25T19:06:59+00:00"
         },
         {
             "name": "kartik-v/yii2-grid",
@@ -746,7 +746,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-05-23 12:14:36"
+            "time": "2017-05-23T12:14:36+00:00"
         },
         {
             "name": "kartik-v/yii2-mpdf",
@@ -806,16 +806,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-fileinput.git",
-                "reference": "55d8ff4c589b701ef40f3fb8db17fcfea2577615"
+                "reference": "d2c8dcde1aa69ac0c4a0e3b3cfc0d79b3cc2a550"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/55d8ff4c589b701ef40f3fb8db17fcfea2577615",
-                "reference": "55d8ff4c589b701ef40f3fb8db17fcfea2577615",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/d2c8dcde1aa69ac0c4a0e3b3cfc0d79b3cc2a550",
+                "reference": "d2c8dcde1aa69ac0c4a0e3b3cfc0d79b3cc2a550",
                 "shasum": ""
             },
             "require": {
-                "kartik-v/bootstrap-fileinput": "~4.2",
+                "kartik-v/bootstrap-fileinput": "~4.4",
                 "kartik-v/yii2-krajee-base": "~1.7"
             },
             "type": "yii2-extension",
@@ -853,7 +853,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-05-18 00:19:20"
+            "time": "2017-05-25 20:12:30"
         },
         {
             "name": "kartik-v/yii2-widget-select2",
@@ -906,7 +906,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-04-12 09:00:24"
+            "time": "2017-04-12T09:00:24+00:00"
         },
         {
             "name": "mpdf/mpdf",
@@ -3795,8 +3795,8 @@
         "kartik-v/yii2-money": 20,
         "foundationize/yii2-foundation": 20,
         "kartik-v/yii2-grid": 20,
-        "kartik-v/yii2-mpdf": 20,
-        "kartik-v/yii2-widget-select2": 20
+        "kartik-v/yii2-widget-select2": 20,
+        "kartik-v/yii2-mpdf": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
