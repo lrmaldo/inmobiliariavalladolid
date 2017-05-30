@@ -28,7 +28,7 @@ class ContactForm extends Model
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+            ['verifyCode', 'captcha','message'=>'el codigo de verificacion es incorrecto'],
         ];
     }
 
@@ -38,7 +38,11 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'name'=>'Nombre',
+            'email'=>'Email',
+            'subject'=>'Telefono',
+            'body'=>'Su mensaje',
+            'verifyCode' => 'Verifica el código',
         ];
     }
 
@@ -51,9 +55,9 @@ class ContactForm extends Model
     public function sendEmail($email)
     {
         $content = "<p>Email: ". $this->email . "</p>";
-        $content .= "<p>Name: ". $this->name . "</p>";
-        $content .= "<p>Subject: ". $this->subject . "</p>";
-        $content .= "<p>Body: ".$this->body ."</p>";
+        $content .= "<p>Nombre: ". $this->name . "</p>";
+        $content .= "<p>Telefono: ". $this->subject . "</p>";
+        $content .= "<p>Su mensaje: ".$this->body ."</p>";
         return Yii::$app->mailer->compose('layouts/html.php', ['content' => $content])
             ->setTo($email)
             ->setFrom([$this->email => $this->name])

@@ -88,7 +88,7 @@ class PublicacionController extends Controller
                    }
                    $co = Yii::$app->db->createCommand('SELECT `url_imagen` FROM `imagenes` WHERE `id_publicacion` = '.($consulta). ' ORDER BY `id_imagen` LIMIT 1')->queryScalar();
                    $model->url_imagen=$co;
-                   $model->save();
+                   $model->save(false);
             }else{
                $model->url_imagen = UploadedFile::getInstances($model, 'url_imagen');
      

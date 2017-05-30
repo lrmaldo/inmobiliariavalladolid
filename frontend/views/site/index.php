@@ -157,8 +157,24 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
               </div>
               <div class="card-section">
                 <a href="#"><h3 class="card-product-name"><?= Html::a(Html::encode($pub->titulo), ['detalle', 'id' => $pub->idpublicacion]) ?></h3></a>
-                <h5 class="card-product-price">$ <?=Html::encode($pub->precio)?></h5>
-                <p class="card-product-description"><?=Html::encode($pub->Descripcion)?></p>
+                <h5 class="card-product-price"><i class=" fa fa-money "></i>
+                    MXN <?=Yii::$app->formatter->asCurrency($pub->precio)
+                     ?>    
+                    </h5>
+                <p class="card-product-description"><ul class="fa-ul">
+                    <li><i class="fa fa-globe" aria-hidden="true"></i>
+                    <?=
+                    $pub->Colonia ?></li>
+                    <li><i class="fa fa-home" aria-hidden="true"></i>
+                    <?=
+                    $pub->Tipo ?></li>
+                    <li><li><i class="fa fa-legal" aria-hidden="true"></i><?=
+                    $pub->Operacion ?></li>
+                    <li><li><li><i class="fa fa-bath" aria-hidden="true"></i><?=
+                    $pub->num_banio?></li>
+                    <li><li><li><i class="fa fa-bed" aria-hidden="true"></i><?=
+                    $pub->recamaras ?></li>
+                </ul></p>
               </div>
             </div>
         </div>

@@ -49,6 +49,7 @@ class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
         ),
         'd' => 
         array (
+            'dosamigos\\ckeditor\\' => 19,
             'dmstr\\' => 6,
         ),
         'c' => 
@@ -167,6 +168,10 @@ class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
         'foundationize\\foundation\\' => 
         array (
             0 => __DIR__ . '/..' . '/foundationize/yii2-foundation',
+        ),
+        'dosamigos\\ckeditor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-ckeditor-widget/src',
         ),
         'dmstr\\' => 
         array (

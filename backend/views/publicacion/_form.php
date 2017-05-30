@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\money\MaskMoney;
 use kartik\file\FileInput;
+use dosamigos\ckeditor\CKEditor;
 use yii\helpers\ArrayHelper;
 $date = new \DateTime('now', new \DateTimeZone('UTC'));
 //modelos de las base de datos
@@ -36,7 +37,12 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
     'options' => ['accept' => 'image/*','multiple'=> true],
 ]); ?>
 
-    <?= $form->field($model, 'Descripcion')->textarea(['rows' => 6]) ?>
+   
+    
+    <?= $form->field($model, 'Descripcion')->widget(CKEditor::className(), [
+        'options' => ['rows' => 6],
+        'preset' => 'full'
+    ]) ?>
 
       <?= $form->field($model, 'precio')->widget(MaskMoney::classname(), [
   'value' => null,

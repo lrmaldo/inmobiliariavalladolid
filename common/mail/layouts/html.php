@@ -13,8 +13,28 @@ use yii\helpers\Html;
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
+    
 <body>
     <?php $this->beginBody() ?>
+    <header     height="40%" >
+    <h1  text-align="center" 
+    background ="#1779ba"
+    background-size="cover"
+    position ="relative"
+    overflow = "visible"
+    display="-webkit-flex"
+    display="-ms-flexbox"
+    display="flex"
+    webkit-align-items="center"
+    ms-flex-align="center"
+    
+   
+    
+    justify-content="center"
+    height="300px">
+       Inmobiliaria Valladolid
+    </h1>
+        </header>
     <?= $content ?>
     <?php $this->endBody() ?>
 </body>
