@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "018f87be6ae4ef092003bacbb94c72b9",
+=======
+    "content-hash": "6b489184aa801763df2f418dc178524a",
+>>>>>>> origin/master
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -847,7 +851,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-05-23 12:14:36"
+            "time": "2017-05-23T12:14:36+00:00"
         },
         {
             "name": "kartik-v/yii2-mpdf",
@@ -1007,7 +1011,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-04-12 09:00:24"
+            "time": "2017-04-12T09:00:24+00:00"
         },
         {
             "name": "mpdf/mpdf",
@@ -3896,8 +3900,8 @@
         "kartik-v/yii2-money": 20,
         "foundationize/yii2-foundation": 20,
         "kartik-v/yii2-grid": 20,
-        "kartik-v/yii2-mpdf": 20,
-        "kartik-v/yii2-widget-select2": 20
+        "kartik-v/yii2-widget-select2": 20,
+        "kartik-v/yii2-mpdf": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
