@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Colonias */
 
-$this->title = 'Crear Colonia';
-$this->params['breadcrumbs'][] = ['label' => 'Colonias', 'url' => ['index']];
+$this->title = Yii::t('app', 'Create Colonias');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Colonias'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="colonias-create">

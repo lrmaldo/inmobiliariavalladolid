@@ -35,7 +35,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['attribute' =>'precio',
                 'format' => 'Currency',],
             'fecha_de_publicacion',
-            'Colonia',
+            'Estado',
+            'Municipio',
+           'Colonia',
             'Operacion',
             'Tipo',
             'num_banio',
@@ -43,6 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
            // 'id_user',
         ],
     ]) ?>
+    
      </div> 
        <div class="com-md-6"> 
            <?=    Html::img('@web/'.$model->url_imagen,['alt'=>$model->titulo,'class'=>'img-responsive', 

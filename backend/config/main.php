@@ -65,6 +65,22 @@ return [
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
         ],
+        'urlManager' => [
+        'class' => 'yii\web\UrlManager',
+        // Disable r= routes
+        'enablePrettyUrl' => true,
+        'rules' => array(
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+        ),
+        ],
+         'urlManagerBackend' => [
+                'class' => 'yii\web\urlManager',
+                'baseUrl' => 'http://localhost/inmobiliaria/backend/web/',
+                'enablePrettyUrl' => true,
+                'showScriptName' => false,
+        ],
         'formatter' => [
                  'class' => 'yii\i18n\formatter',
                  'thousandSeparator' => ',',

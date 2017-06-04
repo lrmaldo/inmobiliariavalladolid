@@ -7,7 +7,7 @@
         <div class="user-panel">
             <div class="pull-left image">
              
-                <img src="<?=htmlentities($mod) ?>" class="img-circle" alt="User Image"/>
+                <img src="<?=Yii::$app->urlManagerBackend->baseUrl."/".htmlentities($mod) ?>" class="img-circle" alt="User Image"/>
                 
             </div>
             <div class="pull-left info">

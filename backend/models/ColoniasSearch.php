@@ -18,7 +18,7 @@ class ColoniasSearch extends Colonias
     public function rules()
     {
         return [
-            [['id_colonia'], 'integer'],
+            [['id_colonia', 'id_municipio'], 'integer'],
             [['nombre_colonia'], 'safe'],
         ];
     }
@@ -60,6 +60,7 @@ class ColoniasSearch extends Colonias
         // grid filtering conditions
         $query->andFilterWhere([
             'id_colonia' => $this->id_colonia,
+            'id_municipio' => $this->id_municipio,
         ]);
 
         $query->andFilterWhere(['like', 'nombre_colonia', $this->nombre_colonia]);

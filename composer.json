@@ -23,14 +23,16 @@
         "kartik-v/yii2-money": "dev-master",
         "foundationize/yii2-foundation": "dev-master",
         "kartik-v/yii2-grid": "@dev",
-<<<<<<< HEAD
+
         "kartik-v/yii2-mpdf": "dev-master",
         "kartik-v/yii2-widget-select2": "@dev",
-        "2amigos/yii2-ckeditor-widget": "^2.0"
-=======
+        "2amigos/yii2-ckeditor-widget": "^2.0",
+
         "kartik-v/yii2-widget-select2": "@dev",
-        "kartik-v/yii2-mpdf": "dev-master"
->>>>>>> origin/master
+        "kartik-v/yii2-mpdf": "dev-master",
+        "kartik-v/dependent-dropdown": "dev-master",
+        "kartik-v/yii2-widgets": "*"
+
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

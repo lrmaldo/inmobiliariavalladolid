@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\ColoniasSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Colonias';
+$this->title = Yii::t('app', 'Colonias');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="colonias-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Insertar Colonia', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Colonias'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,8 +24,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'id_colonia',
+            'id_colonia',
             'nombre_colonia',
+            'id_municipio',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -5,10 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Colonias */
 
-$this->title = 'Actualizar Colonia: ' . $model->id_colonia;
-$this->params['breadcrumbs'][] = ['label' => 'Colonias', 'url' => ['index']];
+$this->title = Yii::t('app', 'Update {modelClass}: ', [
+    'modelClass' => 'Colonias',
+]) . $model->id_colonia;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Colonias'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_colonia, 'url' => ['view', 'id' => $model->id_colonia]];
-$this->params['breadcrumbs'][] = 'Actualizar';
+$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="colonias-update">
 

@@ -15,6 +15,8 @@ use common\models\User;
  * @property double $precio
  * @property double $precio_neto
  * @property string $fecha_de_publicacion
+ * @property string $Estado 
+ * @property string $Municipio 
  * @property string $Colonia
  * @property string $Operacion
  * @property string $Tipo
@@ -39,12 +41,12 @@ class Publicacion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['idpublicacion', 'titulo', 'url_imagen', 'Descripcion', 'precio', 'precio_neto', 'fecha_de_publicacion', 'Colonia', 'Operacion', 'Tipo', 'num_banio', 'recamaras', 'notas', 'id_user'], 'required','message'=>'Falto llenar este campo'],
+            [['titulo', 'url_imagen', 'Descripcion', 'precio', 'precio_neto', 'fecha_de_publicacion', 'Estado', 'Municipio', 'Colonia', 'Operacion', 'Tipo', 'num_banio', 'recamaras', 'notas', 'id_user'], 'required','message'=>'Falto llenar este campo'],
             [['idpublicacion', 'id_user'], 'integer'],
             [['Descripcion', 'num_banio', 'recamaras', 'notas'], 'string'],
             [['precio', 'precio_neto'], 'number'],
             [['fecha_de_publicacion'], 'safe'],
-            [['titulo', 'url_imagen', 'Colonia', 'Operacion', 'Tipo'], 'string', 'max' => 255],
+            [['titulo', 'url_imagen','Estado','Municipio', 'Colonia', 'Operacion', 'Tipo'], 'string', 'max' => 255],
         ];
     }
 
@@ -61,6 +63,8 @@ class Publicacion extends \yii\db\ActiveRecord
             'precio' => 'Precio',
             'precio_neto' => 'Precio Neto',
             'fecha_de_publicacion' => 'Fecha De Publicacion',
+             'Estado' => 'Estado', 
+           'Municipio' => 'Municipio', 
             'Colonia' => 'Colonia',
             'Operacion' => 'Operacion',
             'Tipo' => 'Tipo',

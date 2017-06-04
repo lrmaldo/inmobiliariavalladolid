@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use backend\models\Imagenes;
+use yii\helpers\Json;
 /**
  * PublicacionController implements the CRUD actions for Publicacion model.
  */
@@ -56,6 +57,44 @@ class PublicacionController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
+   public function actionMunicipio() {
+    $out = [];
+    if (isset($_POST['depdrop_parents'])) {
+        $parents = $_POST['depdrop_parents'];
+        if ($parents != null) {
+            $cat_id = $parents[0];
+        $out = \backend\models\Municipio::find()->where(["id_estado"=>$cat_id])->select(['id_municipio AS id','nombre_municipio AS name'])->asArray()->all(); 
+            // the getSubCatList function will query the database based on the
+            // cat_id and return an array like below:
+            // [
+            //    ['id'=>'<sub-cat-id-1>', 'name'=>'<sub-cat-name1>'],
+            //    ['id'=>'<sub-cat_id_2>', 'name'=>'<sub-cat-name2>']
+            // ]
+           echo json_encode(['output'=>$out, 'selected'=>'']);
+            return;
+        }
+    }
+    echo Json_encode(['output'=>'', 'selected'=>'']);
+}
+  public function actionColonia() {
+    $out = [];
+    if (isset($_POST['depdrop_parents'])) {
+        $parents = $_POST['depdrop_parents'];
+        if ($parents != null) {
+            $cat_id = $parents[0];
+        $out = \backend\models\Colonias::find()->where(["id_municipio"=>$cat_id])->select(['id_colonia AS id','nombre_colonia AS name'])->asArray()->all(); 
+            // the getSubCatList function will query the database based on the
+            // cat_id and return an array like below:
+            // [
+            //    ['id'=>'<sub-cat-id-1>', 'name'=>'<sub-cat-name1>'],
+            //    ['id'=>'<sub-cat_id_2>', 'name'=>'<sub-cat-name2>']
+            // ]
+           echo json_encode(['output'=>$out, 'selected'=>'']);
+            return;
+        }
+    }
+    echo Json_encode(['output'=>'', 'selected'=>'']);
+}
 
     /**
      * Creates a new Publicacion model.

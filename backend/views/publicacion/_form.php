@@ -5,19 +5,22 @@ use yii\widgets\ActiveForm;
 use kartik\money\MaskMoney;
 use kartik\file\FileInput;
 use dosamigos\ckeditor\CKEditor;
+use kartik\widgets\DepDrop;
 use yii\helpers\ArrayHelper;
 $date = new \DateTime('now', new \DateTimeZone('UTC'));
 //modelos de las base de datos
 use backend\models\Colonias;
 use backend\models\Operacion;
 use backend\models\Tipos;
-
+use backend\models\Estado;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Publicacion */
 
 /* @var $form yii\widgets\ActiveForm */
-
+$estados = Estado::find()->all();
+$listE = ArrayHelper::map($estados, "id_estado","nombre_estado");
 $colonias = Colonias::find()->all();
 $listData1 = ArrayHelper::map($colonias,'nombre_colonia','nombre_colonia');
   //$listData1 = CHtml::listData($colonias,'id_colonia','nombre_colonia');
@@ -59,8 +62,27 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
 
    <?= $form->field($model, 'fecha_de_publicacion')->textInput()->textInput(['readonly'=>true,'value'=>$date->
            format('Y-m-d')])->label('Fecha de Alta') ?>
-
-    <?= $form->field($model, 'Colonia')->dropDownList($listData1,['prompt'=>'Elegir colonia...']) ?>
+    
+    
+       <?= $form->field($model, 'Estado')->dropDownList($listE,['id'=>'id_estado','prompt' => 'Elegir Estado...']) ?>
+       
+     <?= $form->field($model, 'Municipio')->widget(DepDrop::classname(), [
+    'options'=>['id'=>'id_municipio'],
+         
+    'pluginOptions'=>[
+        'depends'=>['id_estado'],
+        'placeholder'=>'Selecionar...',
+        'url'=>Url::to(['/publicacion/municipio'])
+    ]
+]) ?>
+     <?= $form->field($model, 'Colonia')->widget(DepDrop::classname(), [
+    'options'=>['id'=>'id_colonia'],
+    'pluginOptions'=>[
+        'depends'=>['id_municipio'],
+        'placeholder'=>'Selecionar...',
+        'url'=>Url::to(['/publicacion/colonia'])
+    ]
+]) ?>
 
     <?= $form->field($model, 'Operacion')->dropDownList($listData2, ['prompt' => 'Elegir Operación...']) ?>
 
