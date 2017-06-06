@@ -20,7 +20,7 @@ $listEstado = ArrayHelper::map($estado, "id_estado", "nombre_estado");
       <?= $form->field($model, 'id_estado')->dropDownList($listEstado,['prompt'=>'Elegir Estado...']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Crear') : Yii::t('app', 'Actualizar'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -39,32 +39,33 @@
                     ['label' => 'Subir Publicacion', 'icon' => 'upload', 'url' => ['/publicacion']],
                     ['label' => 'Operaciones', 'icon' => 'random', 'url' => ['/operacion']],
                     ['label' => 'Tipos', 'icon' => 'institution', 'url' => ['/tipos']],
-                    ['label' => 'Colonias', 'icon' => 'map-marker', 'url' => ['/colonias']],
+//                    ['label' => 'Colonias', 'icon' => 'map-marker', 'url' => ['/colonias']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
-                        'label' => 'Same tools',
-                        'icon' => 'share',
+                        'label' => 'Ubicación',
+                        'icon' => 'map-marker',
                         'url' => '#',
                         'items' => [
-                            ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
-                            ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
+                            ['label' => 'Estados', 'icon' => 'circle-o', 'url' => ['/estado'],],
+                            ['label' => 'Municipios', 'icon' => 'circle-o', 'url' => ['/municipio'],],
+                             ['label' => 'Colonias', 'icon' => 'circle-o', 'url' => ['/colonias'],],
+//                            [
+//                                'label' => 'Level One',
+//                                'icon' => 'circle-o',
+//                                'url' => '#',
+//                                'items' => [
+//                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
+//                                    [
+//                                        'label' => 'Level Two',
+//                                        'icon' => 'circle-o',
+//                                        'url' => '#',
+//                                        'items' => [
+//                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
+//                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
+//                                        ],
+//                                    ],
+//                                ],
+//                            ],
                         ],
                     ],
                 ],

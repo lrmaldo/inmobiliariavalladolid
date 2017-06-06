@@ -30,9 +30,10 @@ class Municipio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre_municipio', 'id_estado'], 'required'],
+            [['nombre_municipio', 'id_estado'], 'required','message'=>'no puede quedar el campo vacio'],
             [['id_estado'], 'integer'],
             [['nombre_municipio'], 'string', 'max' => 255],
+            [['nombre_municipio'],'unique',"message"=>'Este municipio ya existe'],
             [['id_estado'], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['id_estado' => 'id_estado']],
         ];
     }

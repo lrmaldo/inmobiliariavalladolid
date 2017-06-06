@@ -134,16 +134,53 @@ class SiteController extends Controller
             {
                 
                 $search = Html::encode($form->q);
-              
-                $table = Publicacion::find()
+              $consultaE = Yii::$app->db->createCommand("SELECT id_estado FROM estado WHERE nombre_estado ='".($search)."'")->queryScalar();
+              $consultaM = Yii::$app->db->createCommand("SELECT id_municipio FROM municipio WHERE nombre_municipio ='".($search)."'")->queryScalar();
+              $consultaC = Yii::$app->db->createCommand("SELECT id_colonia FROM colonias WHERE nombre_colonia ='".($search)."'")->queryScalar();
+                if(!empty($consultaE)){
+                    $table = Publicacion::find()
                         ->where(["like", "idpublicacion", $search])
                         ->orWhere(["like", "titulo", $search])
                         ->orWhere(["like", "Descripcion", $search])
-                        ->orWhere(["like","precio",$search])
-                        ->orWhere(["like","Colonia",$search])
+                        ->orWhere(["like","precio",$search])                   
+                        ->orWhere(["like","Tipo",$search])
+                        ->orWhere(["like","Operacion",$search])
+                        ->orWhere(["like","Estado",$consultaE])
+                        ->orderBy("idpublicacion DESC");
+                }
+               else if (!empty($consultaM)){
+                    $table = Publicacion::find()
+                        ->where(["like", "idpublicacion", $search])
+                        ->orWhere(["like", "titulo", $search])
+                        ->orWhere(["like", "Descripcion", $search])
+                        ->orWhere(["like","precio",$search])                   
+                        ->orWhere(["like","Tipo",$search])
+                        ->orWhere(["like","Operacion",$search])
+                        ->orWhere(["like","Municipio",$consultaM])
+                        ->orderBy("idpublicacion DESC");
+                }
+               else  if (!empty($consultaC)){
+                    $table = Publicacion::find()
+                        ->where(["like", "idpublicacion", $search])
+                        ->orWhere(["like", "titulo", $search])
+                        ->orWhere(["like", "Descripcion", $search])
+                        ->orWhere(["like","precio",$search])                   
+                        ->orWhere(["like","Tipo",$search])
+                        ->orWhere(["like","Operacion",$search])
+                        ->orWhere(["like","Colonia",$consultaC])
+                        ->orderBy("idpublicacion DESC");
+                    
+                }
+                else{
+              $table = Publicacion::find()
+                        ->where(["like", "idpublicacion", $search])
+                        ->orWhere(["like", "titulo", $search])
+                        ->orWhere(["like", "Descripcion", $search])
+                        ->orWhere(["like","precio",$search])                   
                         ->orWhere(["like","Tipo",$search])
                         ->orWhere(["like","Operacion",$search])
                         ->orderBy("idpublicacion DESC");
+                }
                 $count = clone $table;
                 $pages = new Pagination([
                     "pageSize" => 12,
@@ -167,10 +204,14 @@ class SiteController extends Controller
         else
         {
             if($form1->load(Yii::$app->request->get())){
-                 $search1 = Html::encode($form1->f);
+                 $search1 = Html::encode($form1->c);
                  $seach4 = Html::encode($form1->precioMin);
                  $seach5 = Html::encode($form1->precioMax);
+                 $es = Html::encode($form1->e);
+                 $muni = Html::encode($form1->m);
                 $table = Publicacion::find()
+                        ->andWhere(['like','Estado',$es])
+                        ->andWhere(['like','Municipio',$muni])
                         ->andWhere(["like","Colonia",$search1])
                         ->andWhere(["like","Tipo", Html::encode($form1->t)])
                         ->andWhere(["like","Operacion",Html::encode($form1->o)])
@@ -237,7 +278,48 @@ class SiteController extends Controller
             ]);
         }
     }
+    
+    
+     public function actionMunicipio() {
+    $out = [];
+    if (isset($_POST['depdrop_parents'])) {
+        $parents = $_POST['depdrop_parents'];
+        if ($parents != null) {
+            $cat_id = $parents[0];
+        $out = \backend\models\Municipio::find()->where(["id_estado"=>$cat_id])->select(['id_municipio AS id','nombre_municipio AS name'])->asArray()->all(); 
+            // the getSubCatList function will query the database based on the
+            // cat_id and return an array like below:
+            // [
+            //    ['id'=>'<sub-cat-id-1>', 'name'=>'<sub-cat-name1>'],
+            //    ['id'=>'<sub-cat_id_2>', 'name'=>'<sub-cat-name2>']
+            // ]
+           echo json_encode(['output'=>$out, 'selected'=>'']);
+            return;
+        }
+    }
+    echo Json_encode(['output'=>'', 'selected'=>'']);
+}
 
+
+  public function actionColonia() {
+    $out = [];
+    if (isset($_POST['depdrop_parents'])) {
+        $parents = $_POST['depdrop_parents'];
+        if ($parents != null) {
+            $cat_id = $parents[0];
+        $out = \backend\models\Colonias::find()->where(["id_municipio"=>$cat_id])->select(['id_colonia AS id','nombre_colonia AS name'])->asArray()->all(); 
+            // the getSubCatList function will query the database based on the
+            // cat_id and return an array like below:
+            // [
+            //    ['id'=>'<sub-cat-id-1>', 'name'=>'<sub-cat-name1>'],
+            //    ['id'=>'<sub-cat_id_2>', 'name'=>'<sub-cat-name2>']
+            // ]
+           echo json_encode(['output'=>$out, 'selected'=>'']);
+            return;
+        }
+    }
+    echo Json_encode(['output'=>'', 'selected'=>'']);
+}
     /**
      * Logs out the current user.
      *
@@ -262,7 +344,7 @@ class SiteController extends Controller
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
                 Yii::$app->session->setFlash('success', 'Gracias por contactarnos. Nosotros responderemos a la mayor brevedad posible.');
             } else {
-                Yii::$app->session->setFlash('error', 'No se ha podido enviar su mensaje.');
+                Yii::$app->session->setFlash('error', 'No se ha podido enviar su mensaje.Intente más tarde');
             }
 
             return $this->refresh();

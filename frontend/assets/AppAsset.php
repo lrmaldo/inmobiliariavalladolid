@@ -22,7 +22,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         //'js/bootstrap.js',
-        'js/jquery.js',
+        //'js/jquery.js',
         //'js/bootstrap.min.js',
         'js/details.js'
       ];

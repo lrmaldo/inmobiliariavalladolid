@@ -9,9 +9,11 @@ use yii\widgets\ActiveForm;
 use frontend\assets\AppAsset;
 use kartik\money\MaskMoney;
 use backend\models\Colonias;
+use backend\models\Estado;
 use backend\models\Operacion;
 use backend\models\Tipos;
 use yii\helpers\ArrayHelper;
+use kartik\widgets\DepDrop;
 
 
 
@@ -50,14 +52,16 @@ $this->title = 'Inmobiliaria Valladolid';
               "enableClientValidation" => true,
           ]);
           
-          $colonias = Colonias::find()->all();
-$listData1 = ArrayHelper::map($colonias,'nombre_colonia','nombre_colonia');
+//          $colonias = Colonias::find()->all();
+//$listData1 = ArrayHelper::map($colonias,'nombre_colonia','nombre_colonia');
 
+          $estados = Estado::find()->all();
+$listData1 = ArrayHelper::map($estados, 'id_estado', 'nombre_estado');
 $operacion = Operacion::find()->all();
-$listData2 = ArrayHelper::map($operacion,'nombre_operacion', 'nombre_operacion');
+$listData2 = ArrayHelper::map($operacion, 'nombre_operacion', 'nombre_operacion');
 $tipos = Tipos::find()->all();
 $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
-        ?>
+?>
                     <h3>Buscador Avanzado</h3>
                      
                     <div class="row columns">
@@ -67,8 +71,35 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
                           <option value="rent">Renta</option>
                           <option value="buy">Venta</option>
                         </select>-->
-                        <?= $f2->field($form1, "f")->dropDownList($listData1,['prompt'=>'Elegir colonia...']); ?>
+                        <?= $f2->field($form1, "e")->dropDownList($listData1,['id'=>'id_estado','prompt'=>'Elegir Estado...']); ?>
                       <!--</label>-->
+                    </div>
+                    <div class="row columns">
+                        <?=
+                        $f2->field($form1, 'm')->widget(DepDrop::classname(), [
+                            'options' => ['id' => 'id_municipio'],
+                            'pluginOptions' => [
+                                'depends' => ['id_estado'],
+                                'placeholder' => 'Selecionar...',
+                                'url' => Url::to(['/site/municipio'])
+                            ]
+                        ])
+                        ?>
+                        
+                    </div>
+                    <div class="row colummns">
+                        
+                           <?=
+                        $f2->field($form1, 'c')->widget(DepDrop::classname(), [
+                            'options' => ['id' => 'id_colonia'],
+                            'pluginOptions' => [
+                                'depends' => ['id_municipio'],
+                                'placeholder' => 'Selecionar...',
+                                'url' => Url::to(['/site/colonia'])
+                            ]
+                        ])
+                        ?>
+                        
                     </div>
                     <div class="row columns">
 <!--                      <label>Tipo de Propiedad

@@ -66,7 +66,7 @@ class EstadoController extends Controller
         $model = new Estado();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_estado]);
+            return  $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -87,9 +87,7 @@ class EstadoController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_estado]);
         } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+            $this->redirect(['index']);
         }
     }
 

@@ -29,9 +29,10 @@ class Colonias extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre_colonia', 'id_municipio'], 'required'],
+            [['nombre_colonia', 'id_municipio'], 'required','message'=>'no puede quedar el campo vacio'],
             [['id_municipio'], 'integer'],
             [['nombre_colonia'], 'string', 'max' => 255],
+            [['nombre_colonia'],'unique',"message"=>'Este colonia ya existe'],
             [['id_municipio'], 'unique'],
             [['id_municipio'], 'exist', 'skipOnError' => true, 'targetClass' => Municipio::className(), 'targetAttribute' => ['id_municipio' => 'id_municipio']],
         ];

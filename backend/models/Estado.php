@@ -28,8 +28,9 @@ class Estado extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre_estado'], 'required'],
+            [['nombre_estado'], 'required','message'=>'no puede quedar el campo vacio'],
             [['nombre_estado'], 'string', 'max' => 255],
+            [['nombre_estado'],'unique',"message"=>'Este estado ya existe'],
         ];
     }
 

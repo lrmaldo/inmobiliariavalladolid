@@ -9,11 +9,13 @@ use Yii;
 use yii\base\Model;
 
 class AvanzadoForm extends Model{
-     public $f;
-     public $t;
-     public $o;
-     public $precioMin;
-     public $precioMax;
+    public $e;
+    public $m;
+    public $c;
+    public $t;
+    public $o;
+    public $precioMin;
+    public $precioMax;
     
 
 
@@ -23,7 +25,8 @@ class AvanzadoForm extends Model{
     public function rules()
     {
         return [
-           [['f','t','o','precioMin','precioMax'], 'required', 'message' => 'Campo requerido'],
+           [['e','m','c','t','o','precioMin','precioMax'], 'required', 'message' => 'Campo requerido'],
+           // [['e','m','c'],'default'=>null],
             
 //            ["f", "match", "pattern" => "/^[0-9a-záéíóúñ\s]+$/i", "message" => "Sólo se aceptan letras y números"],
 //             ["t", "match", "pattern" => "/^[0-9a-záéíóúñ\s]+$/i", "message" => "Sólo se aceptan letras y números"],
@@ -36,7 +39,9 @@ class AvanzadoForm extends Model{
     public function attributeLabels()
     {
         return [
-            'f' => "Colonias",
+            'e'=>"Estados",
+            'm'=> "Municipios",
+            'c' => "Colonias",
             't'=> "Tipo de propiedad",
             'o'=> "Tipo de Transacción",
             'precioMin'=> "Precio Mínimo",
