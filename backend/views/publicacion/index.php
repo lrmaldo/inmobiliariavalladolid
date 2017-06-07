@@ -6,6 +6,8 @@ use kartik\grid\GridView;
 use backend\models\PublicacionSearch;
 use backend\models\Publicacion;
 use yii\helpers\ArrayHelper;
+use kartik\export\ExportMenu;
+use kartik\dialog\Dialog;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\PublicacionSearch */
@@ -33,11 +35,120 @@ if($dataProvider->getCount()== 0){
     <p>
         <?= Html::a(Yii::t('app', 'Crear Publicacion'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?= 
+    
+    
+    <?php 
+    
+        $gridColumns = [
+  ['class' => 'yii\grid\SerialColumn'],
+            'idpublicacion',
+            'titulo',
+            //'url_imagen:url',
+           // 'Descripcion:ntext',
+             [
+                'format' => 'Currency',
+                'attribute' => 'precio',
+                'label' => 'Precio',
+                'pageSummary' => true
+            ],
+             [
+                'format' => 'Currency',
+                'attribute' => 'precio_neto',
+                'label' => 'Precio minimo',
+                'pageSummary' => true
+            ],
+        ['attribute'=>'Estado',
+                    'format'=>'html',
+                    'value'=>function ($model) {
+                      $con = Yii::$app->db->createCommand("SELECT nombre_estado FROM estado WHERE id_estado ='".($model->Estado)."'")->queryScalar();
+            
+            return   $con;
+        }
+        ],
+                
+            ['attribute'=>'Municipio',
+                    'format'=>'html',
+                    'value'=>function ($model) {
+                      $c = Yii::$app->db->createCommand("SELECT nombre_municipio FROM municipio WHERE id_municipio ='".($model->Municipio)."'")->queryScalar();
+            
+            return   $c;
+        }
+        ],
+                ['attribute'=>'Colonia',
+                    'format'=>'html',
+                    'value'=>function ($model) {
+                      $colonia = Yii::$app->db->createCommand("SELECT nombre_colonia FROM colonias WHERE id_colonia ='".($model->Colonia)."'")->queryScalar();
+            
+            return   $colonia;
+        }
+        ],
+             'fecha_de_publicacion',
+             'Colonia',
+             'Operacion',
+             'Tipo',
+             'num_banio',
+             'recamaras',
+              'notas'
+                
+            // 'id_user',
+                ];
+            echo ExportMenu::widget([
+    'dataProvider' => $dataProvider,
+    'columns' => $gridColumns,
+     'target'=> ExportMenu::TARGET_SELF,
+     'columnBatchToggleSettings'=>[
+         'label'=>'Seleccionar todos',
+     ],       
+    'fontAwesome' => true,
+    'dropdownOptions' => [
+        'label' => 'Exportar datos select.',
+        'class' => 'btn btn-default'
+    ],
+    'exportConfig' => [
+    ExportMenu::FORMAT_TEXT => false,
+   
+    ExportMenu::FORMAT_CSV=>false,
+    ExportMenu::FORMAT_HTML=> false,
+    ExportMenu::FORMAT_EXCEL => false,
+    ExportMenu::FORMAT_PDF => ['label' => 'Guardar como PDF',
+                'font' => [
+            'bold' => true,
+            'color' => [
+                'argb' => 'FFFFFFFF',
+            ],
+        ],
+        'fill' => [
+            
+            'startcolor' => [
+                'argb' => 'FFA0A0A0',
+            ],
+            'endcolor' => [
+                'argb' => 'FFFFFFFF',
+            ],
+        ],
+    ],
+
+
+            ExportMenu::FORMAT_EXCEL_X=>[  
+        'label' => Yii::t('app', 'Excel 2007+'),
+       
+        'iconOptions' => ['class' => 'text-success'],
+        'linkOptions' => [],
+        'options' => ['title' => Yii::t('app', 'Microsoft Excel 2007+ (xlsx)'), 'filename'=> 'Reporte'],
+        'alertMsg' => Yii::t('app', 'Se generará el EXCEL 2007+ .'),
+        'mime' => 'application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        'extension' => 'xlsx',
+        'writer' => 'Excel2007'
+    
+        
+        ]
+      
+        ],
+]) . "<hr>\n".
             //$datapubli = Publicacion::find()->all();
            GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'options'=>['style'=>'word-wrap:break-word; width:auto;'],
         'columns' => [
             'idpublicacion',
@@ -68,7 +179,7 @@ if($dataProvider->getCount()== 0){
              [
                 'format' => 'Currency',
                 'attribute' => 'precio_neto',
-                'label' => 'Precio neto',
+                'label' => 'Precio minimo',
                 'pageSummary' => true
             ],
 //             [
@@ -84,7 +195,33 @@ if($dataProvider->getCount()== 0){
 //            ],
 //            'filterInputOptions'=>['placeholder'=>'Any category']
 //        ],
-            'Colonia',
+            
+              ['attribute'=>'Estado',
+                    'format'=>'html',
+                    'value'=>function ($model) {
+                      $con = Yii::$app->db->createCommand("SELECT nombre_estado FROM estado WHERE id_estado ='".($model->Estado)."'")->queryScalar();
+            
+            return   $con;
+        }
+        ],
+                
+            ['attribute'=>'Municipio',
+                    'format'=>'html',
+                    'value'=>function ($model) {
+                      $c = Yii::$app->db->createCommand("SELECT nombre_municipio FROM municipio WHERE id_municipio ='".($model->Municipio)."'")->queryScalar();
+            
+            return   $c;
+        }
+        ],
+                ['attribute'=>'Colonia',
+                    'format'=>'html',
+                    'value'=>function ($model) {
+                      $colonia = Yii::$app->db->createCommand("SELECT nombre_colonia FROM colonias WHERE id_colonia ='".($model->Colonia)."'")->queryScalar();
+            
+            return   $colonia;
+        }
+        ],
+           
             'Tipo',
             'Operacion',
             'num_banio',
@@ -187,6 +324,8 @@ if($dataProvider->getCount()== 0){
 //            ['class' => 'yii\grid\ActionColumn'],
 //        ],
 //    ]);
+                
+            
     
     ?>
 </div>

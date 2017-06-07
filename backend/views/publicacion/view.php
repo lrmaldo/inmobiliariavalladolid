@@ -35,9 +35,31 @@ $this->params['breadcrumbs'][] = $this->title;
             ['attribute' =>'precio',
                 'format' => 'Currency',],
             'fecha_de_publicacion',
-            'Estado',
-            'Municipio',
-           'Colonia',
+             ['attribute'=>'Estado',
+                    'format'=>'html',
+                    'value'=>function ($model) {
+                      $con = Yii::$app->db->createCommand("SELECT nombre_estado FROM estado WHERE id_estado ='".($model->Estado)."'")->queryScalar();
+            
+            return   $con;
+        }
+        ],
+            ['attribute'=>'Municipio',
+                    'format'=>'html',
+                    'value'=>function ($model) {
+                      $c = Yii::$app->db->createCommand("SELECT nombre_municipio FROM municipio WHERE id_municipio ='".($model->Municipio)."'")->queryScalar();
+            
+            return   $c;
+        }
+        ],
+                ['attribute'=>'Colonia',
+                    'format'=>'html',
+                    'value'=>function ($model) {
+                      $colonia = Yii::$app->db->createCommand("SELECT nombre_colonia FROM colonias WHERE id_colonia ='".($model->Colonia)."'")->queryScalar();
+            
+            return   $colonia;
+        }
+        ],
+           
             'Operacion',
             'Tipo',
             'num_banio',
