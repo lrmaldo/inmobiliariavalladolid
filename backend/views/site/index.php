@@ -5,40 +5,125 @@
 $this->title = 'Inmobiliaria Valladolid';
 ?>
 <div class="site-index">
-
+    
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Bienvenido</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
+       
+        <div class="row">
+            <div class="col-lg-4">
+              <?php 
+                $consulta = Yii::$app->db->createCommand('SELECT COUNT(*) FROM publicacion')->queryScalar();
+              echo \insolita\wgadminlte\LteInfoBox::widget([
+                      'bgIconColor'=>\insolita\wgadminlte\LteConst::COLOR_AQUA,
+                      'bgColor'=>'',
+                      'number'=>$consulta,
+                      'text'=>'Publicaciones',
+                      'icon'=>'fa fa-upload',
+                      'showProgress'=>true,
+                      'progressNumber'=>$consulta,
+                      'description'=>'Número de publicaciones',
+                      
+                    
+                  ])?>
+            </div>
+            <div class="col-lg-4">
+                <?php echo \insolita\wgadminlte\LteSmallBox::widget([
+                       'type'=>\insolita\wgadminlte\LteConst::COLOR_GREEN,
+                       'title'=>($consulta*100/1000).'%',
+                       'text'=>'Porcentaje',
+                       'icon'=>'fa fa-upload',
+                       'footer'=>'Insertar publicación <i class="fa fa-hand-o-right"></i>',
+                       'link'=> yii\helpers\Url::to(Yii::$app->urlManagerBackend->baseUrl."/index.php/publicacion/create")
+                   ]);?>
+            </div>
+            <div class="col-lg-4">
+               <?php echo \insolita\wgadminlte\LteInfoBox::widget([
+                      'bgIconColor'=>\insolita\wgadminlte\LteConst::COLOR_AQUA,
+                      'bgColor'=>'',
+                      'number'=>100500,
+                      'text'=>'visitantes',
+                      'icon'=>'fa fa-line-chart',
+                      'showProgress'=>false,
+                      'progressNumber'=>66,
+                      'description'=>'Número de visitas',
+                      
+                    
+                  ])?>
+            </div>
+        </div>
 
     <div class="body-content">
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+               <?php 
+                $consulEstados = Yii::$app->db->createCommand('SELECT COUNT(*) FROM estado')->queryScalar();
+               echo \insolita\wgadminlte\LteSmallBox::widget([
+                       'type'=>\insolita\wgadminlte\LteConst::COLOR_MAROON,
+                       'title'=>$consulEstados,
+                       'text'=>'Estados',
+                       'icon'=>'fa fa-circle-o',
+                       'footer'=>'Ver estados <i class="fa fa-hand-o-right"></i>',
+                       'link'=> yii\helpers\Url::to(Yii::$app->urlManagerBackend->baseUrl."/index.php/estado")
+                   ]);?>
+                
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+               <?php 
+             
+             $consulMuni = Yii::$app->db->createCommand('SELECT COUNT(*) FROM municipio')->queryScalar();
+             echo \insolita\wgadminlte\LteSmallBox::widget([
+                       'type'=>\insolita\wgadminlte\LteConst::COLOR_TEAL,
+                       'title'=>$consulMuni,
+                       'text'=>'Municipios',
+                       'icon'=>'fa fa-circle-o',
+                       'footer'=>'Ver Municipios <i class="fa fa-hand-o-right"></i>',
+                       'link'=> yii\helpers\Url::to(Yii::$app->urlManagerBackend->baseUrl."/index.php/municipio")
+                   ]);?>
+              
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+              
+                
+                 <?php 
+               $consulColonia = Yii::$app->db->createCommand('SELECT COUNT(*) FROM colonias')->queryScalar();
+               echo \insolita\wgadminlte\LteSmallBox::widget([
+                       'type'=>\insolita\wgadminlte\LteConst::COLOR_YELLOW,
+                       'title'=>$consulColonia,
+                       'text'=>"Colonias",
+                       'icon'=>'fa fa-circle-o',
+                       'footer'=>'Ver Colonias <i class="fa fa-hand-o-right"></i>',
+                       'link'=> yii\helpers\Url::to(Yii::$app->urlManagerBackend->baseUrl."/index.php/colonias")
+                   ]);?>
             </div>
         </div>
-
+ <div class="row">
+            <div class="col-lg-4">
+                <?php echo \insolita\wgadminlte\LteSmallBox::widget([
+                       'type'=>\insolita\wgadminlte\LteConst::COLOR_BLUE,
+                       'title'=>'Operaciones',
+                       'text'=>'',
+                       'icon'=>'fa fa-random',
+                       'footer'=>'Insertar operación <i class="fa fa-hand-o-right"></i>',
+                       'link'=> yii\helpers\Url::to(Yii::$app->urlManagerBackend->baseUrl."/index.php/operacion/create")
+                   ]);?>
+            
+            </div>
+            <div class="col-lg-4">
+               
+              
+            </div>
+            <div class="col-lg-4">
+               <?php echo \insolita\wgadminlte\LteSmallBox::widget([
+                       'type'=>\insolita\wgadminlte\LteConst::COLOR_RED,
+                       'title'=>'Tipos',
+                       'text'=>'',
+                       'icon'=>'fa fa-institution',
+                       'footer'=>'Insertar tipos <i class="fa fa-hand-o-right"></i>',
+                       'link'=> yii\helpers\Url::to(Yii::$app->urlManagerBackend->baseUrl."/index.php/tipos/create")
+                   ]);?>
+            </div>
+        </div>
     </div>
 </div>

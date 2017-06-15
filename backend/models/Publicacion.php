@@ -46,7 +46,9 @@ class Publicacion extends \yii\db\ActiveRecord
             [['Descripcion', 'num_banio', 'recamaras', 'notas'], 'string'],
             [['precio', 'precio_neto'], 'number'],
             [['fecha_de_publicacion'], 'safe'],
-            [['titulo', 'url_imagen','Estado','Municipio', 'Colonia', 'Operacion', 'Tipo'], 'string', 'max' => 255],
+            ['url_imagen','file','maxFiles'=>40],
+//            [ 'url_imagen','unsafe'],
+            [['titulo','Estado','Municipio', 'Colonia', 'Operacion', 'Tipo'], 'string', 'max' => 255],
         ];
     }
 

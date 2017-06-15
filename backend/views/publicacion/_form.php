@@ -15,6 +15,7 @@ use backend\models\Colonias;
 use backend\models\Operacion;
 use backend\models\Tipos;
 use backend\models\Estado;
+use backend\models\Imagenes;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
@@ -30,6 +31,9 @@ $operacion = Operacion::find()->all();
 $listData2 = ArrayHelper::map($operacion, 'nombre_operacion', 'nombre_operacion');
 $tipos = Tipos::find()->all();
 $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
+$imagenes = Imagenes::find()->where(['id_publicacion' =>$model->idpublicacion])->all();
+//$listimagen = ArrayHelper::map($imagenes, 'id_imagen','url_imagen');
+//echo print_r($listimagen);
 ?>
 
 <div class="publicacion-form">
@@ -40,7 +44,15 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
 
     <?=
     $form->field($model, 'url_imagen[]')->widget(FileInput::classname(), [
-        'options' => ['accept' => 'image/*', 'multiple' => true],
+        'options' => ['accept' => 'image/*',
+            'multiple' => true,
+            //'overwriteInitial'=>TRUE,
+            "allowedFileExtensions"=> ["jpg", "png", "gif"]],
+//            'initialPreview' => [
+//    "<img src=".$model->url_imagen." class='file-preview-image' alt='Desert' title='Desert'>",
+//],
+            //"initialPreview"=> [$listimagen],
+            // "initialPreviewConfig"=>[],
     ]);
     ?>
 

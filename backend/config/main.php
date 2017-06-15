@@ -81,6 +81,13 @@ return [
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
         ],
+        'urlManagerBackend1' => [
+                'class' => 'yii\web\urlManager',
+                'baseUrl' => 'http://localhost/inmobiliaria/backend/',
+                'enablePrettyUrl' => true,
+                'showScriptName' => false,
+        ],
+        
         'formatter' => [
                  'class' => 'yii\i18n\formatter',
                  'thousandSeparator' => ',',

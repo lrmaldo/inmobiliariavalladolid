@@ -9,6 +9,7 @@ $this->title = 'Actualizar Publicacion: ' . $model->idpublicacion;
 $this->params['breadcrumbs'][] = ['label' => 'Publicacions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->idpublicacion, 'url' => ['view', 'id' => $model->idpublicacion]];
 $this->params['breadcrumbs'][] = 'Actualizar';
+ 
 ?>
 <div class="publicacion-update">
 
@@ -16,6 +17,7 @@ $this->params['breadcrumbs'][] = 'Actualizar';
 
     <?= $this->render('_form', [
         'model' => $model,
+        
     ]) ?>
 
 </div>
