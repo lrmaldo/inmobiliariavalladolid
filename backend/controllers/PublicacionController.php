@@ -233,12 +233,36 @@ class PublicacionController extends Controller
     {
         $this->findModel($id)->delete();
         
-        $consultaImagen = Yii::$app->db->createCommand('SELECT');
+        $this->BorrarImagenes($id);
+        //$consultaImagen = Yii::$app->db->createCommand('SELECT');
         
         $deleteFile = Yii::$app->db->createCommand('DELETE FROM `imagenes` WHERE `id_publicacion`='.($id));
         $deleteFile->execute();
 
         return $this->redirect(['index']);
+    }
+    public function Borrarimagenes($idimg){
+        
+       //
+        
+        $modeloimg = Imagenes::find()->where(['id_publicacion'=>$idimg])->select(["url_imagen"])->all();
+       //$imgfile = \yii\helpers\ArrayHelper::map($modeloimg,"id_publicacion", "url_imagen");
+       
+       if(count($modeloimg)>=1){
+            
+       foreach ($modeloimg as $modi){
+               // $dir = ;
+               if(file_exists(Yii::getAlias("@webroot")."/".$modi->url_imagen)){
+                unlink(Yii::getAlias("@webroot")."/".$modi->url_imagen);
+               }
+//                $file = (substr($modelos->Fotosimgs[$i]->ruta2, 1));
+//                $do = unlink($file);
+//                $file = (substr($modelos->Fotosimgs[$i]->ruta3, 1));
+//                $do = unlink($file);
+//                Fotosimg::model()->findByPk($modelos->Fotosimgs[$i]->codigo)->delete();
+            }
+        }
+
     }
 
     /**
@@ -253,7 +277,7 @@ class PublicacionController extends Controller
         if (($model = Publicacion::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException('La pagina no existe');
         }
     }
 }

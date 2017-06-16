@@ -22,11 +22,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+           // ['class' => 'yii\grid\SerialColumn'],
 
             'id_municipio',
             'nombre_municipio',
-            'id_estado',
+             ['attribute'=>'Estado',
+                    'format'=>'html',
+                    'value'=>function ($model) {
+                      $con = Yii::$app->db->createCommand("SELECT nombre_estado FROM estado WHERE id_estado ='".($model->id_estado)."'")->queryScalar();
+            
+            return   $con;
+        }
+        ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

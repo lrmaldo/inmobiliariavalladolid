@@ -48,11 +48,22 @@ $imagenes = Imagenes::find()->where(['id_publicacion' =>$model->idpublicacion])-
             'multiple' => true,
             //'overwriteInitial'=>TRUE,
             "allowedFileExtensions"=> ["jpg", "png", "gif"]],
-//            'initialPreview' => [
-//    "<img src=".$model->url_imagen." class='file-preview-image' alt='Desert' title='Desert'>",
-//],
-            //"initialPreview"=> [$listimagen],
-            // "initialPreviewConfig"=>[],
+            'pluginOptions'=>[
+                'previewFileType' => 'image',
+                 'showUpload' => false,
+                 'showRemove'=>true,
+                  
+//        'initialPreview' => [
+//            Html::img(Yii::$app->urlManagerBackend->baseUrl."/imagenes/3.jpg", [ 'alt'=>'The Moon', 'title'=>'The Moon']),
+//            Html::img("/imagenes/2.jpg", ['class'=>'file-preview-image', 'alt'=>'The Earth', 'title'=>'The Earth']),
+//        ],
+                        
+       // 'initialCaption'=>"Elige las imagenes",
+        'overwriteInitial'=>false,
+        //'dropZoneEnabled'=>true,        
+                
+            ],
+
     ]);
     ?>
 
