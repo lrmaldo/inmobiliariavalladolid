@@ -1,8 +1,8 @@
 backend/web/imagenes/*
 
-//composer.json
-//composer.lock
-//composer.phar
+composer.json
+composer.lock
+composer.phar
 
 
 
@@ -24,7 +24,7 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
-//vendor
+vendor
 
 # Mac DS_Store Files
 .DS_Store
