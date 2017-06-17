@@ -30,16 +30,15 @@ $this->title = 'Inmobiliaria Valladolid';
               "enableClientValidation" => true,
           ]);
         ?>
-        <div class="input-group-button">
-            <?= $f ->field($form,"q")->input("search",['placeholder'=>'Buscar', 'class'=>'input-group-field']); ?>        
-        </div>
+          <div class="input-group-button">
+              <?= $f ->field($form,"q")->input("search",['placeholder'=>'Buscar', 'class'=>'input-group-field']); ?>        
+          </div>
 
-        <div class="input-group-button">
-            <?= Html::submitButton("&#xf002",["class"=> "button secondary"]) ?>
-        </div>
-            <?php $f->end() ?>
+          <div class="input-group-button">
+              <?= Html::submitButton("&#xf002",["class"=> "button secondary"]) ?>
+          </div>
+              <?php $f->end() ?>
     </div>
- 
 </div>
 
 <div class="row">
@@ -65,12 +64,6 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
                     <h3>Buscador Avanzado</h3>
                      
                     <div class="row columns">
-<!--                      <label>Tipo de Transacción-->
-<!--                        <select name="status" type="text">
-                          <option>Escoje una Opción</option>
-                          <option value="rent">Renta</option>
-                          <option value="buy">Venta</option>
-                        </select>-->
                         <?= $f2->field($form1, "e")->dropDownList($listData1,['id'=>'id_estado','prompt'=>'Elegir Estado...']); ?>
                       <!--</label>-->
                     </div>
@@ -87,7 +80,7 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
                         ?>
                         
                     </div>
-                    <div class="row colummns">
+                    <div id="colonia" class="row colummns">
                         
                            <?=
                         $f2->field($form1, 'c')->widget(DepDrop::classname(), [

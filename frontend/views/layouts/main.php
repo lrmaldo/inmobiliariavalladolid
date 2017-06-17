@@ -6,8 +6,8 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use frontend\assets\FontAsset;
 use common\widgets\Alert;
-AppAsset::register($this);
-FontAsset::register($this);
+$bundle=AppAsset::register($this);
+$bundle2=FontAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
@@ -62,12 +62,43 @@ FontAsset::register($this);
     <?= $content ?>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+<footer class="marketing-site-footer">
+  <div class="row medium-unstack">
+    <div class="medium-4 columns">
+      <h4 class="marketing-site-footer-name">Inmobiliaria Valladolid</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolorem accusantium architecto id quidem, itaque nesciunt quam ducimus atque.</p>
+      <ul class="menu marketing-site-footer-menu-social simple">
+        <li><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
+         <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+         <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+      </ul>
     </div>
+    <div class="medium-4 columns">
+       <h4 class="marketing-site-footer-title">Información de Contacto</h4>
+      <div class="marketing-site-footer-block">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <p>Calle 48 # entre 45 y 43 Sisal<br>Valladolid, Yucatán 97780</p>
+      </div>
+      <div class="marketing-site-footer-block">
+        <i class="fa fa-phone" aria-hidden="true"></i>
+        <p id="tel"><a href="tel:+529851018671">9851018671</a></p>
+      </div>
+      <div class="marketing-site-footer-block">
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        <p id="mail"><a href="email:ederglez7@hotmail.com">ederglez7@hotmail.com</a></p>
+      </div>
+    </div>
+    <div class="medium-4 columns">
+      <h4 class="marketing-site-footer-title">Ubicación</h4>
+      <div class="row small-up-3">
+         <?= Html::img($bundle->baseImg."/mapimage.jpg");?> 
+      </div>
+    </div>
+    <div class="column">
+        <p>&copy; My Company <?= date('Y')?></p>
+        
+    </div>   
+  </div>
 </footer>
 
 <?php $this->endBody() ?>
