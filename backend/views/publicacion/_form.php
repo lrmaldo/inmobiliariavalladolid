@@ -72,7 +72,7 @@ $imagenes = Imagenes::find()->where(['id_publicacion' =>$model->idpublicacion])-
     <?=
     $form->field($model, 'Descripcion')->widget(CKEditor::className(), [
         'options' => ['rows' => 6],
-        'preset' => 'full'
+        'preset' => 'standard'
     ])
     ?>
 
