@@ -1,5 +1,7 @@
 backend/assets/*
-backend/config/*
+backend/config/main-local.php
+backend/config/params-local.php
+backend/config/test-local.php
 backend/runtime/*
 backend/tests/*
 vendor/*
