@@ -1,13 +1,13 @@
-backend/web/imagenes/*
+//backend/web/imagenes/*
 
-//composer.json
-//composer.lock
-//composer.phar
+composer.json
+composer.lock
+composer.phar
 
 
 
 # yii console command
-/yii
+yii
 
 # phpstorm project files
 .idea
@@ -24,7 +24,7 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
-//vendor
+vendor
 
 # Mac DS_Store Files
 .DS_Store
