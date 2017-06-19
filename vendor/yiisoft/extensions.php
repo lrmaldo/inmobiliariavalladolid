@@ -84,15 +84,6 @@ return array (
       '@yii/swiftmailer' => $vendorDir . '/yiisoft/yii2-swiftmailer',
     ),
   ),
-  'foundationize/yii2-foundation' => 
-  array (
-    'name' => 'foundationize/yii2-foundation',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@foundationize/foundation' => $vendorDir . '/foundationize/yii2-foundation',
-    ),
-  ),
   'kartik-v/yii2-money' => 
   array (
     'name' => 'kartik-v/yii2-money',
@@ -343,6 +334,15 @@ return array (
     'alias' => 
     array (
       '@kartik/export' => $vendorDir . '/kartik-v/yii2-export',
+    ),
+  ),
+  'foundationize/yii2-foundation' => 
+  array (
+    'name' => 'foundationize/yii2-foundation',
+    'version' => '0.0.1.0',
+    'alias' => 
+    array (
+      '@nonzod/foundation' => $vendorDir . '/foundationize/yii2-foundation',
     ),
   ),
 );
