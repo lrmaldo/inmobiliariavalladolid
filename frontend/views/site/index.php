@@ -19,6 +19,12 @@ use kartik\widgets\DepDrop;
 
 $this->title = 'Inmobiliaria Valladolid';
 
+
+$contador = Yii::$app->db->createCommand("SELECT contador from visitantes")->queryScalar();
+$acumulador = ($contador+1);
+
+$sql = Yii::$app->db->createCommand("UPDATE `visitantes` SET `contador`=".($acumulador)." WHERE 1");
+$sql->execute();
 ?>
 
 <div class="large-10 medium-10 small-10 large-offset-1 medium-offset-1 small-offset-1">
