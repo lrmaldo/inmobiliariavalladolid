@@ -33,10 +33,6 @@ class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
-        'n' => 
-        array (
-            'nonzod\\foundation\\' => 18,
-        ),
         'k' => 
         array (
             'kartik\\widgets\\' => 15,
@@ -72,6 +68,10 @@ class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
         'i' => 
         array (
             'insolita\\wgadminlte\\' => 20,
+        ),
+        'f' => 
+        array (
+            'foundationize\\foundation\\' => 25,
         ),
         'd' => 
         array (
@@ -162,10 +162,6 @@ class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-        ),
-        'nonzod\\foundation\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/foundationize/yii2-foundation',
         ),
         'kartik\\widgets\\' => 
         array (
@@ -286,6 +282,10 @@ class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
         'insolita\\wgadminlte\\' => 
         array (
             0 => __DIR__ . '/..' . '/insolita/yii2-adminlte-widgets',
+        ),
+        'foundationize\\foundation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/foundationize/yii2-foundation',
         ),
         'dosamigos\\ckeditor\\' => 
         array (

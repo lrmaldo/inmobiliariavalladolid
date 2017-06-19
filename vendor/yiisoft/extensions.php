@@ -339,10 +339,10 @@ return array (
   'foundationize/yii2-foundation' => 
   array (
     'name' => 'foundationize/yii2-foundation',
-    'version' => '0.0.1.0',
+    'version' => '9999999-dev',
     'alias' => 
     array (
-      '@nonzod/foundation' => $vendorDir . '/foundationize/yii2-foundation',
+      '@foundationize/foundation' => $vendorDir . '/foundationize/yii2-foundation',
     ),
   ),
 );
