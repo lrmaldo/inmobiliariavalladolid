@@ -34,7 +34,7 @@ $this->title = 'Inmobiliaria Valladolid';
                        'text'=>'Porcentaje',
                        'icon'=>'fa fa-upload',
                        'footer'=>'Insertar publicación <i class="fa fa-hand-o-right"></i>',
-                       'link'=> yii\helpers\Url::to(Yii::$app->urlManagerBackend->baseUrl."/index.php/publicacion/create")
+                       'link'=> yii\helpers\Url::to(Yii::getAlias("@web")."/index.php/publicacion/create")
                    ]);?>
             </div>
             <div class="col-lg-4">
@@ -65,7 +65,7 @@ $this->title = 'Inmobiliaria Valladolid';
                        'text'=>'Estados',
                        'icon'=>'fa fa-circle-o',
                        'footer'=>'Ver estados <i class="fa fa-hand-o-right"></i>',
-                       'link'=> yii\helpers\Url::to(Yii::$app->urlManagerBackend->baseUrl."/index.php/estado")
+                       'link'=> yii\helpers\Url::to(Yii::getAlias("@web")."/index.php/estado")
                    ]);?>
                 
             </div>
@@ -79,7 +79,7 @@ $this->title = 'Inmobiliaria Valladolid';
                        'text'=>'Municipios',
                        'icon'=>'fa fa-circle-o',
                        'footer'=>'Ver Municipios <i class="fa fa-hand-o-right"></i>',
-                       'link'=> yii\helpers\Url::to(Yii::$app->urlManagerBackend->baseUrl."/index.php/municipio")
+                       'link'=> yii\helpers\Url::to(Yii::getAlias("@web")."/index.php/municipio")
                    ]);?>
               
             </div>
@@ -94,7 +94,7 @@ $this->title = 'Inmobiliaria Valladolid';
                        'text'=>"Colonias",
                        'icon'=>'fa fa-circle-o',
                        'footer'=>'Ver Colonias <i class="fa fa-hand-o-right"></i>',
-                       'link'=> yii\helpers\Url::to(Yii::$app->urlManagerBackend->baseUrl."/index.php/colonias")
+                       'link'=> yii\helpers\Url::to(Yii::getAlias("@web")."/index.php/colonias")
                    ]);?>
             </div>
         </div>
@@ -106,7 +106,7 @@ $this->title = 'Inmobiliaria Valladolid';
                        'text'=>'',
                        'icon'=>'fa fa-random',
                        'footer'=>'Insertar operación <i class="fa fa-hand-o-right"></i>',
-                       'link'=> yii\helpers\Url::to(Yii::$app->urlManagerBackend->baseUrl."/index.php/operacion/create")
+                       'link'=> yii\helpers\Url::to(Yii::getAlias("@web")."/index.php/operacion/create")
                    ]);?>
             
             </div>
@@ -121,7 +121,7 @@ $this->title = 'Inmobiliaria Valladolid';
                        'text'=>'',
                        'icon'=>'fa fa-institution',
                        'footer'=>'Insertar tipos <i class="fa fa-hand-o-right"></i>',
-                       'link'=> yii\helpers\Url::to(Yii::$app->urlManagerBackend->baseUrl."/index.php/tipos/create")
+                       'link'=> yii\helpers\Url::to(Yii::getAlias("@web")."/index.php/tipos/create")
                    ]);?>
             </div>
         </div>

@@ -6,7 +6,7 @@
 //backend/tests/*
 //common/config/*
 //frontend/config/*
-//vendor
+vendor
 //composer.son
 //composer-lock
 //nbproject
