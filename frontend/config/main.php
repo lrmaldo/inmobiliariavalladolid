@@ -51,7 +51,7 @@ return [
         ],
         'urlManagerBackend' => [
                 'class' => 'yii\web\urlManager',
-                'baseUrl' => 'http://localhost/inmobiliaria/backend/web/',
+                'baseUrl' => 'http://52.179.21.10/backend/web/imagenes/',
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
         ],
