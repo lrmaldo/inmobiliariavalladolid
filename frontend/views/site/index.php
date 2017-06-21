@@ -179,7 +179,7 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
               <div class="card-section">
                 <a href="#"><h3 class="card-product-name"><?= Html::a(Html::encode($pub->titulo), ['detalle', 'id' => $pub->idpublicacion]) ?></h3></a>
                 <h5 class="card-product-price"><i class=" fa fa-money "></i>
-                    MXN <?=Yii::$app->formatter->asCurrency($pub->precio)
+                    MXN <?=Yii::$app->formatter->asCurrency($pub->precio,'MXN')
                      ?>    
                     </h5>
                 <p class="card-product-description"><ul class="fa-ul">
