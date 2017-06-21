@@ -230,13 +230,13 @@ use yii\helpers\Html;
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="<?=Yii::getAlias("@web"). htmlentities($mod) ?>" class="user-image" alt="User Image"/>
+                        <img src="<?=Yii::getAlias("@web")."/". htmlentities($mod) ?>" class="user-image" alt="User Image"/>
                         <span class="hidden-xs"><?= Yii::$app->user->identity->username  ?></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="<?= Yii::getAlias("@web").htmlentities($mod) ?>" class="img-circle"
+                            <img src="<?= Yii::getAlias("@web")."/".htmlentities($mod) ?>" class="img-circle"
                                  alt="User Image"/>
 
                             <p>
