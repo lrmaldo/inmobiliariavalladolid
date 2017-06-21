@@ -89,7 +89,7 @@ return [
         ],
         
         'formatter' => [
-                 'class' => 'yii\i18n\formatter',
+                 'class' => 'yii\i18n\Formatter',
                  'thousandSeparator' => ',',
                  'decimalSeparator' => '.',
                  'currencyCode' => 'MXN',
