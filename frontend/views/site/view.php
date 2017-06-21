@@ -62,7 +62,7 @@ $this->title = $model->titulo;
             <h4>Detalles</h4>         
                 <ul class="fa-ul">
                     <li><i class=" fa fa-money "></i>&nbsp
-                    MXN <?=Yii::$app->formatter->asCurrency($model->precio)
+                    MXN <?=Yii::$app->formatter->asCurrency($model->precio,"MXN")
                     ?>    
                     </li>
                     <li><i class="fa fa-globe" aria-hidden="true"></i>&nbsp
