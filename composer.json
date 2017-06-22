@@ -24,7 +24,7 @@
         "foundationize/yii2-foundation": "dev-master",
         "kartik-v/yii2-grid": "@dev",
 
-        "kartik-v/yii2-mpdf": "v1.0.0",
+        "kartik-v/yii2-mpdf": "dev-master",
         "kartik-v/yii2-widget-select2": "@dev",
         "2amigos/yii2-ckeditor-widget": "^2.0",
 

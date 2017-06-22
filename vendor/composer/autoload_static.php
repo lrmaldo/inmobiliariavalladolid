@@ -4,13 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
+class ComposerStaticInit26102ec0be6918a86c40d69eaf485f3e
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
-        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '180092cfc969a12e06f2132a203a3184' => __DIR__ . '/..' . '/codeception/verify/src/Codeception/function.php',
     );
 
@@ -912,10 +912,10 @@ class ComposerStaticInit57eab4d0870c082e9f88da494937fc2a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit57eab4d0870c082e9f88da494937fc2a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit57eab4d0870c082e9f88da494937fc2a::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit57eab4d0870c082e9f88da494937fc2a::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit57eab4d0870c082e9f88da494937fc2a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit26102ec0be6918a86c40d69eaf485f3e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit26102ec0be6918a86c40d69eaf485f3e::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit26102ec0be6918a86c40d69eaf485f3e::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit26102ec0be6918a86c40d69eaf485f3e::$classMap;
 
         }, null, ClassLoader::class);
     }

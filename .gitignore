@@ -7,7 +7,7 @@
 //common/config/*
 //frontend/config/*
 vendor
-composer.json
+//composer.json
 composer-lock
 nbproject
 yii
