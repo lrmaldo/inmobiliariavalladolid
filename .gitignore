@@ -7,7 +7,7 @@
 //common/config/*
 //frontend/config/*
 vendor
-//composer.son
-//composer-lock
-//nbproject
-//yii
+composer.json
+composer-lock
+nbproject
+yii
