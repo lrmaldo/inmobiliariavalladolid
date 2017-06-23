@@ -33,8 +33,8 @@ class Colonias extends \yii\db\ActiveRecord
             [['id_municipio'], 'integer'],
             [['nombre_colonia'], 'string', 'max' => 255],
             [['nombre_colonia'],'unique',"message"=>'Este colonia ya existe'],
-            [['id_municipio'], 'unique'],
-           ],
+            //[['id_municipio'], 'unique'],
+            [['id_municipio'], 'exist', 'skipOnError' => true, 'targetClass' => Municipio::className(), 'targetAttribute' => ['id_municipio' => 'id_municipio']],
         ];
     }
 
