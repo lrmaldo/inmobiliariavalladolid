@@ -6,7 +6,7 @@ backend/runtime/*
 backend/tests/*
 //common/config/*
 frontend/config/*
-
+frontend/assets/*
 vendor
 composer.json
 composer.lock
