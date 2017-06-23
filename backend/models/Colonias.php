@@ -34,8 +34,7 @@ class Colonias extends \yii\db\ActiveRecord
             [['nombre_colonia'], 'string', 'max' => 255],
             [['nombre_colonia'],'unique',"message"=>'Este colonia ya existe'],
             [['id_municipio'], 'unique'],
-           ],
-        ];
+           ];
     }
 
     /**
