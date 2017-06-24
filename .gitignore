@@ -4,9 +4,10 @@ backend/config/params-local.php
 backend/config/test-local.php
 backend/runtime/*
 backend/tests/*
+backend/web/imagenes/*
 //common/config/*
 frontend/config/*
-frontend/assets/*
+frontend/web/assets/*
 vendor
 composer.json
 composer.lock

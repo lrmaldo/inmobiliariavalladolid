@@ -38,10 +38,12 @@ $this->title = 'Inmobiliaria Valladolid';
                    ]);?>
             </div>
             <div class="col-lg-4">
-               <?php echo \insolita\wgadminlte\LteInfoBox::widget([
+               <?php
+               $numvisitantes = Yii::$app->db->createCommand("SELECT contador from visitantes")->queryScalar();
+               echo \insolita\wgadminlte\LteInfoBox::widget([
                       'bgIconColor'=>\insolita\wgadminlte\LteConst::COLOR_AQUA,
                       'bgColor'=>'',
-                      'number'=>100500,
+                      'number'=>$numvisitantes,
                       'text'=>'visitantes',
                       'icon'=>'fa fa-line-chart',
                       'showProgress'=>false,

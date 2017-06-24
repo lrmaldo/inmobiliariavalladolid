@@ -25,7 +25,28 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
+ public $role;
 
+    public static function isUserAdmin($id)
+    {
+       if (User::findOne(['id' => $id, 'activate' => '1', 'role' => 2])){
+        return true;
+       } else {
+
+        return false;
+       }
+
+    }
+
+    public static function isUserSimple($id)
+    {
+       if (User::findOne(['id' => $id, 'activate' => '1', 'role' => 1])){
+       return true;
+       } else {
+
+       return false;
+       }
+    }
 
     /**
      * @inheritdoc

@@ -37,13 +37,21 @@ class PublicacionController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new PublicacionSearch();
+      if (!Yii::$app->user->isGuest) {
+           $searchModel = new PublicacionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+        }
+       else{
+        return $this->goHome();
+       }
+        
+        
+       
     }
 
     /**
@@ -53,9 +61,17 @@ class PublicacionController extends Controller
      */
     public function actionView($id)
     {
+        
+        if (Yii::$app->user->isGuest){
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
+        }
+        else{
+            return $this->goHome();
+                    
+                    
+        }
     }
    public function actionMunicipio() {
     $out = [];
@@ -103,6 +119,10 @@ class PublicacionController extends Controller
      */
     public function actionCreate()
     {
+       
+        
+      
+            
         $model = new Publicacion();
         
         if ($model->load(Yii::$app->request->post()) ) {
@@ -147,10 +167,13 @@ class PublicacionController extends Controller
             //INSERT INTO `imagenes` (`id_imagen`, `url_imagen`, `id_user`, `id_publicacion`) VALUES (NULL, 'imagenes/badge.png', '1', '25');
             return $this->redirect(['view', 'id' => $model->idpublicacion]);
         } else {
+              
             return $this->render('create', [
                 'model' => $model,
             ]);
+             
         }
+       
 
         /**if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idpublicacion]);

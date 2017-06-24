@@ -45,6 +45,8 @@ $sql->execute();
           </div>
               <?php $f->end() ?>
     </div>
+    
+    
 </div>
 
 <div class="row">
@@ -171,6 +173,7 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
 </div>
 
 <div class="row" id="separador-cards">
+    
 <?php foreach ($publi as $pub): ?>
 
         <div class="large-3 large-offset-1 column">
@@ -191,7 +194,23 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
                 <p class="card-product-description"><ul class="fa-ul">
                     <li><i class="fa fa-globe" aria-hidden="true"></i>
                     <?=
-                    $pub->Colonia ?></li>
+                     
+                     
+                   
+                    $consultaE = Yii::$app->db->createCommand("SELECT nombre_estado FROM estado WHERE id_estado ='".($pub->Estado )."'")->queryScalar();
+                   
+                ?></li>
+                    <li><i class="fa fa-globe" aria-hidden="true"></i>
+                    <?=
+                        
+                    
+                      $consultaM = Yii::$app->db->createCommand("SELECT nombre_municipio FROM municipio WHERE id_municipio ='".($pub->Municipio)."'")->queryScalar();  
+                        ?></li>
+                    <li><i class="fa fa-globe" aria-hidden="true"></i>
+                    <?= 
+                    
+                        $consultaC = Yii::$app->db->createCommand("SELECT nombre_colonia FROM colonias WHERE id_colonia ='".($pub->Colonia)."'")->queryScalar();         
+                                ?></li>
                     <li><i class="fa fa-home" aria-hidden="true"></i>
                     <?=
                     $pub->Tipo ?></li>
@@ -209,6 +228,9 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
     <?php endforeach; ?>
     </div>
     <?= yii\widgets\LinkPager::widget(['pagination'=>$pages]) ?>
+  <?php
+               $numvisitantes = Yii::$app->db->createCommand("SELECT contador from visitantes")->queryScalar();
+               echo "Eres el visitante numero ".$numvisitantes?>
 
 </div>
 

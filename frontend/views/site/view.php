@@ -42,7 +42,20 @@ $this->title = $model->titulo;
                     </li>
                     <li><i class="fa fa-globe" aria-hidden="true"></i>&nbsp
                     <?=
-                    $model->Colonia ?></li>
+                    
+                         $consultaE = Yii::$app->db->createCommand("SELECT nombre_estado FROM estado WHERE id_estado ='".($model->Estado )."'")->queryScalar();
+                       
+                ?></li>
+                    <li><i class="fa fa-globe" aria-hidden="true"></i>&nbsp
+                    <?=
+                    
+                     $consultaM = Yii::$app->db->createCommand("SELECT nombre_municipio FROM municipio WHERE id_municipio ='".($model->Municipio)."'")->queryScalar();           
+                                ?></li>
+                    <li><i class="fa fa-globe" aria-hidden="true"></i>&nbsp
+                    <?=
+                    
+                            $consultaC = Yii::$app->db->createCommand("SELECT nombre_colonia FROM colonias WHERE id_colonia ='".($model->Colonia)."'")->queryScalar(); 
+                                ?></li>
                     <li><i class="fa fa-home" aria-hidden="true"></i>&nbsp
                     <?=
                     $model->Tipo ?></li>

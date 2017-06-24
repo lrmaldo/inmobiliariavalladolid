@@ -102,6 +102,7 @@ return [
          'title'=>"Reporte de publicaciones",    
         // refer settings section for all configuration options
     ]
+        
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -111,5 +112,21 @@ return [
         ],
         */
     ],
+    'as beforeRequest' => [
+    'class' => 'yii\filters\AccessControl',
+    'rules' => [
+        [
+            'allow' => true,
+            'actions' => ['login'],
+        ],
+        [
+            'allow' => true,
+            'roles' => ['@'],
+        ],
+    ],
+    'denyCallback' => function () {
+        return Yii::$app->response->redirect(['site/login']);
+    },
+],
     'params' => $params,
 ];

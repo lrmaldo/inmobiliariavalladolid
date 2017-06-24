@@ -32,11 +32,13 @@ class SiteController extends Controller
                     [
                         'actions' => ['login'],
                         'allow' => true,
+                        
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index','publicacion','delete','update','view'],
                         'allow' => true,
                         'roles' => ['@'],
+                        
                     ],
                     [
                     'actions' => ['request-password-reset'],
@@ -73,9 +75,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        
-       
-        return $this->render('index');
+        if (!Yii::$app->user->isGuest) {
+            return $this->render('index');
+        }
+       else{
+        return $this->render('login');
+       }
     }
 
     /**
