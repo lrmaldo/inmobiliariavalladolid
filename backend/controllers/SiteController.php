@@ -35,11 +35,12 @@ class SiteController extends Controller
                         
                     ],
                     [
-                        'actions' => ['logout', 'index','publicacion','delete','update','view'],
+                        'actions' => ['logout', 'index','publicacion','delete','update','view','error'],
                         'allow' => true,
                         'roles' => ['@'],
                         
                     ],
+                     
                     [
                     'actions' => ['request-password-reset'],
                     'allow' => true,

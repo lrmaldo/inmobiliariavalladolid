@@ -18,6 +18,7 @@ use yii\data\Pagination;
 use frontend\models\FormSearch;
 use frontend\models\AvanzadoForm;
 use yii\helpers\Html;
+use yii\web\NotFoundHttpException;
 /**
  * Site controller
  */
@@ -440,7 +441,7 @@ class SiteController extends Controller
         if (($model = Publicacion::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException('Publicación, no exite.');
         }
     }
 }

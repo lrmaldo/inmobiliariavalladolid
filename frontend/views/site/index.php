@@ -25,9 +25,14 @@ $acumulador = ($contador+1);
 
 $sql = Yii::$app->db->createCommand("UPDATE `visitantes` SET `contador`=".($acumulador)." WHERE 1");
 $sql->execute();
+
+
+
+
 ?>
 
 <div class="large-10 medium-10 small-10 large-offset-1 medium-offset-1 small-offset-1">
+  
     <div class="input-group input-group-rounded">
         <?php
           $f = ActiveForm::begin([
@@ -152,10 +157,10 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
                     <img class="orbit-image" src="https://images.homify.com/images/a_0,c_fill,f_auto,h_720,q_auto,w_1920/v1440055803/p/photo/image/833389/Bad_Vilbel_Au%C3%9Fenansicht_S%C3%BCd/fotos-de-casas-de-estilo-moderno-de-die-hausmanufaktur-gmbh.jpg" alt="Space">
                     <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
                   </li>
-                  <li class="orbit-slide">
+<!--                  <li class="orbit-slide">
                     <img class="orbit-image" src="http://52.179.21.10/backend/web/imagenes/3.jpg" alt="Space">
                     <figcaption class="orbit-caption">Lets Rocket!</figcaption>
-                  </li>
+                  </li>-->
                   <li class="orbit-slide">
                     <img class="orbit-image" src="https://i.ytimg.com/vi/PYfbgddsAiY/maxresdefault.jpg" alt="Space">
                     <figcaption class="orbit-caption">Encapsulating</figcaption>

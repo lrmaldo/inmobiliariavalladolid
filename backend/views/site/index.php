@@ -13,6 +13,7 @@ $this->title = 'Inmobiliaria Valladolid';
         <div class="row">
             <div class="col-lg-4">
               <?php 
+              echo yii\helpers\Url::to(Yii::getAlias("@frontend")."/web/");
                 $consulta = Yii::$app->db->createCommand('SELECT COUNT(*) FROM publicacion')->queryScalar();
               echo \insolita\wgadminlte\LteInfoBox::widget([
                       'bgIconColor'=>\insolita\wgadminlte\LteConst::COLOR_AQUA,

@@ -37,7 +37,7 @@ class PublicacionController extends Controller
      */
     public function actionIndex()
     {
-      if (!Yii::$app->user->isGuest) {
+     
            $searchModel = new PublicacionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -45,10 +45,7 @@ class PublicacionController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-        }
-       else{
-        return $this->goHome();
-       }
+     
         
         
        
@@ -62,16 +59,11 @@ class PublicacionController extends Controller
     public function actionView($id)
     {
         
-        if (Yii::$app->user->isGuest){
+       
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
-        }
-        else{
-            return $this->goHome();
-                    
-                    
-        }
+       
     }
    public function actionMunicipio() {
     $out = [];
@@ -264,4 +256,5 @@ class PublicacionController extends Controller
             throw new NotFoundHttpException('La pagina no existe');
         }
     }
+    
 }
