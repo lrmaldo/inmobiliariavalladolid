@@ -123,7 +123,8 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
                           <?= $f2->field($form1, "precioMin")->input("number",['placeholder'=>'Precio Min','min'=> 0]) ?>
                       </div>
                       <div class="columns small-6">
-                          <?= $f2->field($form1, "precioMax")->input("number",['placeholder'=>'Precio Max']) ?>
+                          <?= 
+                                $f2->field($form1, "precioMax")->input("number",['placeholder'=>'Precio Max']) ?>
                       </div>
                     </div>
                     
@@ -152,7 +153,7 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
                     <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
                   </li>
                   <li class="orbit-slide">
-                    <img class="orbit-image" src="https://vida-spyqpdxrgyld6rrkjib.netdna-ssl.com/wp-content/uploads/2015/03/JP-Torre-A-02.jpg" alt="Space">
+                    <img class="orbit-image" src="http://52.179.21.10/backend/web/imagenes/3.jpg" alt="Space">
                     <figcaption class="orbit-caption">Lets Rocket!</figcaption>
                   </li>
                   <li class="orbit-slide">
@@ -171,8 +172,27 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
         </div>
     </div>
 </div>
+<?php
+//echo yii\bootstrap\Carousel::widget([
+//      'items' => [
+////          ['content'=>  Html::img('001.jpeg')],
+////          ['content'=>  Html::img('images/slideshow/002.jpeg')],
+////          ['content'=>  Html::img('images/slideshow/003.jpeg')],
+//        ['content' => Html::img('http://52.179.21.10/backend/web/imagenes/1.jpg'),
+//        ],
+//        ['content' => Html::img('http://52.179.21.10/backend/web/imagenes/3.jpg'),
+//            
+//        ],
+//    ],
+//    'options' => [
+//       'class' => 'slide', 'style' => 'width: 450px;']
+//    ,
+//]);
+?>
 
 <div class="row" id="separador-cards">
+    
+    
     
 <?php foreach ($publi as $pub): ?>
 
@@ -188,7 +208,7 @@ $listData3 = ArrayHelper::map($tipos, 'nombre_tipo', 'nombre_tipo');
               <div class="card-section">
                 <a href="#"><h3 class="card-product-name"><?= Html::a(Html::encode($pub->titulo), ['detalle', 'id' => $pub->idpublicacion]) ?></h3></a>
                 <h5 class="card-product-price"><i class=" fa fa-money "></i>
-                    MXN <?=Yii::$app->formatter->asCurrency($pub->precio,'MXN')
+                     <?=Yii::$app->formatter->asCurrency($pub->precio,'MXN')
                      ?>    
                     </h5>
                 <p class="card-product-description"><ul class="fa-ul">

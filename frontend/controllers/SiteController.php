@@ -244,7 +244,8 @@ class SiteController extends Controller
         }
          if(Yii::$app->response->getCookies()->has("imagen")){
         $cooki = Yii::$app->response->getCookies()->getValue("imagen");
-        
+        $db = Yii::$app->db->createCommand("Select * from publicacion")->cache();
+        $db->execute();
         }
         return $this->render("index", ["publi" => $model ,"form" => $form,"form1"=> $form1, "search" => $search, "pages" => $pages]);
      
