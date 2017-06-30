@@ -39,20 +39,24 @@ $bundle2=FontAsset::register($this);
             <?= Html::a('Contacto', ['/site/contact'],['class' => '']); ?>
         </li>
         <?php 
-            if (Yii::$app->user->isGuest) {
-                ?><li><?= Html::a('Signup', ['/site/signup']); ?></li>
-                  <li><?= Html::a('Login', ['/site/login']); ?></li>
+//            if (Yii::$app->user->isGuest) {
+                ?><li><?php
+//        Html::a('Signup', ['/site/signup']); 
+                ?></li>
+                  <li><?php 
+//                Html::a('Login', ['/site/login']); 
+                ?></li>
             <?php
-            } else {
-                $menuItems[] = '<li>'
-                    . Html::beginForm(['/site/logout'], 'post')
-                    . Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->username . ')',
-                        ['class' => 'btn btn-link logout']
-                    )
-                    . Html::endForm()
-                    . '</li>';
-            }
+//            } else {
+//                $menuItems[] = '<li>'
+//                    . Html::beginForm(['/site/logout'], 'post')
+//                    . Html::submitButton(
+//                        'Logout (' . Yii::$app->user->identity->username . ')',
+//                        ['class' => 'btn btn-link logout']
+//                    )
+//                    . Html::endForm()
+//                    . '</li>';
+//            }
         ?>
     </ul>
 </header>

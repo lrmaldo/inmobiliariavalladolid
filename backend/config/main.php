@@ -123,6 +123,11 @@ return [
             'allow' => true,
             'roles' => ['@'],
         ],
+         [
+            'actions' => ['request-password-reset','reset-password'],
+                'allow' => true,
+                'roles' => ['?'],
+            ],
     ],
     'denyCallback' => function () {
         return Yii::$app->response->redirect(['site/login']);

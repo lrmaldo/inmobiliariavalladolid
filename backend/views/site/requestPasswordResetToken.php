@@ -25,36 +25,29 @@ $fieldOptions2 = [
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Inicia Sesión</p>
-
-        <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
-
-        <?= $form
-            ->field($model, 'username', $fieldOptions1)
-            ->label(false)
-            ->textInput(['placeholder' => $model->getAttributeLabel('Usuario')]) ?>
+        <p class="login-box-msg">Restablecer contraseña</p>
+         <p>Por favor llene su correo electrónico. Y un enlace será enviada allí para restablecer la contraseña .</p>
+       <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
 
         <?= $form
-            ->field($model, 'password', $fieldOptions2)
+            ->field($model, 'email', $fieldOptions1)
             ->label(false)
-            ->passwordInput(['placeholder' => $model->getAttributeLabel('Contraseña')]) ?>
+            ->input(['email','placeholder' => $model->getAttributeLabel('Email')]) ?>
+
+       
 
         <div class="row">
-            <div class="col-xs-8">
-                <?= $form->field($model, 'rememberMe')->checkbox(['label'=>$model->getAttributeLabel("Recuérdame")]) ?>
-            </div>
+           
             <!-- /.col -->
             <div class="col-xs-4">
-                <?= Html::submitButton('Entrar', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
+               <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary']) ?>
             </div>
             <!-- /.col -->
         </div>
 
 
         <?php ActiveForm::end(); ?>
-        <div style="color:#999;margin:1em 0">
-               Si ha olvidado su contraseña, puede <?= Html::a('restablecerla ', ['request-password-reset']) ?>.
-           </div>
+        
 <!--
         <div class="social-auth-links text-center">
             <p>- OR -</p>
@@ -71,3 +64,9 @@ $fieldOptions2 = [
     </div>
     <!-- /.login-box-body -->
 </div><!-- /.login-box -->
+
+
+
+
+
+ 
