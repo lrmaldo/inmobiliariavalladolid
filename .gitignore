@@ -5,7 +5,7 @@ backend/config/test-local.php
 backend/runtime/*
 backend/tests/*
 backend/web/imagenes/*
-//common/config/*
+common/config/*
 frontend/config/*
 frontend/web/assets/*
 vendor
