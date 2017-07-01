@@ -89,9 +89,9 @@ class SiteController extends Controller
         $image = Imagenes::find()
                 ->where(["like","id_publicacion",$id]);
         $count = clone $image;
-      
+      //Sirve para la pagina de vista detalles
         $pagina = new Pagination([
-             "pageSize" => 6,
+             "pageSize" => 8,
              "totalCount" => $count->count(),
         ]);
         
