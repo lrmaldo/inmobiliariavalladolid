@@ -3,9 +3,9 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=inmotest.mysql.database.azure.com;dbname=inmobiliaria',
-            'username' => 'leonardo@inmotest',
-            'password' => 'Maldo1324',
+            'dsn' => 'mysql:host=localhost;dbname=inmobiliaria',
+            'username' => 'root',
+            'password' => 'mysql',
             'charset' => 'utf8',
         ],
         'mailer' => [

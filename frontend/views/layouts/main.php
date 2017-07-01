@@ -20,46 +20,35 @@ $bundle2=FontAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-
 </head>
+
 <body>
 <?php $this->beginBody() ?>
 <header class="subnav-hero-section">
-    <h1 class="subnav-hero-headline">
-       Inmobiliaria Valladolid
-    </h1>
-    <ul class="subnav-hero-subnav button-group">
-        <li>
-            <?= Html::a('Inicio', ['/site/index'], ['class' => 'active']); ?>
-        </li>
-        <li>
-            <?= Html::a('Acerca', ['/site/about'],['class' => '']); ?>
-        </li>
-        <li>
-            <?= Html::a('Contacto', ['/site/contact'],['class' => '']); ?>
-        </li>
-        <?php 
-            if (Yii::$app->user->isGuest) {
-                ?><li><?= Html::a('Signup', ['/site/signup']); ?></li>
-                  <li><?= Html::a('Login', ['/site/login']); ?></li>
-            <?php
-            } else {
-                $menuItems[] = '<li>'
-                    . Html::beginForm(['/site/logout'], 'post')
-                    . Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->username . ')',
-                        ['class' => 'btn btn-link logout']
-                    )
-                    . Html::endForm()
-                    . '</li>';
-            }
-        ?>
-    </ul>
+  <h1 class="subnav-hero-headline">Inmobiliaria Valladolid</h1>
+  <ul class="subnav-hero-subnav button-group">
+    <li><?= Html::a('Inicio', ['/site/index'], ['class' => 'active']); ?></li>
+    <li><?= Html::a('Acerca', ['/site/about'],['class' => '']); ?></li>
+    <li><?= Html::a('Contacto', ['/site/contact'],['class' => '']); ?></li>
+    <?php 
+      if (Yii::$app->user->isGuest) { ?>
+        <li><?= Html::a('Signup', ['/site/signup']); ?></li>
+        <li><?= Html::a('Login', ['/site/login']); ?></li>
+    <?php
+      } else {
+        $menuItems[] = '<li>'
+          . Html::beginForm(['/site/logout'], 'post')
+          . Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')',['class' => 'btn btn-link logout'])
+          . Html::endForm()
+          . '</li>';
+        }
+    ?>
+  </ul>
 </header>
 
 
 <div class="row" id="content">            
-    <?= $content ?>
+  <?= $content ?>
 </div>
 
 <footer class="marketing-site-footer">
@@ -69,12 +58,12 @@ $bundle2=FontAsset::register($this);
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolorem accusantium architecto id quidem, itaque nesciunt quam ducimus atque.</p>
       <ul class="menu marketing-site-footer-menu-social simple">
         <li><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
-         <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-         <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
       </ul>
     </div>
     <div class="medium-4 columns">
-       <h4 class="marketing-site-footer-title">Información de Contacto</h4>
+      <h4 class="marketing-site-footer-title">Información de Contacto</h4>
       <div class="marketing-site-footer-block">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         <p>Calle 48 # entre 45 y 43 Sisal<br>Valladolid, Yucatán 97780</p>
@@ -91,12 +80,21 @@ $bundle2=FontAsset::register($this);
     <div class="medium-4 columns">
       <h4 class="marketing-site-footer-title">Ubicación</h4>
       <div class="row small-up-3">
-         <?= Html::img($bundle->baseImg."/mapimage.jpg");?> 
+        <?= Html::img($bundle->baseImg."/mapimage.jpg");?> 
+      </div>
+    </div>
+    <?php
+    $numvisitantes = Yii::$app->db->createCommand("SELECT contador from visitantes")->queryScalar(); ?>
+    <div class="columns large-4 large-offset-8" id="red-count">
+      <div class="row">
+        <div class="dashboard-number-card">
+          <p class="dashboard-number-area">Eres El Visitante</p>
+          <h5 class="dashboard-number-value"><?echo $numvisitantes?></h5>
+        </div>
       </div>
     </div>
     <div class="column">
-        <p>&copy; My Company <?= date('Y')?></p>
-        
+      <p>&copy; My Company <?= date('Y')?></p>
     </div>   
   </div>
 </footer>

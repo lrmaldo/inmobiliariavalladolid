@@ -18,13 +18,14 @@ class AppAsset extends AssetBundle
        // 'css/shop-homepage.css',
         //'css/bootstrap.css',
         'css/details.css',
-       
+        'css/fresco.css'
     ];
     public $js = [
         //'js/bootstrap.js',
         //'js/jquery.js',
         //'js/bootstrap.min.js',
-        'js/details.js'
+        'js/details.js',
+        'js/fresco.js'
       ];
     public $fonts = [
       'glyphicons-halflings-regular.eot',

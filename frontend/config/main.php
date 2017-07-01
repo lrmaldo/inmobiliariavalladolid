@@ -51,7 +51,7 @@ return [
         ],
         'urlManagerBackend' => [
                 'class' => 'yii\web\urlManager',
-                'baseUrl' => 'http://52.179.21.10/backend/web/',
+                'baseUrl' => 'http://localhost/inmobiliariavalladolid/backend/web/',
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
         ],
