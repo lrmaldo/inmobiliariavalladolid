@@ -25,6 +25,10 @@ $acumulador = ($contador+1);
 
 $sql = Yii::$app->db->createCommand("UPDATE `visitantes` SET `contador`=".($acumulador)." WHERE 1");
 $sql->execute();
+
+
+
+
 ?>
 
 <div class="large-10 medium-10 small-10 large-offset-1 medium-offset-1 small-offset-1">
@@ -122,7 +126,7 @@ $sql->execute();
               </li>
               <li class="orbit-slide">
                 <img class="orbit-image" src="https://i.ytimg.com/vi/PYfbgddsAiY/maxresdefault.jpg" alt="Space">
-                    <figcaption class="orbit-caption">Encapsulating</figcaption>
+                  <figcaption class="orbit-caption">Encapsulating</figcaption>
               </li>
               <li class="orbit-slide">
                 <img class="orbit-image" src="http://s3.amazonaws.com/assets.moveglobally.com/property_images/400620/6976230/EB-AN0620.jpg?1484193744" alt="Space">
@@ -135,6 +139,24 @@ $sql->execute();
     </div>
   </div>
 </div>
+<?php
+//echo yii\bootstrap\Carousel::widget([
+//      'items' => [
+////          ['content'=>  Html::img('001.jpeg')],
+////          ['content'=>  Html::img('images/slideshow/002.jpeg')],
+////          ['content'=>  Html::img('images/slideshow/003.jpeg')],
+//        ['content' => Html::img('http://52.179.21.10/backend/web/imagenes/1.jpg'),
+//        ],
+//        ['content' => Html::img('http://52.179.21.10/backend/web/imagenes/3.jpg'),
+//            
+//        ],
+//    ],
+//    'options' => [
+//       'class' => 'slide', 'style' => 'width: 450px;']
+//    ,
+//]);
+?>
+
 
 <div class="row" id="separador-cards">  
   <?php foreach ($publi as $pub): ?>

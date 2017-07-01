@@ -30,20 +30,27 @@ $bundle2=FontAsset::register($this);
     <li><?= Html::a('Inicio', ['/site/index'], ['class' => 'active']); ?></li>
     <li><?= Html::a('Acerca', ['/site/about'],['class' => '']); ?></li>
     <li><?= Html::a('Contacto', ['/site/contact'],['class' => '']); ?></li>
-    <?php 
-      if (Yii::$app->user->isGuest) { ?>
-        <li><?= Html::a('Signup', ['/site/signup']); ?></li>
-        <li><?= Html::a('Login', ['/site/login']); ?></li>
-    <?php
-      } else {
-        $menuItems[] = '<li>'
-          . Html::beginForm(['/site/logout'], 'post')
-          . Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')',['class' => 'btn btn-link logout'])
-          . Html::endForm()
-          . '</li>';
-        }
-    ?>
-  </ul>
+        <?php 
+//            if (Yii::$app->user->isGuest) {
+                ?><li><?php
+//        Html::a('Signup', ['/site/signup']); 
+                ?></li>
+                  <li><?php 
+//                Html::a('Login', ['/site/login']); 
+                ?></li>
+            <?php
+//            } else {
+//                $menuItems[] = '<li>'
+//                    . Html::beginForm(['/site/logout'], 'post')
+//                    . Html::submitButton(
+//                        'Logout (' . Yii::$app->user->identity->username . ')',
+//                        ['class' => 'btn btn-link logout']
+//                    )
+//                    . Html::endForm()
+//                    . '</li>';
+//            }
+        ?>
+    </ul>
 </header>
 
 

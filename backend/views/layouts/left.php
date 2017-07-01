@@ -34,6 +34,7 @@
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
                     ['label' => 'Menu', 'options' => ['class' => 'header']],
+                 
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label'=>'Cambiar Foto de perfl','icon'=>'image','url'=>['/subir']],                    
                     ['label' => 'Subir Publicacion', 'icon' => 'upload', 'url' => ['/publicacion']],

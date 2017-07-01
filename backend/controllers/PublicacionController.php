@@ -37,7 +37,7 @@ class PublicacionController extends Controller
      */
     public function actionIndex()
     {
-      if (!Yii::$app->user->isGuest) {
+     
            $searchModel = new PublicacionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -45,10 +45,7 @@ class PublicacionController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-        }
-       else{
-        return $this->goHome();
-       }
+     
         
         
        
@@ -62,16 +59,11 @@ class PublicacionController extends Controller
     public function actionView($id)
     {
         
-        if (Yii::$app->user->isGuest){
+       
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
-        }
-        else{
-            return $this->goHome();
-                    
-                    
-        }
+       
     }
    public function actionMunicipio() {
     $out = [];
@@ -196,49 +188,10 @@ class PublicacionController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-       
-        if ($model->load(Yii::$app->request->post()) ) {
-           
-           $model->id_user = Yii::$app->user->id;
 
-//                 $id_ult= Publicacion::findBySql('SELECT `idpublicacion` FROM `publicacion` ORDER BY `idpublicacion` DESC LIMIT 1');
-
-            $consulta = Yii::$app->db->createCommand('SELECT MAX(`idpublicacion`)+1 FROM `publicacion` ORDER BY `idpublicacion` DESC LIMIT 1')->queryScalar();
-            if(empty($consulta)){
-                $consulta = 1;
-                 $model->url_imagen = UploadedFile::getInstances($model, 'url_imagen');
-     
-               foreach ($model->url_imagen as $url){
-                   $u = new Imagenes();
-                   $u->url_imagen = 'imagenes/'.$url->baseName.".".$url->extension;
-                  
-                   $sql = 'INSERT INTO `imagenes` (`id_imagen`, `url_imagen`, `id_user`, `id_publicacion`) VALUES (NULL,"'.($u->url_imagen).'","'.($model->id_user).'","'.($consulta).'");';
-                   $command = \Yii::$app->db->createCommand($sql);
-                   $command->execute();
-                   $url->saveAs('imagenes/'.$url->baseName.".".$url->extension);
-                   }
-                   $co = Yii::$app->db->createCommand('SELECT `url_imagen` FROM `imagenes` WHERE `id_publicacion` = '.($consulta). ' ORDER BY `id_imagen` LIMIT 1')->queryScalar();
-                   $model->url_imagen=$co;
-                   $model->save(false);
-            }else{
-               $model->url_imagen = UploadedFile::getInstances($model, 'url_imagen');
-     
-               foreach ($model->url_imagen as $url){
-                   $u = new Imagenes();
-                   $u->url_imagen = 'imagenes/'.$url->baseName.".".$url->extension;
-                  
-                   $sql = 'INSERT INTO `imagenes` (`id_imagen`, `url_imagen`, `id_user`, `id_publicacion`) VALUES (NULL,"'.($u->url_imagen).'","'.($model->id_user).'","'.($consulta).'");';
-                   $command = \Yii::$app->db->createCommand($sql);
-                   $command->execute();
-                   $url->saveAs('imagenes/'.$url->baseName.".".$url->extension);
-                   }
-                   $co = Yii::$app->db->createCommand('SELECT `url_imagen` FROM `imagenes` WHERE `id_publicacion` = '.($consulta). ' ORDER BY `id_imagen` LIMIT 1')->queryScalar();
-                   $model->url_imagen=$co;
-                   $model->save(false);
-            }
-            
-            return $this->redirect(['view', 'id' => $model->idpublicacion]);
-        } else {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index']);
+        }else {
             return $this->render('_form_update', [
                 'model' => $model,
                 
@@ -303,4 +256,5 @@ class PublicacionController extends Controller
             throw new NotFoundHttpException('La pagina no existe');
         }
     }
+    
 }

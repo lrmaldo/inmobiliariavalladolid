@@ -1,5 +1,5 @@
 html{
-  overflow-x: visible;
+  overflow-x:hidden;
 }
 .portfolio-item {
     margin-bottom: 25px;

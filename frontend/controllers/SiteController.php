@@ -18,6 +18,7 @@ use yii\data\Pagination;
 use frontend\models\FormSearch;
 use frontend\models\AvanzadoForm;
 use yii\helpers\Html;
+use yii\web\NotFoundHttpException;
 /**
  * Site controller
  */
@@ -46,6 +47,11 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                     [
+                    'actions' => ['request-password-reset'],
+                    'allow' => true,
+                    'roles' => ['?'],
+                ],
                 ],
             ],
             'verbs' => [
@@ -244,7 +250,8 @@ class SiteController extends Controller
         }
          if(Yii::$app->response->getCookies()->has("imagen")){
         $cooki = Yii::$app->response->getCookies()->getValue("imagen");
-        
+        $db = Yii::$app->db->createCommand("Select * from publicacion")->cache();
+        $db->execute();
         }
         return $this->render("index", ["publi" => $model ,"form" => $form,"form1"=> $form1, "search" => $search, "pages" => $pages]);
      
@@ -439,7 +446,7 @@ class SiteController extends Controller
         if (($model = Publicacion::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException('Publicación, no exite.');
         }
     }
 }
