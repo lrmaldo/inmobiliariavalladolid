@@ -117,8 +117,11 @@ class PublicacionController extends Controller
             
         $model = new Publicacion();
         
+       
+        
         if ($model->load(Yii::$app->request->post()) ) {
-           
+            $randomString = Yii::$app->getSecurity()->generateRandomString(7);
+            $model->idpublicacion=$randomString;
            $model->id_user = Yii::$app->user->id;
 
 //                 $id_ult= Publicacion::findBySql('SELECT `idpublicacion` FROM `publicacion` ORDER BY `idpublicacion` DESC LIMIT 1');
@@ -132,12 +135,12 @@ class PublicacionController extends Controller
                    $u = new Imagenes();
                    $u->url_imagen = 'imagenes/'.$url->baseName.".".$url->extension;
                   
-                   $sql = 'INSERT INTO `imagenes` (`id_imagen`, `url_imagen`, `id_user`, `id_publicacion`) VALUES (NULL,"'.($u->url_imagen).'","'.($model->id_user).'","'.($consulta).'");';
+                   $sql = 'INSERT INTO `imagenes` (`id_imagen`, `url_imagen`, `id_user`, `id_publicacion`) VALUES (NULL,"'.($u->url_imagen).'","'.($model->id_user).'","'.($model->idpublicacion).'");';
                    $command = \Yii::$app->db->createCommand($sql);
                    $command->execute();
                    $url->saveAs('imagenes/'.$url->baseName.".".$url->extension);
                    }
-                   $co = Yii::$app->db->createCommand('SELECT `url_imagen` FROM `imagenes` WHERE `id_publicacion` = '.($consulta). ' ORDER BY `id_imagen` LIMIT 1')->queryScalar();
+                   $co = Yii::$app->db->createCommand('SELECT `url_imagen` FROM `imagenes` WHERE `id_publicacion` = "'.($model->idpublicacion). '" ORDER BY `id_imagen` LIMIT 1')->queryScalar();
                    $model->url_imagen=$co;
                    $model->save(false);
             }else{
@@ -147,12 +150,12 @@ class PublicacionController extends Controller
                    $u = new Imagenes();
                    $u->url_imagen = 'imagenes/'.$url->baseName.".".$url->extension;
                   
-                   $sql = 'INSERT INTO `imagenes` (`id_imagen`, `url_imagen`, `id_user`, `id_publicacion`) VALUES (NULL,"'.($u->url_imagen).'","'.($model->id_user).'","'.($consulta).'");';
+                   $sql = 'INSERT INTO `imagenes` (`id_imagen`, `url_imagen`, `id_user`, `id_publicacion`) VALUES (NULL,"'.($u->url_imagen).'","'.($model->id_user).'","'.($model->idpublicacion).'");';
                    $command = \Yii::$app->db->createCommand($sql);
                    $command->execute();
                    $url->saveAs('imagenes/'.$url->baseName.".".$url->extension);
                    }
-                   $co = Yii::$app->db->createCommand('SELECT `url_imagen` FROM `imagenes` WHERE `id_publicacion` = '.($consulta). ' ORDER BY `id_imagen` LIMIT 1')->queryScalar();
+                   $co = Yii::$app->db->createCommand('SELECT `url_imagen` FROM `imagenes` WHERE `id_publicacion` = "'.($model->idpublicacion). '" ORDER BY `id_imagen` LIMIT 1')->queryScalar();
                    $model->url_imagen=$co;
                    $model->save(false);
             }
@@ -212,7 +215,7 @@ class PublicacionController extends Controller
         $this->BorrarImagenes($id);
         //$consultaImagen = Yii::$app->db->createCommand('SELECT');
         
-        $deleteFile = Yii::$app->db->createCommand('DELETE FROM `imagenes` WHERE `id_publicacion`='.($id));
+        $deleteFile = Yii::$app->db->createCommand('DELETE FROM `imagenes` WHERE `id_publicacion`= "'.($id).'"');
         $deleteFile->execute();
 
         return $this->redirect(['index']);

@@ -96,7 +96,7 @@ $bundle2=FontAsset::register($this);
       <div class="row">
         <div class="dashboard-number-card">
           <p class="dashboard-number-area">Eres El Visitante</p>
-          <h5 class="dashboard-number-value"><?echo $numvisitantes?></h5>
+          <h5 class="dashboard-number-value"><?php echo $numvisitantes?></h5>
         </div>
       </div>
     </div>

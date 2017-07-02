@@ -69,7 +69,7 @@ return [
         'class' => 'yii\web\UrlManager',
         // Disable r= routes
         'enablePrettyUrl' => true,
-             'suffix' => '.html',
+             //'suffix' => '.html',
         'rules' => array(
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',

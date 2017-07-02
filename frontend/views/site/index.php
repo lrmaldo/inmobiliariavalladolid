@@ -28,7 +28,6 @@ $sql->execute();
 
 
 
-
 ?>
 
 <div class="large-10 medium-10 small-10 large-offset-1 medium-offset-1 small-offset-1">
