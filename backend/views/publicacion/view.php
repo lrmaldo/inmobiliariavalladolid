@@ -25,7 +25,7 @@ $this->title = $model->titulo;
   </h1>
   <div class="article-post-image large-offset-2">
     <div class="thumbnail">
-      <?=     Html::img(Yii::$app->urlManagerBackend->baseUrl."/".$model->url_imagen,['alt'=>$model->titulo,'class'=>'img-responsive','style'=>'width:750px; height:500px; margin:0 auto;']); ?>
+      <?=     Html::img(Yii::getAlias("@web")."/".$model->url_imagen,['alt'=>$model->titulo,'class'=>'img-responsive','style'=>'width:750px; height:500px; margin:0 auto;']); ?>
     </div>
   </div>
 
@@ -79,8 +79,8 @@ $this->title = $model->titulo;
         <div class="row large-up-4 small-up-1" id="more">
           <?php  foreach ($publ as $img): ?> 
             <div class="featured-image-block column">
-              <a href= <?= Yii::$app->urlManagerBackend->baseUrl."/".$img->url_imagen;?> class="fresco" data-fresco-group="image_data">
-                <?= Html::img(Yii::$app->urlManagerBackend->baseUrl."/".$img->url_imagen,['alt'=>$img->url_imagen,'class'=>'img-responsive','id'=>'img-view-list']);?>  
+              <a href= <?= Yii::getAlias("@web")."/".$img->url_imagen;?> class="fresco" data-fresco-group="image_data">
+                <?= Html::img(Yii::getAlias("@web")."/".$img->url_imagen,['alt'=>$img->url_imagen,'class'=>'img-responsive','id'=>'img-view-list']);?>  
               </a>
             </div>
           <?php endforeach; ?>
