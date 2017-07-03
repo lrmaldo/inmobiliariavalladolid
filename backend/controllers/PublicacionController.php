@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use backend\models\Imagenes;
 use yii\helpers\Json;
+use yii\data\Pagination;
 /**
  * PublicacionController implements the CRUD actions for Publicacion model.
  */
@@ -59,10 +60,32 @@ class PublicacionController extends Controller
     public function actionView($id)
     {
         
-       
+        $image = Imagenes::find()
+                ->where(["like","id_publicacion",$id]);
+        $count = clone $image;
+      //Sirve para la pagina de vista detalles
+        $pagina = new Pagination([
+             "pageSize" => 8,
+             "totalCount" => $count->count(),
+        ]);
+        
+        
+    $img = $image
+            ->offset($pagina->offset)
+            ->limit($pagina->limit)
+            ->all();
+    
+    
+//        Yii::$app->response->getCookies()->add($cookie);
+        //Yii::$app->response->getCookies()->add($cookie1);
+    
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'publ'=> $img,
+            'pag'=>$pagina,
+            
         ]);
+        
        
     }
    public function actionMunicipio() {
@@ -180,7 +203,7 @@ class PublicacionController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         }else {
-            return $this->render('_form_update', [
+            return $this->render('update', [
                 'model' => $model,
                 
             ]);

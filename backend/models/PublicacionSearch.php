@@ -18,8 +18,8 @@ class PublicacionSearch extends Publicacion
     public function rules()
     {
         return [
-            [['idpublicacion', 'id_user'], 'integer'],
-            [['titulo', 'Descripcion', 'fecha_de_publicacion', 'Colonia', 'Operacion', 'Tipo', 'num_banio', 'recamaras'], 'safe'],
+            [[ 'id_user'], 'integer'],
+            [['idpublicacion','titulo', 'Descripcion', 'fecha_de_publicacion', 'Colonia', 'Operacion', 'Tipo', 'num_banio', 'recamaras'], 'safe'],
             [['precio'], 'number'],
         ];
     }
