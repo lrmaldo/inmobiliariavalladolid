@@ -42,8 +42,8 @@ class Publicacion extends \yii\db\ActiveRecord
     {
         return [
             [['titulo', 'url_imagen', 'Descripcion', 'precio', 'precio_neto', 'fecha_de_publicacion', 'Estado', 'Municipio', 'Colonia', 'Operacion', 'Tipo', 'num_banio', 'recamaras', 'notas', 'id_user'], 'required','message'=>'Falto llenar este campo'],
-            [['idpublicacion', 'id_user'], 'integer'],
-            [['Descripcion', 'num_banio', 'recamaras', 'notas'], 'string'],
+            [[ 'id_user'], 'integer'],
+            [['idpublicacion','Descripcion', 'num_banio', 'recamaras', 'notas'], 'string'],
             [['precio', 'precio_neto'], 'number'],
             [['fecha_de_publicacion'], 'safe'],
             ['url_imagen','file','maxFiles'=>40],

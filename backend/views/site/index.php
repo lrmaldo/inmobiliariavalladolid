@@ -13,9 +13,8 @@ $this->title = 'Inmobiliaria Valladolid';
         <div class="row">
             <div class="col-lg-4">
               <?php 
-              Yii::setAlias('@foo', '/frontend/web');
               
-              echo yii\helpers\Url::to(Yii::getAlias("@foo")."/web/");
+              echo yii\helpers\Url::to(Yii::$app->urlManagerFrontend->baseUrl);
                 $consulta = Yii::$app->db->createCommand('SELECT COUNT(*) FROM publicacion')->queryScalar();
               echo \insolita\wgadminlte\LteInfoBox::widget([
                       'bgIconColor'=>\insolita\wgadminlte\LteConst::COLOR_AQUA,
@@ -43,15 +42,14 @@ $this->title = 'Inmobiliaria Valladolid';
             <div class="col-lg-4">
                <?php
                $numvisitantes = Yii::$app->db->createCommand("SELECT contador from visitantes")->queryScalar();
-               echo \insolita\wgadminlte\LteInfoBox::widget([
-                      'bgIconColor'=>\insolita\wgadminlte\LteConst::COLOR_AQUA,
-                      'bgColor'=>'',
-                      'number'=>$numvisitantes,
-                      'text'=>'visitantes',
+               echo \insolita\wgadminlte\LteSmallBox::widget([
+                      'type'=>\insolita\wgadminlte\LteConst::COLOR_AQUA,
+                     
+                      'title'=>$numvisitantes,
+                      'text'=>'Númerovisitantes',
                       'icon'=>'fa fa-line-chart',
-                      'showProgress'=>false,
-                      'progressNumber'=>66,
-                      'description'=>'Número de visitas',
+                      'footer'=>'Ir a parte frontal <i class="fa fa-hand-o-right"></i>',
+                      'link'=> yii\helpers\Url::to(Yii::$app->urlManagerFrontend->baseUrl),
                       
                     
                   ])?>

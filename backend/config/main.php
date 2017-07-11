@@ -61,7 +61,7 @@ return [
         
          'urlManagerFrontend' => [
                 'class' => 'yii\web\urlManager',
-                'baseUrl' => 'frontend/web/',
+                'baseUrl' => 'http://localhost/inmobiliaria/frontend/web/',
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
         ],
@@ -69,6 +69,7 @@ return [
         'class' => 'yii\web\UrlManager',
         // Disable r= routes
         'enablePrettyUrl' => true,
+             //'suffix' => '.html',
         'rules' => array(
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',

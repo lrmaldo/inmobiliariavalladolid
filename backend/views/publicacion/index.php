@@ -162,7 +162,7 @@ if($dataProvider->getCount()== 0){
                     $searchModel->idpublicacion = $model->idpublicacion;
                     $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
                     return Yii::$app->controller->renderPartial('indexdetail',
-                            ['searchModel'=>$searchModel,
+                            [
                               'dataProvider'=>$dataProvider]);
                 },
                 'expandTitle'=>'Detalle',

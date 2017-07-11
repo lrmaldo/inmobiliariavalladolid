@@ -7,8 +7,8 @@ use kartik\grid\GridView;
 /* @var $searchModel backend\models\PublicacionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Publicacions');
-$this->params['breadcrumbs'][] = $this->title;
+//$this->title = Yii::t('app', 'Publicaciones');
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="publicacion-index">
 
