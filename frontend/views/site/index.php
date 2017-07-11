@@ -25,31 +25,26 @@ $acumulador = ($contador+1);
 
 $sql = Yii::$app->db->createCommand("UPDATE `visitantes` SET `contador`=".($acumulador)." WHERE 1");
 $sql->execute();
-
-
-
-
 ?>
 
 <div class="large-10 medium-10 small-10 large-offset-1 medium-offset-1 small-offset-1">
-  <div class="input-group input-group-rounded">
-    <?php
+  <?php
       $f = ActiveForm::begin([
         "method"=>"get",
         "action" =>Url::toRoute("site/index"),
         "enableClientValidation" => true,]);
     ?>
+  <div class="input-group input-group-rounded large-10">
+    <?= $f->field($form,"q")->input("search",['placeholder'=>'Buscar', 'class'=>'input-group-field']);?>
     <div class="input-group-button">
-      <?= $f->field($form,"q")->input("search",['placeholder'=>'Buscar', 'class'=>'input-group-field']);?>
+      <?= Html::submitButton("&#xf002",["class"=> "button secondary"]) ?>
     </div>
-      <div class="input-group-button">
-        <?= Html::submitButton("&#xf002",["class"=> "button secondary"]) ?>
-      </div>
-      <?php $f->end() ?>
   </div>
+  <?php $f->end() ?>
 </div>
 
-<div class="row">
+
+<div class="row column">
   <div class="large-4 medium-10 small-12 columns large-offset-1">
     <div class="translucent-form-overlay">
       <?php
@@ -158,7 +153,7 @@ $sql->execute();
 ?>
 
 
-<div class="row" id="separador-cards">  
+<div class="row column" id="separador-cards">  
   <?php foreach ($publi as $pub): ?>
   <div class="large-3 large-offset-1 column">
     <div class="card card-product">
@@ -167,7 +162,7 @@ $sql->execute();
         <?= Html::img(Yii::$app->urlManagerBackend->baseUrl."/".$pub->url_imagen,['alt'=>$pub->titulo,'class'=> 'imagenes-250'])?>
       </div>
       <div class="card-section">
-        <h3 class="card-product-name"><?= Html::a(Html::encode($pub->titulo), ['detalle', 'id' => $pub->idpublicacion]) ?></h3>
+        <h3 class="card-product-name text-center"><?= Html::a(Html::encode($pub->titulo), ['detalle', 'id' => $pub->idpublicacion]) ?></h3>
         <p class="card-product-description">
         <h5 class="card-product-price" style="margin-bottom: 0"><i class=" fa fa-money "></i>&nbsp;
           <?=Yii::$app->formatter->asCurrency($pub->precio,'MXN')?>    
