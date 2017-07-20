@@ -103,7 +103,7 @@ $sql->execute();
     </div>
   </div>
 
-  <div class="column large-7 small-12" id="container-orbit">
+  <div class="column large-7" id="container-orbit">
     <div class="news-image-gallery-container">
       <div class="row">
         <div class="small-12 medium-12 large-12 columns">
@@ -155,7 +155,7 @@ $sql->execute();
 
 <div class="row column" id="separador-cards">  
   <?php foreach ($publi as $pub): ?>
-  <div class="large-3 large-offset-1 column">
+  <div class="large-3 medium-5 large-offset-1 medium-offset-1 column">
     <div class="card card-product">
       <div class="card-product-img-wrapper">
         <?= Html::a('Mas Información', ['detalle', 'id' => $pub->idpublicacion], ['class' => 'button expanded']); ?>

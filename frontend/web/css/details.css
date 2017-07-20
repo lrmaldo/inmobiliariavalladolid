@@ -117,7 +117,7 @@ button[type="submit"] {
 .translucent-form-overlay {
   max-width: 500px;
   width: 100%;
-  background-color: rgba(54, 54, 54, 0.8);
+  background-color: #003454;
   padding: 20px;
   color: #fefefe;
 }
@@ -731,7 +731,7 @@ ul.fa-ul{
 
 
 .full-width-testimonial {
-  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.1)), url("http://www.perdidokeymarina.com/wp-content/uploads/2014/12/perdido-key-state-park-dune-fence_01a.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.1)), url("http://localhost/inmobiliariavalladolid/frontend/web/assets/imagenes/error.jpg");
   background-position: center center;
 }
 
@@ -828,3 +828,23 @@ ul.fa-ul{
 #errorlink:hover{
     text-decoration: underline;
 }
+
+
+#contact-form .form-icons h4 {
+  margin-bottom: 1rem;
+}
+
+#contact-form .form-icons .input-group-label {
+  background-color: #1779ba;
+  border-color: #1779ba;
+}
+
+#contact-form .form-icons .input-group-field {
+  border-color: #1779ba;
+}
+
+#contact-form .form-icons .fa {
+  color: black;
+  width: 1rem;
+}
+

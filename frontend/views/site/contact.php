@@ -9,27 +9,49 @@ use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
 $this->title = 'Contacto';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
-  <h1><?= Html::encode($this->title) ?></h1>
-  <p>
-    Si tiene preguntas relacionado con el negocios, rellene el siguiente formulario para ponerse en contacto con nosotros. Gracias
-  </p>
-
+<section class="footer-contact">
   <div class="row">
-    <div class="col-lg-5">
+    <div class="small-12 column text-center">
+      <h5 class="homepage-section-subtitle lighter hide-me">Contáctanos</h5>
+      <span class="homepage-section-subtitle-divider lighter small-centered hide-me"></span>
+      <h1 class="homepage-section-title hide-me">Consulta Con Nosotros</h1>
+    </div>
+    <div class="small-11 medium-10 large-10 large-offset-1 text-center small-centered">
+      <p class="homepage-section-desc hide-me">Si tienes preguntas relacionado con precios, ubicación o quieres saber más sobre el inmueble rellene el siguiente formulario para ponerse en contacto con nosotros. Gracias</p>
+    </div>
+    <div class="large-9 large-offset-1">
       <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
-      <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
-      <?= $form->field($model, 'email') ?>
-      <?= $form->field($model, 'subject') ?>
-      <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
-      <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-        'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',]) ?>
-      <div class="form-group">
-        <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+      <div class="form-icons">
+        <div class="input-group">
+         <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
+        </div>
+        <div class="input-group">
+          <?= $form->field($model, 'email') ?>
+        </div>
+        <div class="input-group">
+         <?= $form->field($model, 'subject') ?>
+        </div>
+        <div class="input-group">
+         <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
+        </div>
+        <div class="input-group">
+         <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+            'template' => '
+            <div class="row">
+              <div class=column>
+                <div class="large-4">{image}
+                  <div class="large-8">{input}
+                  </div>
+                </div>
+              </div>
+            </div>',]) ?>
+        </div>
+      </div>
+      <div class="large-5 large-centered">
+        <?= Html::submitButton('Enviar Datos', ['class' => 'button expanded', 'name' => 'contact-button']) ?>
       </div>
       <?php ActiveForm::end(); ?>
     </div>
   </div>
-</div>
+</section>
