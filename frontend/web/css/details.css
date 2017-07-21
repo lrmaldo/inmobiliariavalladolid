@@ -848,3 +848,7 @@ ul.fa-ul{
   width: 1rem;
 }
 
+.row.row#row-contact{
+  margin-right: 0;
+}
+
