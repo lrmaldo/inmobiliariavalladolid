@@ -105,6 +105,8 @@ class SiteController extends Controller
 //        "name"=> "test",
 //        "value"=> "test uno",
 //    ]);
+    
+    // generar un codigo como name del cookie  enviar el cookie en la  vista 
     $cookie1 = new \yii\web\Cookie([
         "name"=>"imagen",
         "value"=> $imagecookie 
@@ -248,12 +250,16 @@ class SiteController extends Controller
                     ->all();
             }
         }
-         if(Yii::$app->response->getCookies()->has("imagen")){
-        $cooki = Yii::$app->response->getCookies()->getValue("imagen");
-        $db = Yii::$app->db->createCommand("Select * from publicacion")->cache();
-        $db->execute();
-        }
-        return $this->render("index", ["publi" => $model ,"form" => $form,"form1"=> $form1, "search" => $search, "pages" => $pages]);
+//         if(Yii::$app->response->getCookies()->has("imagen")){
+//        $cooki = Yii::$app->response->getCookies()->getValue("imagen");
+//        $db = Yii::$app->db->createCommand("Select * from publicacion")->cache();
+//        $db->execute();
+//        }
+        $des = Publicacion::find()->where(["destacado"=>'1'])->all();
+        
+        return $this->render("index", ["publi" => $model ,"destacado"=>$des
+                ,"form" => $form,"form1"=> $form1, 
+            "search" => $search, "pages" => $pages]);
      
        
       

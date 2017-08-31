@@ -11,7 +11,9 @@ use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use backend\models\Imagenes;
 use yii\helpers\Json;
+use kartik\grid\EditableColumnAction;
 use yii\data\Pagination;
+use yii\helpers\ArrayHelper;
 /**
  * PublicacionController implements the CRUD actions for Publicacion model.
  */
@@ -32,6 +34,29 @@ class PublicacionController extends Controller
         ];
     }
 
+    
+    
+    public function actions()
+   {
+       return ArrayHelper::merge(parent::actions(), [
+           'editbook' => [                                       // identificador de la columna del grid
+               'class' => EditableColumnAction::className(),     //  nombre de la clase 
+               'modelClass' => Publicacion::className(),                // nombre del modelo a editar
+               'outputValue' => function ($model, $attribute, $key, $index) {
+                     return  $model->$attribute ;      // retornar valor desde grid o de la columna editable
+               },
+               'outputMessage' => function($model, $attribute, $key, $index) {
+                     return '';                                  // mensaje de error
+               },
+               'showModelErrors' => true,                        //  mostrar el mensaje de error
+               'errorOptions' => ['header' => '']                // opciones html para el mensaje
+               // 'postOnly' => true,
+               // 'ajaxOnly' => true,
+               // 'findModel' => function($id, $action) {},
+               // 'checkAccess' => function($action, $model) {}
+           ]
+       ]);
+   }
     /**
      * Lists all Publicacion models.
      * @return mixed
@@ -230,17 +255,17 @@ class PublicacionController extends Controller
     }
     public function Borrarimagenes($idimg){
         
-       //
+       // buscar si en el id hay imagenes en el modelo
         
         $modeloimg = Imagenes::find()->where(['id_publicacion'=>$idimg])->select(["url_imagen"])->all();
        //$imgfile = \yii\helpers\ArrayHelper::map($modeloimg,"id_publicacion", "url_imagen");
-       
+       /// si  hay inicia foreach
        if(count($modeloimg)>=1){
             
        foreach ($modeloimg as $modi){
                // $dir = ;
-               if(file_exists(Yii::getAlias("@webroot")."/".$modi->url_imagen)){
-                unlink(Yii::getAlias("@webroot")."/".$modi->url_imagen);
+               if(file_exists(Yii::getAlias("@webroot")."/".$modi->url_imagen)){ // si los archivos existen proceder 
+                unlink(Yii::getAlias("@webroot")."/".$modi->url_imagen); // borrar imagenes existente de la id de publicacion
                }
 //                $file = (substr($modelos->Fotosimgs[$i]->ruta2, 1));
 //                $do = unlink($file);

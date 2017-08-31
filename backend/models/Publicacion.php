@@ -24,6 +24,7 @@ use common\models\User;
  * @property string $recamaras
  * @property string $notas
  * @property integer $id_user
+ * @property string  $destacado
  */
 class Publicacion extends \yii\db\ActiveRecord
 {
@@ -43,8 +44,9 @@ class Publicacion extends \yii\db\ActiveRecord
         return [
             [['titulo', 'url_imagen', 'Descripcion', 'precio', 'precio_neto', 'fecha_de_publicacion', 'Estado', 'Municipio', 'Colonia', 'Operacion', 'Tipo', 'num_banio', 'recamaras', 'notas', 'id_user'], 'required','message'=>'Falto llenar este campo'],
             [[ 'id_user'], 'integer'],
-            [['idpublicacion','Descripcion', 'num_banio', 'recamaras', 'notas'], 'string'],
+            [['idpublicacion','Descripcion', 'num_banio', 'recamaras', 'notas','destacado'], 'string'],
             [['precio', 'precio_neto'], 'number'],
+            ['destacado','default','value'=>'no'],
             [['fecha_de_publicacion'], 'safe'],
             ['url_imagen','file','maxFiles'=>40],
 //            [ 'url_imagen','unsafe'],
@@ -58,6 +60,7 @@ class Publicacion extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'destacado' => "Destacado",
             'idpublicacion' => 'Idpublicacion',
             'titulo' => 'Titulo',
             'url_imagen' => 'Url Imagen',
@@ -65,8 +68,8 @@ class Publicacion extends \yii\db\ActiveRecord
             'precio' => 'Precio',
             'precio_neto' => 'Precio Neto',
             'fecha_de_publicacion' => 'Fecha De Publicacion',
-             'Estado' => 'Estado', 
-           'Municipio' => 'Municipio', 
+            'Estado' => 'Estado',
+            'Municipio' => 'Municipio',
             'Colonia' => 'Colonia',
             'Operacion' => 'Operacion',
             'Tipo' => 'Tipo',

@@ -97,7 +97,7 @@ $sql->execute();
           <?= $f2->field($form1, "precioMin")->input("number",['placeholder'=>'Precio Min','min'=> 0]) ?>
         </div>
         <div class="columns small-6">
-          <?= $f2->field($form1, "precioMax")->input("number",['placeholder'=>'Precio Max']) ?>
+          <?= $f2->field($form1, "precioMax")->input("number",['placeholder'=>'Precio Max','min'=>0]) ?>
         </div>
       </div>
       <?= Html::submitButton("Buscar",["class"=> "primary button expanded search-button"]) ?>
@@ -114,12 +114,14 @@ $sql->execute();
               <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
               <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
              
-              
+               <?php foreach ($destacado as $dest): ?>
               
               <li class="is-active orbit-slide">
-                <img class="orbit-image" src="https://images.homify.com/images/a_0,c_fill,f_auto,h_720,q_auto,w_1920/v1440055803/p/photo/image/833389/Bad_Vilbel_Au%C3%9Fenansicht_S%C3%BCd/fotos-de-casas-de-estilo-moderno-de-die-hausmanufaktur-gmbh.jpg" alt="Space">
-              <figcaption class="orbit-caption"><a>Space, the final frontier.</a></figcaption>
+                  <?= Html::img(Yii::$app->urlManagerBackend->baseUrl."/".$dest->url_imagen,['alt'=>$dest->titulo,'class'=> 'orbit-image'])?>
+<!--                <img class="orbit-image" src="https://images.homify.com/images/a_0,c_fill,f_auto,h_720,q_auto,w_1920/v1440055803/p/photo/image/833389/Bad_Vilbel_Au%C3%9Fenansicht_S%C3%BCd/fotos-de-casas-de-estilo-moderno-de-die-hausmanufaktur-gmbh.jpg" alt="Space">-->
+              <figcaption class="orbit-caption"><?= Html::a(Html::encode($dest->titulo), ['detalle', 'id' => $dest->idpublicacion]); ?></figcaption>
               </li>
+              <?php endforeach; ?>
 <!--              <li class="orbit-slide">
                 <img class="orbit-image" src="http://localhost/inmobiliaria/backend/web/imagenes/iyAqn55-1-1.jpg" alt="Space">
                 <figcaption class="orbit-caption">Lets Rocket!</figcaption>
