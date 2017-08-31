@@ -27,6 +27,7 @@ $sql = Yii::$app->db->createCommand("UPDATE `visitantes` SET `contador`=".($acum
 $sql->execute();
 ?>
 
+
 <div class="large-10 medium-10 small-10 large-offset-1 medium-offset-1 small-offset-1">
   <?php
       $f = ActiveForm::begin([
@@ -45,6 +46,7 @@ $sql->execute();
 
 
 <div class="row column">
+
   <div class="large-4 medium-10 small-12 columns large-offset-1">
     <div class="translucent-form-overlay">
       <?php
@@ -111,12 +113,15 @@ $sql->execute();
             <ul class="orbit-container">
               <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
               <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+             
+              
+              
               <li class="is-active orbit-slide">
                 <img class="orbit-image" src="https://images.homify.com/images/a_0,c_fill,f_auto,h_720,q_auto,w_1920/v1440055803/p/photo/image/833389/Bad_Vilbel_Au%C3%9Fenansicht_S%C3%BCd/fotos-de-casas-de-estilo-moderno-de-die-hausmanufaktur-gmbh.jpg" alt="Space">
-                <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+              <figcaption class="orbit-caption"><a>Space, the final frontier.</a></figcaption>
               </li>
-              <li class="orbit-slide">
-                <img class="orbit-image" src="https://vida-spyqpdxrgyld6rrkjib.netdna-ssl.com/wp-content/uploads/2015/03/JP-Torre-A-02.jpg" alt="Space">
+<!--              <li class="orbit-slide">
+                <img class="orbit-image" src="http://localhost/inmobiliaria/backend/web/imagenes/iyAqn55-1-1.jpg" alt="Space">
                 <figcaption class="orbit-caption">Lets Rocket!</figcaption>
               </li>
               <li class="orbit-slide">
@@ -126,7 +131,7 @@ $sql->execute();
               <li class="orbit-slide">
                 <img class="orbit-image" src="http://s3.amazonaws.com/assets.moveglobally.com/property_images/400620/6976230/EB-AN0620.jpg?1484193744" alt="Space">
                 <figcaption class="orbit-caption">Outta This World</figcaption>
-              </li>
+              </li>-->
             </ul>    
           </div>
         </div>
@@ -134,6 +139,8 @@ $sql->execute();
     </div>
   </div>
 </div>
+
+
 <?php
 //echo yii\bootstrap\Carousel::widget([
 //      'items' => [

@@ -9,6 +9,7 @@ use common\widgets\Alert;
 $bundle=AppAsset::register($this);
 $bundle2=FontAsset::register($this);
 
+$modelacerca = \backend\models\Acerca::findOne(["id_acerca"=>'1']);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -62,7 +63,7 @@ $bundle2=FontAsset::register($this);
   <div class="row medium-unstack">
     <div class="medium-4 columns">
       <h4 class="marketing-site-footer-name">Inmobiliaria Valladolid</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolorem accusantium architecto id quidem, itaque nesciunt quam ducimus atque.</p>
+<!--      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolorem accusantium architecto id quidem, itaque nesciunt quam ducimus atque.</p>-->
       <ul class="menu marketing-site-footer-menu-social simple">
         <li><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
         <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
@@ -73,15 +74,15 @@ $bundle2=FontAsset::register($this);
       <h4 class="marketing-site-footer-title">Información de Contacto</h4>
       <div class="marketing-site-footer-block">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
-        <p>Calle 48 # entre 45 y 43 Sisal<br>Valladolid, Yucatán 97780</p>
+        <p><?=$modelacerca->direccion ?></p>
       </div>
       <div class="marketing-site-footer-block">
         <i class="fa fa-phone" aria-hidden="true"></i>
-        <p id="tel"><a href="tel:+529851018671">9851018671</a></p>
+        <p id="tel"><a href="tel:<?= htmlentities($modelacerca->telefono)?>" > <?= $modelacerca->telefono ?></a></p>
       </div>
       <div class="marketing-site-footer-block">
         <i class="fa fa-envelope-o" aria-hidden="true"></i>
-        <p id="mail"><a href="email:ederglez7@hotmail.com">ederglez7@hotmail.com</a></p>
+        <p id="mail"><a href="email:<?= htmlentities($modelacerca->correo)?>"><?= $modelacerca->correo ?></a></p>
       </div>
     </div>
     <div class="medium-4 columns">

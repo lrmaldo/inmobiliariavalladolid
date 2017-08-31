@@ -50,7 +50,7 @@ class SiteController extends Controller
                      [
                     'actions' => ['request-password-reset'],
                     'allow' => true,
-                    'roles' => ['?'],
+                    'roles' => ['@'],
                 ],
                 ],
             ],
@@ -369,7 +369,10 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $acerca = \backend\models\Acerca::findOne(["id_acerca"=>'1']);
+        return $this->render('about',[
+            'model'=>$acerca,
+        ]);
     }
 
     /**

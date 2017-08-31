@@ -36,6 +36,7 @@
                     ['label' => 'Menu', 'options' => ['class' => 'header']],
                  
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/acerca/1']],
                     ['label'=>'Cambiar Foto de perfl','icon'=>'image','url'=>['/subir']],                    
                     ['label' => 'Subir Publicacion', 'icon' => 'upload', 'url' => ['/publicacion']],
                     ['label' => 'Operaciones', 'icon' => 'random', 'url' => ['/operacion']],

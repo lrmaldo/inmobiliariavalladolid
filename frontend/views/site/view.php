@@ -9,9 +9,26 @@ use backend\models\Imagenes;
 $this->title = $model->titulo;
 
 ?>
+<style type="text/css">
+    @media print{
+        
+    }
+    
+</style>
+<script type="text/javascript">
+function printlayer(layer){
+    var generador = window.open(",'name,");
+    var layetext =  document.getElementById(layer);
+    generador.document.write(layetext.innerHTML.replace("Imprimir"));
+    generador.document.close();
+    generador.print();
+    generador.close();
+}
 
-<div class="simple-article-header">
-  <p class="article-date-read large-offset-5">Publicado el: <?=$model->fecha_de_publicacion?></p>
+</script>
+<a href="#" id="print" onclick="javascript:printlayer('div-id-name')" >Imprimir</a>
+<div class="simple-article-header" id="div-id-name">
+  <p class="article-date-read large-offset-5">Publicado el: <?=$model->fecha_de_publicacion?>  </p>
   <h1 class="page-header" style="text-align: center;">
     <?= $this->title ?>
   </h1>
@@ -23,6 +40,7 @@ $this->title = $model->titulo;
 
 
   <div style="text-align: center;" class="large-10 large-offset-1">
+<!--      <a href='javascript:window.print(); void 0;'>Imprimir</a> -->
     <div class="large-10 large-offset-1 column">
       <h3>Detalles</h3>
       <ul class="pricing-table">

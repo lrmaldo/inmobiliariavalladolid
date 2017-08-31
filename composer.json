@@ -20,20 +20,21 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "dmstr/yii2-adminlte-asset": "2.*",
         "kartik-v/yii2-widget-fileinput": "@dev",
-        "kartik-v/yii2-money": "dev-master",
+        "kartik-v/yii2-money": "v1.2.1",
         "foundationize/yii2-foundation": "dev-master",
         "kartik-v/yii2-grid": "@dev",
 
-        "kartik-v/yii2-mpdf": "dev-master",
+        "kartik-v/yii2-mpdf": "*",
         "kartik-v/yii2-widget-select2": "@dev",
-        "2amigos/yii2-ckeditor-widget": "^2.0",
+        "2amigos/yii2-ckeditor-widget": "~2.0",
 
         "kartik-v/yii2-dialog": "dev-master",
         
         "kartik-v/dependent-dropdown": "dev-master",
         "kartik-v/yii2-widgets": "*",
         "kartik-v/yii2-export": "@dev",
-        "insolita/yii2-adminlte-widgets": "~2.0"
+        "insolita/yii2-adminlte-widgets": "~2.0",
+        "kartik-v/yii2-editable": "*"
 
     },
     "require-dev": {

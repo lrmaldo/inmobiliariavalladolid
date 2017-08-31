@@ -41,6 +41,7 @@ if($dataProvider->getCount()== 0){
     
         $gridColumns = [
   ['class' => 'yii\grid\SerialColumn'],
+            
             'idpublicacion',
             'titulo',
             //'url_imagen:url',
@@ -151,7 +152,11 @@ if($dataProvider->getCount()== 0){
         //'filterModel' => $searchModel,
         'options'=>['style'=>'word-wrap:break-word; width:auto;'],
         'columns' => [
+         
+   
             'idpublicacion',
+            
+        
             [
                 'class'=> 'kartik\grid\ExpandRowColumn',
                 'value'=> function ($model,$key,$index,$column){

@@ -95,14 +95,14 @@ return [
                  'decimalSeparator' => '.',
                  'currencyCode' => 'MXN',
     ],
-         'pdf' => [
-        'class' => Pdf::classname(),
-        'format' => Pdf::FORMAT_LETTER,
-        'orientation' => Pdf::ORIENT_PORTRAIT,
-        'destination' => Pdf::DEST_BROWSER,
-         'title'=>"Reporte de publicaciones",    
-        // refer settings section for all configuration options
-    ]
+//         'pdf' => [
+//        'class' => Pdf::classname(),
+//        'format' => Pdf::FORMAT_LETTER,
+//        'orientation' => Pdf::ORIENT_PORTRAIT,
+//        'destination' => Pdf::DEST_BROWSER,
+//         'title'=>"Reporte de publicaciones",    
+//        // refer settings section for all configuration options
+//    ]
         
         /*
         'urlManager' => [
