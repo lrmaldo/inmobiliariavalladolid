@@ -19,12 +19,12 @@ $date->setTimezone($newTZ);
 $this->title = Yii::t('app', 'Publicaciones');
 $this->params['breadcrumbs'][] = $this->title;
 
-if ($dataProvider->getCount() == 0) {
-    $consulta = Yii::$app->db->createCommand("	TRUNCATE TABLE publicacion;");
-    $con2 = Yii::$app->db->createCommand("TRUNCATE TABLE imagenes;");
-    $consulta->execute();
-    $con2->execute();
-}
+//if ($dataProvider->getCount() == 0) {
+//    $consulta = Yii::$app->db->createCommand("	TRUNCATE TABLE publicacion;");
+//    $con2 = Yii::$app->db->createCommand("TRUNCATE TABLE imagenes;");
+//    $consulta->execute();
+//    $con2->execute();
+//}
 ?>
 <div class="publicacion-index">
 

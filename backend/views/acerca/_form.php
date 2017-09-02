@@ -19,7 +19,10 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'telefono')->textInput() ?>
 
     <?= $form->field($model, 'correo')->textInput(['maxlength' => true]) ?>
+    
+    <?= $form->field($model,'fb')->textInput(['maxlength'=>true]) ?>
 
+    <?= $form->field($model,'tw')->textInput(['maxlength'=>true]) ?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

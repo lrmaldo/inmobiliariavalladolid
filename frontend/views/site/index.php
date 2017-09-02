@@ -134,6 +134,10 @@ $sql->execute();
                 <img class="orbit-image" src="http://s3.amazonaws.com/assets.moveglobally.com/property_images/400620/6976230/EB-AN0620.jpg?1484193744" alt="Space">
                 <figcaption class="orbit-caption">Outta This World</figcaption>
               </li>-->
+                <li class="orbit-slide">
+                <img class="orbit-image" src="https://i.ytimg.com/vi/PYfbgddsAiY/maxresdefault.jpg" alt="Space">
+                <figcaption class="orbit-caption">Destacados!!</figcaption>
+              </li>-->
             </ul>    
           </div>
         </div>

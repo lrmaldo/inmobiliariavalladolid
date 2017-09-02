@@ -12,6 +12,8 @@ use Yii;
  * @property string $direccion
  * @property integer $telefono
  * @property string $correo
+ * @property string fb
+ * @property string tw
  */
 class Acerca extends \yii\db\ActiveRecord
 {
@@ -34,6 +36,9 @@ class Acerca extends \yii\db\ActiveRecord
             [['telefono'], 'string'],
             [['direccion'], 'string', 'max' => 500],
             [['correo'], 'email', ],
+            [['fb'],'url','defaultScheme'=>'http'],
+            [['tw'],'url','defaultScheme' => 'http'],
+            //[['fb','tw'],'default','value'=>null]
         ];
     }
 
@@ -48,6 +53,8 @@ class Acerca extends \yii\db\ActiveRecord
             'direccion' => 'Direccion',
             'telefono' => 'Telefono',
             'correo' => 'Correo',
+            'fb'=>'Facebook',
+            'tw'=>'Twitter',
         ];
     }
 }

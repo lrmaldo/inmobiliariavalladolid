@@ -36,12 +36,13 @@
                     ['label' => 'Menu', 'options' => ['class' => 'header']],
                  
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/acerca/1']],
-                    ['label'=>'Cambiar Foto de perfl','icon'=>'image','url'=>['/subir']],                    
-                    ['label' => 'Subir Publicacion', 'icon' => 'upload', 'url' => ['/publicacion']],
+                    
+                    ['label'=>'Cambiar Foto de perfl','icon'=>'image','url'=>['/fotoperfil/12']],                    
+                    ['label' => 'Publicaciones', 'icon' => 'upload', 'url' => ['/publicacion']],
                     ['label' => 'Operaciones', 'icon' => 'random', 'url' => ['/operacion']],
                     ['label' => 'Tipos', 'icon' => 'institution', 'url' => ['/tipos']],
 //                    ['label' => 'Colonias', 'icon' => 'map-marker', 'url' => ['/colonias']],
+                    ['label' => 'Acerca', 'icon' => 'question-circle', 'url' => ['/acerca/1']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Ubicación',

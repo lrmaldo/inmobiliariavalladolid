@@ -20,10 +20,10 @@ use yii\widgets\ActiveForm;
             <?= Html::submitButton('Subir foto', ['class' => 'btn btn-primary']) ?>
         </div>
     
-      <div class="com-md-6">
-            <?=     Html::img('@web/'.$msg,['alt'=>$msg,'class'=>'img-responsive',
+      
+    <?php ActiveForm::end(); ?>
+<div class="com-md-6">
+            <?=     Html::img('@web/foto_perfil'.$msg,['alt'=>$msg,'class'=>'img-responsive',
                 'style'=>'width:400px; margin:0 auto;']); ?>
         </div>
-    <?php ActiveForm::end(); ?>
-
 </div><!-- subir-foto -->

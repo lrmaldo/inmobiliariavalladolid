@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             
        
         <div class="com-md-6">
-            <?=     Html::img('@web/'.$model->url,['alt'=>$model->url,'class'=>'img-responsive',
+            <?=     Html::img('@web/foto_perfil/'.$model->url,['alt'=>$model->url,'class'=>'img-responsive',
                 'style'=>'width:400px; margin:0 auto;']); ?>
         </div>
         

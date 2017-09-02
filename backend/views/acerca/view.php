@@ -25,7 +25,9 @@ $this->title = 'Acerca';
             'texto:ntext',
             'direccion',
             'telefono',
-            'correo',
+            'correo:email',
+            'fb:url',
+            'tw:url',
         ],
     ]) ?>
 
