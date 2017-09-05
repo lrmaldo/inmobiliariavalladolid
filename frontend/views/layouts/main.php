@@ -54,10 +54,10 @@ $modelacerca = \backend\models\Acerca::findOne(["id_acerca"=>'1']);
     </ul>
 </header>
 
-
 <div class="row" id="content">            
   <?= $content ?>
 </div>
+  
 
 <footer class="marketing-site-footer">
   <div class="row medium-unstack">

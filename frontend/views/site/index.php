@@ -26,8 +26,8 @@ $acumulador = ($contador+1);
 $sql = Yii::$app->db->createCommand("UPDATE `visitantes` SET `contador`=".($acumulador)." WHERE 1");
 $sql->execute();
 ?>
-
-
+<div class="box">
+<section>
 <div class="large-10 medium-10 small-10 large-offset-1 medium-offset-1 small-offset-1">
   <?php
       $f = ActiveForm::begin([
@@ -217,3 +217,22 @@ $sql->execute();
   <?php endforeach; ?>
 </div>
 <?= yii\widgets\LinkPager::widget(['pagination'=>$pages]) ?>
+</section>
+</div>
+
+
+    <div class="box2">
+    <aside>
+    
+        <div class="publi">
+            <div class="button expanded">Publicidad</div>
+            <div class="titulo-publi">Titulo</div>
+            
+             <?= Html::img(Yii::$app->urlManager->getBaseUrl()."/images/1.jpg",['alt'=>"hola",'class'=> 'imagenes-publicidad'])?>
+            <p></p>
+            <?= Html::a('Mas Información', ['index'], ['class' => 'button expanded']); ?>
+        </div>
+        
+    
+    </aside>
+    </div>
