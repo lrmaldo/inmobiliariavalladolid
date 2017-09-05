@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace backend\models;
 
 use Yii;
 
@@ -29,9 +29,9 @@ class Publicidad extends \yii\db\ActiveRecord
     {
         return [
             [['titulo', 'url_publicidad'], 'required'],
-            [['url_publicidad'], 'string'],
+            [['url_publicidad'], 'url','defaultScheme'=>'http'],
             [['titulo'], 'string', 'max' => 255],
-            [['url_imagen_publicidad'], 'string', 'max' => 500],
+            [['url_imagen_publicidad'], 'file'],
         ];
     }
 

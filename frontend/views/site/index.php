@@ -223,15 +223,19 @@ $sql->execute();
 
     <div class="box2">
     <aside>
-    
+     <div class="button expanded">Publicidad</div>
+     <?php foreach ($publicidad as $p): ?>
         <div class="publi">
-            <div class="button expanded">Publicidad</div>
-            <div class="titulo-publi">Titulo</div>
-            
-             <?= Html::img(Yii::$app->urlManager->getBaseUrl()."/images/1.jpg",['alt'=>"hola",'class'=> 'imagenes-publicidad'])?>
+           
+            <div class="titulo-publi"><?=$p->titulo ?></div>
+             <?php if (empty($p->url_imagen_publicidad)){ }else { ?>
+              
+             <?= Html::img(Yii::$app->urlManagerBackend->baseUrl."/".$p->url_imagen_publicidad,['alt'=>"imagen",'class'=> 'imagenes-publicidad'])?>
+             <?php }?>
             <p></p>
-            <?= Html::a('Mas Información', ['index'], ['class' => 'button expanded']); ?>
+            <?= Html::a('Mas Información', $p->url_publicidad, ['class' => 'button expanded']); ?>
         </div>
+        <?php endforeach; ?>
         
     
     </aside>

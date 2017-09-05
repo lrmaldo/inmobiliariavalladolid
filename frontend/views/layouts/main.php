@@ -102,7 +102,7 @@ $modelacerca = \backend\models\Acerca::findOne(["id_acerca"=>'1']);
       </div>
     </div>
     <div class="column">
-      <p>&copy; My Company <?= date('Y')?></p>
+      <p>&copy; Inmobiliaria Valladolid <?= date('Y')?> </p>
     </div>   
   </div>
 </footer>

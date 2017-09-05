@@ -35,7 +35,7 @@
                 'items' => [
                     ['label' => 'Menu', 'options' => ['class' => 'header']],
                  
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                    ['label' => 'Publicidad', 'icon' => 'sticky-note', 'url' => ['/publicidad']],
                     
                     ['label'=>'Cambiar Foto de perfl','icon'=>'image','url'=>['/fotoperfil/12']],                    
                     ['label' => 'Publicaciones', 'icon' => 'upload', 'url' => ['/publicacion']],

@@ -178,6 +178,7 @@ class PublicacionController extends Controller
                 $consulta = 1;
                  $model->url_imagen = UploadedFile::getInstances($model, 'url_imagen');
                  $conta=0;
+                 
                foreach ($model->url_imagen as $url){
                    $u = new Imagenes();
                    $nombre=$model->idpublicacion."-".$model->id_user."-".($conta++);

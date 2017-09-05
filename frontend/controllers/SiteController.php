@@ -14,6 +14,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use backend\models\Publicacion;
 use backend\models\Imagenes;
+use backend\models\Publicidad;
 use yii\data\Pagination;
 use frontend\models\FormSearch;
 use frontend\models\AvanzadoForm;
@@ -130,7 +131,7 @@ class SiteController extends Controller
         $form1 = new AvanzadoForm() ;
         $search = null;
         $search1 = null;
-        
+       
        
         
        
@@ -256,10 +257,11 @@ class SiteController extends Controller
 //        $db->execute();
 //        }
         $des = Publicacion::find()->where(["destacado"=>'1'])->all();
+        $publicidad = Publicidad::find()->orderBy("id_publicidad DESC")->limit(4)->all();
         
         return $this->render("index", ["publi" => $model ,"destacado"=>$des
                 ,"form" => $form,"form1"=> $form1, 
-            "search" => $search, "pages" => $pages]);
+            "search" => $search, "pages" => $pages, "publicidad"=>$publicidad]);
      
        
       
