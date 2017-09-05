@@ -1,3 +1,5 @@
-main-local.php
-params-local.php
-test-local.php
+*
+!bootstrap.php
+!main.php
+!test.php
+!params.php
