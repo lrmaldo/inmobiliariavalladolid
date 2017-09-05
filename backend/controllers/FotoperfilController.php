@@ -27,27 +27,7 @@ class FotoperfilController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['login'],
-                'rules' => [
-                    [
-                        'actions' => ['index','update','view'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-//                    [
-//                        'actions' => ['delete'],
-//                        'allow' => true,
-//                        'roles' => ['@'],
-//                    ],
-                   
-                
-                ],
-                'denyCallback' => function () {
-        return Yii::$app->response->redirect(['site/login']);
-    },
-            ],
+            
         ];
     }
 
@@ -119,7 +99,7 @@ class FotoperfilController extends Controller
            
             
             
-            //$msg = $model->url;
+           
             return $this->redirect(['view', 'id' => $model->id_perfil]);
         } else {
             return $this->render('update', [
@@ -127,27 +107,6 @@ class FotoperfilController extends Controller
             ]);
         }
         
-         //$model = new FotoPerfil();
-        
-//        if ($model->load(Yii::$app->request->post()) ) {
-//            $model->id_user = Yii::$app->user->id;
-//            
-//            $model->url= UploadedFile::getInstance($model, 'url');
-//           
-//            $model->url->saveAs('foto_perfil/'.$model->url->baseName.'.'.$model->url->extension);
-//            
-//            $model->url='foto_perfil/'.$model->url->baseName.'.'.$model->url->extension;
-//            $model->save();
-//            
-//            $msg = $model->url;
-//            
-//            return $this->redirect(['site/index',]);
-//        } else {
-//            return $this->render('index', [
-//                'model' => $model, 'msg'=> $model->url
-//            ]);
-//        }
-//    }
     }
 
     /**
@@ -156,13 +115,9 @@ class FotoperfilController extends Controller
      * @param integer $id
      * @return mixed
      */
-//    public function actionDelete($id)
-//    {
-//        $this->findModel($id)->delete();
-//
-//        return $this->redirect(['index']);
-//    }
 
+    
+    
     /**
      * Finds the Fotoperfil model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
