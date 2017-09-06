@@ -239,7 +239,7 @@ class SiteController extends Controller
                         ->all();
             }
             else{
-            $table = Publicacion::find()->orderBy("idpublicacion DESC");
+            $table = Publicacion::find()->orderBy("fecha_de_publicacion DESC");
             $count = clone $table;
             $pages = new Pagination([
                 "pageSize" => 9,

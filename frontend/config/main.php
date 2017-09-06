@@ -11,7 +11,13 @@ return [
     'id' => 'app-frontend',
     'name'=>'Inmobiliaría Valladolid',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [ function () {
+            $path = '/inmobiliaria/';
+
+            $filename = basename(Yii::$app->getRequest()->getScriptFile());
+            Yii::$app->getRequest()->setScriptUrl($path . $filename);
+            Yii::$app->getRequest()->setBaseUrl(rtrim($path, '/'));
+        },'log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [

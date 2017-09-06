@@ -61,10 +61,11 @@ return [
         
          'urlManagerFrontend' => [
                 'class' => 'yii\web\urlManager',
-                'baseUrl' => 'http://localhost/inmobiliaria/frontend/web/',
+                'baseUrl' => 'http://localhost/inmobiliaria/',
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
         ],
+        
         'urlManager' => [
         'class' => 'yii\web\UrlManager',
         // Disable r= routes

@@ -1,4 +1,4 @@
 <?php
- Yii::setAlias('@any', realpath(dirname(__FILE__).'/../../frontend/web'));
+ Yii::setAlias('@any', realpath(dirname(__DIR__).'/../../frontend/web'));
 return [
 ];
