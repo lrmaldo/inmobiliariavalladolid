@@ -1,8 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
-
+//use yii\grid\GridView;
+use kartik\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\PublicidadSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -21,23 +21,24 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'options'=>['style'=>'word-wrap:break-word; width:auto; overflow: auto;'],
         'columns' => [
          //   ['class' => 'yii\grid\SerialColumn'],
 
             //'id_publicidad',
             //'titulo',
             [
-                    'attribute'=>'id_publicidad',
+                    'attribute'=>'id',
                     'format'=>'html',
                     'value'=>function ($data) {
-            return '<p style = "width: 2px;" >'.$data->id_publicidad.'</p>';
+            return '<p style = "width: 2%;" >'.$data->id_publicidad.'</p>';
         }
         ],
             [
                     'attribute'=>'titulo',
                     'format'=>'html',
                     'value'=>function ($data) {
-            return '<p style = " word-wrap: break-word;    width: 5%;" >'.$data->titulo.'</p>';
+            return '<p style = " word-wrap: break-word;    width: 100%;" >'.$data->titulo.'</p>';
         },
                 ],
                 [
@@ -60,5 +61,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
+                'responsive' => false,
+        'hover' => true,
+        //'showPageSummary' => true,
+        'containerOptions' => ['style' => 'overflow: auto'], // only set when $responsive = false
+        'headerRowOptions' => ['class' => 'kartik-sheet-style'],
+        'filterRowOptions' => ['class' => 'kartik-sheet-style'],
+        'pjax' => true,
+        'toggleDataContainer' => ['class' => 'btn-group-sm'],
+        
+        
     ]); ?>
 </div>

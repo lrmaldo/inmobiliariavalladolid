@@ -267,6 +267,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'panel' => [
             'type' => GridView::TYPE_PRIMARY,
             'heading' => true,
+            'label'=>'Publicaciones'
         ],
         'persistResize' => false,
         'toggleDataOptions' => ['minCount' => 10],
