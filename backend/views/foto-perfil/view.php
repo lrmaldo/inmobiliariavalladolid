@@ -2,22 +2,20 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use common\models\User;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Fotoperfil */
-$user = new User();
+/* @var $model backend\models\FotoPerfil */
 
-$this->title = "Foto de perfil";
-//$this->params['breadcrumbs'][] = ['label' => 'Fotoperfils', 'url' => ['index']];
+$this->title = 'Foto Perfil';
+//$this->params['breadcrumbs'][] = ['label' => 'Foto Perfils', 'url' => ['index']];
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="fotoperfil-view">
+<div class="foto-perfil-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Actualizar', ['update', 'id' => $model->id_perfil], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Actualzar', ['update', 'id' => $model->id_perfil], ['class' => 'btn btn-primary']) ?>
        
     </p>
 
@@ -26,16 +24,10 @@ $this->title = "Foto de perfil";
         'attributes' => [
             //'id_perfil',
             //'url:url',
-           
-           // 'id_user',
-             //$user->username,
-            
+            //'id_user',
         ],
     ]) ?>
-    <div class="com-md-6">
-        <h3><?= Html::encode($user->username)?></h3>
-    </div>
-    <div class="com-md-6">
+     <div class="com-md-6">
             <?=     Html::img(Yii::getAlias("@web").'/'.$model->url,['alt'=>$model->url,'class'=>'img-responsive',
                 'style'=>'width:400px; margin:0 auto;']); ?>
         </div>

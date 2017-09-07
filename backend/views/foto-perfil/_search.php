@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\FotoperfilSearch */
+/* @var $model backend\models\FotoPerfilSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="fotoperfil-search">
+<div class="foto-perfil-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],

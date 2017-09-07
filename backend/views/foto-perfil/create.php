@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Fotoperfil */
+/* @var $model backend\models\FotoPerfil */
 
-$this->title = 'Create Fotoperfil';
-$this->params['breadcrumbs'][] = ['label' => 'Fotoperfils', 'url' => ['index']];
+$this->title = 'Create Foto Perfil';
+$this->params['breadcrumbs'][] = ['label' => 'Foto Perfils', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="fotoperfil-create">
+<div class="foto-perfil-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

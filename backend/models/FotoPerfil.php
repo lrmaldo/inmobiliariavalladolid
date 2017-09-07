@@ -4,6 +4,7 @@ namespace backend\models;
 
 use Yii;
 use common\models\User;
+
 /**
  * This is the model class for table "foto_perfil".
  *

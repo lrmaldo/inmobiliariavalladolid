@@ -3,17 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Fotoperfil;
-use backend\models\FotoperfilSearch;
+use backend\models\FotoPerfil;
+use backend\models\FotoPerfilSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use yii\web\UploadedFile;
+
 /**
- * FotoperfilController implements the CRUD actions for Fotoperfil model.
+ * FotoPerfilController implements the CRUD actions for FotoPerfil model.
  */
-class FotoperfilController extends Controller
+class FotoPerfilController extends Controller
 {
     /**
      * @inheritdoc
@@ -27,17 +27,16 @@ class FotoperfilController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
-            
         ];
     }
 
     /**
-     * Lists all Fotoperfil models.
+     * Lists all FotoPerfil models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new FotoperfilSearch();
+        $searchModel = new FotoPerfilSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -47,7 +46,7 @@ class FotoperfilController extends Controller
     }
 
     /**
-     * Displays a single Fotoperfil model.
+     * Displays a single FotoPerfil model.
      * @param integer $id
      * @return mixed
      */
@@ -59,25 +58,25 @@ class FotoperfilController extends Controller
     }
 
     /**
-     * Creates a new Fotoperfil model.
+     * Creates a new FotoPerfil model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-//    public function actionCreate()
-//    {
-//        $model = new Fotoperfil();
-//
-//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-//            return $this->redirect(['view', 'id' => $model->id_perfil]);
-//        } else {
-//            return $this->render('create', [
-//                'model' => $model,
-//            ]);
-//        }
-//    }
+    public function actionCreate()
+    {
+        $model = new FotoPerfil();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id_perfil]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
+    }
 
     /**
-     * Updates an existing Fotoperfil model.
+     * Updates an existing FotoPerfil model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -86,7 +85,7 @@ class FotoperfilController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) ) {
+         if ($model->load(Yii::$app->request->post()) ) {
             $model->id_user = Yii::$app->user->id;
             
             $model->url= UploadedFile::getInstance($model, 'url');
@@ -95,39 +94,39 @@ class FotoperfilController extends Controller
             
             $model->url='foto_perfil/'.$model->url->baseName.'.'.$model->url->extension;
             $model->save();
-               
-           
-            
-            
-           
-            return $this->redirect(['view', 'id' => $model->id_perfil]);
+             return $this->redirect(['view', 'id' => $model->id_perfil]);
         } else {
             return $this->render('update', [
                 'model' => $model,
             ]);
         }
         
+         
     }
 
     /**
-     * Deletes an existing Fotoperfil model.
+     * Deletes an existing FotoPerfil model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
      */
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
 
-    
-    
+        return $this->redirect(['index']);
+    }
+
     /**
-     * Finds the Fotoperfil model based on its primary key value.
+     * Finds the FotoPerfil model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Fotoperfil the loaded model
+     * @return FotoPerfil the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Fotoperfil::findOne($id)) !== null) {
+        if (($model = FotoPerfil::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

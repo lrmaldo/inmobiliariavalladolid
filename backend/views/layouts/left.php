@@ -37,7 +37,7 @@
                  
                     
                     
-                    ['label'=>'Cambiar Foto de perfl','icon'=>'image','url'=>['/fotoperfil/12']],                    
+                    ['label'=>'Cambiar Foto de perfl','icon'=>'image','url'=>['foto-perfil/view?id=12']],                    
                     ['label' => 'Publicaciones', 'icon' => 'upload', 'url' => ['/publicacion']],
                     ['label' => 'Operaciones', 'icon' => 'random', 'url' => ['/operacion']],
                     ['label' => 'Tipos', 'icon' => 'institution', 'url' => ['/tipos']],

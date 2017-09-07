@@ -3,14 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Fotoperfil */
+/* @var $model backend\models\FotoPerfil */
 
-$this->title = 'Actualizar foto ';
-//$this->params['breadcrumbs'][] = ['label' => 'Fotoperfils', 'url' => ['index']];
+$this->title = 'Foto Perfil: ';
+//$this->params['breadcrumbs'][] = ['label' => 'Foto Perfil', 'url' => ['index']];
 //$this->params['breadcrumbs'][] = ['label' => $model->id_perfil, 'url' => ['view', 'id' => $model->id_perfil]];
 //$this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="fotoperfil-update">
+<div class="foto-perfil-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
