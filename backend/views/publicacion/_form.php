@@ -8,7 +8,10 @@ use dosamigos\ckeditor\CKEditor;
 use kartik\widgets\DepDrop;
 use yii\helpers\ArrayHelper;
 
-$date = new \DateTime('now', new \DateTimeZone('UTC'));
+$UTC = new DateTimeZone("UTC");
+$newTZ = new DateTimeZone("America/Merida");
+$date = new DateTime("now", $UTC);
+$date->setTimezone($newTZ);
 
 //modelos de las base de datos
 use backend\models\Colonias;
@@ -92,7 +95,7 @@ $imagenes = Imagenes::find()->where(['id_publicacion' =>$model->idpublicacion])-
     ?>
 
     <?= $form->field($model, 'fecha_de_publicacion')->textInput()->textInput(['readonly' => true, 'value' => $date->
-                format('Y-m-d')])->label('Fecha de Alta')
+                format('Y-m-d h:m:s')])->label('Fecha de Alta')
     ?>
 
 

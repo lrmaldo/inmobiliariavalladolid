@@ -1,4 +1,4 @@
 <?php
 return [
-    'adminEmail' => 'leodeveloper93@gmail.com',
+    'adminEmail' => 'soporte@inmobiliariavalladolid.com.mx',
 ];

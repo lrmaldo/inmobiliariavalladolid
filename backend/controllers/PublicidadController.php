@@ -67,13 +67,14 @@ class PublicidadController extends Controller
         $model = new Publicidad();
 
         if ($model->load(Yii::$app->request->post()) ) {
-           if(empty($model->url_imagen_publicidad)){
+            $randomString = Yii::$app->getSecurity()->generateRandomString(7);
+            $model->url_imagen_publicidad = UploadedFile::getInstance($model, 'url_imagen_publicidad');
+            $nombre = "pub-".$randomString;
+            if(!isset($model->url_imagen_publicidad)){
               $model->url_imagen_publicidad = null;
               $model->save();
            }else{
-            $randomString = Yii::$app->getSecurity()->generateRandomString(7);
-            $model->url_imagen_publicidad = UploadedFile::getInstances($model, 'url_imagen_publicidad');
-            $nombre = "pub-".$randomString;
+           
             
             $model->url_imagen_publicidad->saveAs("publicidad/".$nombre.".".$model->url_imagen_publicidad->extension);
             $model->url_imagen_publicidad = "publicidad/".$nombre.".".$model->url_imagen_publicidad->extension;

@@ -76,7 +76,7 @@ $imagenes = Imagenes::find()->where(['id_publicacion' =>$model->idpublicacion])-
     ?>
 
     <?= $form->field($model, 'fecha_de_publicacion')->textInput()->textInput(['readonly' => true, 'value' => $date->
-                format('Y-m-d')])->label('Fecha de Alta')
+                format('d-m-Y h:m:s')])->label('Fecha de Alta')
     ?>
 
 

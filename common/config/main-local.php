@@ -17,11 +17,11 @@ return [
             'useFileTransport' => false,
             'transport'=> [
                 'class' =>  'Swift_SmtpTransport',
-                'host' => 'smtp.gmail.com',
-                'username'=>'leodeveloper93@gmail.com',
-                'password'=>'leonardito',
-                'port'=>'587',
-                'encryption' =>'tls',
+                'host' => 'mx28.hostgator.mx',
+                'username'=>'soporte@inmobiliariavalladolid.com.mx',
+                'password'=>'Inmobil@13',
+                'port'=>'465',
+                'encryption' =>'ssl',
                 
                 
             ]
